@@ -1,0 +1,80 @@
+/*----------------Pantalla 1----------------------*/
+#pantalla-1{
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-areas: 
+    "header"
+    "p"
+    "email"
+    "contraseña"
+    "button"
+    "footer";
+    row-gap: 10px;
+    background-color: rosybrown;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 3%;
+    width: auto;
+}
+
+header{
+    grid-area: header;
+    border: dotted;
+}
+p{
+    grid-area: p;
+    border: dotted;
+}
+#email{
+    grid-area: email;
+    border: double;
+}
+#contraseña{
+    grid-area: contraseña;
+    border: double;
+}
+button{
+    grid-area: button;
+    border: double;
+}
+footer{
+    grid-area: footer;
+    border: dotted;
+}
+
+/*--------------Pantalla 2------------------------*/
+#pantalla-2{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 1fr 3fr 0.5;
+    grid-template-areas: 
+    "header header header"
+    "main main main"
+    "footer footer footer";
+    background-color: royalblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+header{
+    grid-area: header;
+    border: dotted;
+}
+main{
+    grid-area: main;
+    border: double;
+}
+footer{
+    grid-area: footer;
+    border: double;
+}
+/*--------------Pantalla 3------------------------*/
+#pantalla-3{
+    background-color: paleturquoise;
+    font-family: cursive;
+}
+/*--------------Pantalla 4------------------------*/
+#pantalla-4{
+    background-color: plum;
+    font-family: fantasy;
+}
