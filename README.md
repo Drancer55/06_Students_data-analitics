@@ -2,7 +2,7 @@
 
 ## Análisis de datos estudiantiles
 
-### Introducción:
+### Introducción"
 
 Bootcamp School campus Ajusco, es una institución que se dedica a la enseñanza y aprendizaje en materia de desarrollo software, el cual se ha mantenido en crecimiento gradual gracias a su plan de estudios, pues no sólo incluye el desarrollo de habilidades técnicas, sino también de actitudes interpersonales que coadyuvan a nutrir las aptitudes necesarias para el trabajo organizacional en un amplio alcance laboral.
 
@@ -16,7 +16,7 @@ Mostrar un inicio de sesión con el logotipo de Bootcamp School para el director
 Tener una primera vista que enumera las 3 ubicaciones de la escuela Bootcamp y haga clic en cada una que muestra la página de la sucursal.
 Mostrar la información con el nombre del campus y una imagen de la ubicación así como mostrar las generaciones disponibles para hacer clic y encontrar los estudiantes registrados para cada generación.
 
-#### Por generación:
+#### Por generación
 
 Mostrar, para cada generación, cuántos estudiantes se registraron y buscar alumnos por nombre.
 Mostrar el promedio porcentual de generación del progreso de finalización.
@@ -24,7 +24,7 @@ Mostrar, para identificar, a los estudiantes con un porcentaje inferior al 60.
 Mostrar, para identificar, a los estudiantes con 90 o más de porcentaje de competencia.
 Enumere y pueda seleccionar a los estudiantes que muestran el porcentaje general de finalización de cada estudiante, ordenados por nombre alfabéticamente.
 
-#### Para cada alumno:
+#### Para cada alumno
 
 Poder hacer clic en para mostrar el informe de progreso
 Mostrar porcentaje completado para todos los temas
