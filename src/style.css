@@ -10,6 +10,7 @@ font-family: 'Indie Flower', cursive;
 font-family: 'Josefin Sans', sans-serif;
 font-family: 'Jura', sans-serif; */
 /*----------------Pantalla 1----------------------*/
+
 #pantalla-1 {
   background-image: url(../assets/Fondo1.jpg);
   background-size: cover;
@@ -29,6 +30,12 @@ font-family: 'Jura', sans-serif; */
   height: 100vh;
 }
 
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
 header {
   margin-top: 35px;
   grid-area: header;
@@ -39,7 +46,7 @@ header {
   margin-bottom: auto;
 }
 
-header h1 {
+#slogan {
   color: rgba(214, 160, 23, 0.863);
   font-weight: bolder;
   font-size: 3rem;
@@ -90,7 +97,7 @@ p {
 }
 button {
   min-width: 120px;
-  min-height: 50px;
+  min-height: 40px;
   font-family: "Jura", sans-serif;
   font-size: 1rem;
   letter-spacing: 1.3px;
@@ -160,13 +167,13 @@ button:focus::after {
 
 @keyframes ring {
   0% {
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     opacity: 1;
   }
   100% {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     opacity: 0;
   }
 }
@@ -184,6 +191,40 @@ button:focus::after {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#slogan2 {
+  color: rgba(214, 160, 23, 0.863);
+  font-weight: bolder;
+  font-size: 1rem;
+  text-align: center;
+  margin-right: 3rem;
+  margin-left: 2rem;
+}
+
+.navbar-brand {
+  margin-left: auto;
+}
+
+#searching {
+  width: 12rem;
+  height: 2.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+#logoNav {
+  height: 2.7rem;
+  width: 2.7rem;
+  align-items: auto;
+}
+
 header {
   grid-area: header;
 }
@@ -195,6 +236,13 @@ footer {
   grid-area: footer;
   border: double;
 }
+
+.btn-outline-success {
+  width: 2rem;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
 /*--------------Pantalla 3------------------------*/
 #pantalla-3 {
   background-color: paleturquoise;
