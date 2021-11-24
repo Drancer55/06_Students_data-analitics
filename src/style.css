@@ -124,7 +124,7 @@ button::before {
   border-radius: 1000px;
   min-width: 125px;
   min-height: 50px;
-  border: 6px ridge #53520457;
+  border: 6px ridge #0f0f0157;
   box-shadow: 14px 14px 60px rgba(15, 3, 85, 0.64);
   position: absolute;
   top: 50%;
