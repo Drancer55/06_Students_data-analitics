@@ -11,6 +11,6 @@ entrada.addEventListener('click', () => {
     let user = document.getElementById('email').value 
     let password = document.getElementById('contraseña').value
     if(user == 'usuario.name@bootCampSchool.com' && password == 12345)
-    document.getElementById('pantalla-1').hidden = false
-    document.getElementById('pantalla-2').hidden = true
+    document.getElementById('pantalla-1').hidden = true
+    document.getElementById('pantalla-2').hidden = false
 })
