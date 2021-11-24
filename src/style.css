@@ -1,0 +1,255 @@
+/*----------------Google Fonts -------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Gloria+Hallelujah&family=Graduate&family=Indie+Flower&family=Josefin+Sans:ital,wght@1,200&family=Jura:wght@500&display=swap");
+
+/*CSS rules to specify families
+
+font-family: 'Caveat', cursive;
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Graduate', cursive;
+font-family: 'Indie Flower', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Jura', sans-serif; */
+/*----------------Pantalla 1----------------------*/
+
+#pantalla-1 {
+  background-image: url(../assets/Fondo1.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "header"
+    "p"
+    "email"
+    "contraseña"
+    "button";
+  row-gap: 10px;
+  padding: 0 auto;
+  width: auto;
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+header {
+  margin-top: 35px;
+  grid-area: header;
+  font-family: "Jura", sans-serif;
+  font-weight: 1000;
+  text-shadow: 3px 3px 3px rgba(7, 46, 105, 0.89);
+  text-align: center;
+  margin-bottom: auto;
+}
+
+#slogan {
+  color: rgba(214, 160, 23, 0.863);
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+header img {
+  border-radius: 500px;
+  height: 8rem;
+  width: 8rem;
+}
+
+p {
+  grid-area: p;
+  text-align: center;
+  font-family: "Graduate", cursive;
+  color: rgba(47, 46, 46, 0.897);
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgb(100, 99, 99);
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+#email {
+  display: block;
+  align-items: center;
+  grid-area: email;
+  border: double;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: 3px ridge rgba(78, 3, 3, 0.637);
+  width: 33%;
+}
+#contraseña {
+  display: block;
+  align-items: center;
+  text-align: center;
+  grid-area: contraseña;
+  border: double;
+  margin-top: 0.05rem;
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: 3px ridge rgba(78, 3, 3, 0.637);
+  width: 33%;
+}
+button {
+  min-width: 120px;
+  min-height: 40px;
+  font-family: "Jura", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #e4acac;
+  background: #cfc42c;
+  background: linear-gradient(
+    90deg,
+    rgba(66, 49, 2, 0.767) 25%,
+    rgba(26, 20, 6, 0.589) 100%
+  );
+  border: groove;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(53, 52, 0, 0.64);
+  transition: all 0.4s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: auto;
+  margin-top: 15px;
+}
+button::before {
+  content: "";
+  border-radius: 1000px;
+  min-width: 125px;
+  min-height: 50px;
+  border: 6px ridge #0f0f0157;
+  box-shadow: 14px 14px 60px rgba(15, 3, 85, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.button:hover,
+.button:focus {
+  color: #949499;
+  transform: translateY(-6px);
+}
+
+button:hover::before,
+button:focus::before {
+  opacity: 10;
+}
+
+button::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #240a79ce;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 5.5s infinite;
+}
+
+button:hover::after,
+button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+
+/*--------------Pantalla 2------------------------*/
+#pantalla-2 {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 1fr 3fr 0.5;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+  background-color: royalblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#slogan2 {
+  color: rgba(214, 160, 23, 0.863);
+  font-weight: bolder;
+  font-size: 1rem;
+  text-align: center;
+  margin-right: 3rem;
+  margin-left: 2rem;
+}
+
+.navbar-brand {
+  margin-left: auto;
+}
+
+#searching {
+  width: 12rem;
+  height: 2.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+#logoNav {
+  height: 2.7rem;
+  width: 2.7rem;
+  align-items: auto;
+}
+
+header {
+  grid-area: header;
+}
+main {
+  grid-area: main;
+  border: double;
+}
+footer {
+  grid-area: footer;
+  border: double;
+}
+
+.btn-outline-success {
+  width: 2rem;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+/*--------------Pantalla 3------------------------*/
+#pantalla-3 {
+  background-color: paleturquoise;
+  font-family: cursive;
+}
+/*--------------Pantalla 4------------------------*/
+#pantalla-4 {
+  background-color: plum;
+  font-family: fantasy;
+}
