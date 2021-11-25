@@ -1,6 +1,6 @@
 fetch("../data/students.json") 
 .then((response) => response.json())
-.then((data) => iterarDataSedes(data))
+.then((data) => iterarDataSedes(data, sede, generacion))
 .catch((error) => console.log(error) )
 
 
