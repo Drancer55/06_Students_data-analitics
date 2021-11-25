@@ -79,4 +79,4 @@ La interfaz permite al usuario:
 - `src / app.js`: here you must implement the web application main functionality to manipulate the data coming from data.js
 - `src / data.js`: here you must fetch/get the data from the local JSON and then export it to be used in the app.js module.
 - `src / index.js`: here you must listen to DOM events, like create and add events to the DOM and get the search values to be processed to app.js.
-- `test / app.spec.js`: this file contains some sample tests and here you will have to imp
+- `test / app.spec.js`: this file contains some sample tests and here you will have to imp.
