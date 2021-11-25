@@ -56,7 +56,7 @@ La interfaz permite al usuario:
 
 ## Diagrama de flujo
 
-![DiagramaDeFlujo](./assets/DiagramaDeFlujo.jpeg)
+![DiagramaDeFlujo](./assets/Diagramadeflujo.png)
 
 ## Maquetación
 
