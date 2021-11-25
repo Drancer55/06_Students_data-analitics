@@ -56,7 +56,7 @@ Ser capaz de filtrar subtemas por tipo (ejercicios, lecturas y cuestionarios).
 
 ## Diagrama de flujo
 
-![DiagramaDeFlujo](./assets/DiagramaDeFlujo.jpeg)
+![DiagramaDeFlujo](./assets/Diagramadeflujo.png)
 
 ## Maquetación
 
