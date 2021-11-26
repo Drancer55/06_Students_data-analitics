@@ -1,3 +1,7 @@
+import {alumosnFetch} from "./data.js"
+
+alumosnFetch()
+
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
 document.getElementById('pantalla-3').hidden = true;
