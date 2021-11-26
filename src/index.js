@@ -1,5 +1,4 @@
 import {Data, alumnos} from "./data.js"
-
 //alumosnFetch()
 
 document.getElementById('pantalla-1').hidden = false;
