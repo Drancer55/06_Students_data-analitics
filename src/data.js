@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 export let alumosnFetch = (sede) => {
 fetch("../data/students.json") 
 .then((response) => response.json())
@@ -15,7 +12,6 @@ let sedes = document.getElementById("sedes")
     for (let i= 0; i< data.ajusco.length; i++) {
         const sede = sede[i];
         
-
         sedes.innerHTML+= `<h1> ${data.sedes.generacion} </h1>`
     }
     
@@ -29,4 +25,3 @@ let sedes = document.getElementById("sedes")
 //     sedes.innerHTML += `<h1> ${data.ajusco[i].generacion} </h1>`
 // }
 // }
->>>>>>> 7d5346d7f8429bcecab6cd4e9784518ad324025b
