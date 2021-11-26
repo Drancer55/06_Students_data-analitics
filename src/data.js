@@ -7,15 +7,14 @@ fetch("../data/students.json")
 
 let sedes = document.getElementById("sedes")
 
- var iterarDataSedes = (data, sede) => {
-    console.log(data.ajusco)
-    for (let i= 0; i< data.ajusco.length; i++) {
-        const sede = sede[i];
-        
-        sedes.innerHTML+= `<h1> ${data.sedes.generacion} </h1>`
+    var iterarDataSedes = (data, sede) => {
+        console.log(data.ajusco)
+        for (let i= 0; i< data.ajusco.length; i++) {
+            const sede = sede[i];
+            
+            sedes.innerHTML+= `<h1> ${data.sedes.generacion} </h1>`
+        }
     }
-    
-}
 }
 // var iterar = (data) => {
 //  console.log(data.ajusco)   
