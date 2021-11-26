@@ -46,17 +46,47 @@ iztapalapa.addEventListener('click', function(){
 // Pintar en tercera pantalla 
 let estudiantes = document.getElementById("estudiantes")
 
-for (let i = 0; i < ajusco.length; i++) {
+for (let i = 0; i < Data.length; i++) {
     const students = ajusco[i];
     console.log(students, "k")
 
     estudiantes.innerHTML += `
                 <h2>15 Estudiantes</h2>
-                <p>Primera generacion ${students.generacion}</p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        1ra Generación
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">Action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                </div>
                 <h2>14 estudiantes</h2>
-                <p>Segunda generacion</p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        2da Generación
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">Action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                </div>
                 <h2>15 estudiantes</h2>
-                <p>Tercera generacion</p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        3ra Generación
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">Action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                </div>
                 `
     
 }
