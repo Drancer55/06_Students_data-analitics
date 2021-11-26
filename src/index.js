@@ -1,6 +1,6 @@
-import {alumosnFetch} from "./data.js"
+import {Data, alumnos} from "./data.js"
 
-alumosnFetch()
+//alumosnFetch()
 
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
