@@ -22,7 +22,7 @@ entrada.addEventListener('click', () => {
 })
 
 
-const campus = (sede) => {
+/*const campus = (sede) => {
     console.log(sede)
     fetch("../data/students.json")
         .then((response) => response.json())
@@ -31,4 +31,4 @@ const campus = (sede) => {
     }
     const iterarCampus = (data, sede) => {
         console.log(data[sede])
-    }
+    }*/
