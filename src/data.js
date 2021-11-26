@@ -48,7 +48,7 @@ let estudiantes = document.getElementById("estudiantes")
 
 for (let i = 0; i < ajusco.length; i++) {
     const students = ajusco[i];
-    console.log(ajusco)
+    console.log(students, "k")
 
     estudiantes.innerHTML += `
                 <h2>15 Estudiantes</h2>
