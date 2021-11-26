@@ -44,13 +44,21 @@ iztapalapa.addEventListener('click', function(){
 
 
 // Pintar en tercera pantalla 
-// let estudiantes = document.getElementById("estudiantes")
+let estudiantes = document.getElementById("estudiantes")
 
-// estudiantes.innerHTML += `
-//                 <h2>15 Estudiantes</h2>
-//                 <p>Primera generacion ${data.generacion}</p>
-//                 <h2>14 estudiantes</h2>
-//                 <p>Segunda generacion</p>
-//                 <h2>15 estudiantes</h2>
-//                 <p>Tercera generacion</p>
-//                 `
+for (let i = 0; i < ajusco.length; i++) {
+    const students = ajusco[i];
+    console.log(ajusco)
+
+    estudiantes.innerHTML += `
+                <h2>15 Estudiantes</h2>
+                <p>Primera generacion ${students.generacion}</p>
+                <h2>14 estudiantes</h2>
+                <p>Segunda generacion</p>
+                <h2>15 estudiantes</h2>
+                <p>Tercera generacion</p>
+                `
+    
+}
+     
+
