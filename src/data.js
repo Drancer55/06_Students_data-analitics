@@ -1,18 +1,17 @@
 //atraemos y exportamos los datos del json
 export const Data = "../data/students.json"
 
-//Por medio del metodo fetch accedemos los datos del json
-export let alumnos = (Data, sede) => {
-fetch(Data) //Se atraen los datos del json guardados en la constante Data
-.then((response)=> response.json())
-.then((data) => DataSedes(data, sede))
-.catch((error) => console.log(error))
-}
 
-//Se crea una funcion pura para iterar datos 
-let DataSedes = (data, sede) => {
-    console.log(data[sede])
-}
+let sedes = document.getElementById("sedes")
+
+    var iterarDataSedes = (data, sede) => {
+        console.log(data.ajusco)
+        for (let i= 0; i< data.ajusco.length; i++) {
+            const sede = sede[i];
+            
+            sedes.innerHTML+= `<h1> ${data.sedes.generacion} </h1>`
+        }
+    }
 
 //Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
 let ajusco = document.getElementById('ajusco')
