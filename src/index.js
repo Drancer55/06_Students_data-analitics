@@ -20,3 +20,15 @@ entrada.addEventListener('click', () => {
     document.getElementById('pantalla-2').hidden = false
     }
 })
+
+
+/*const campus = (sede) => {
+    console.log(sede)
+    fetch("../data/students.json")
+        .then((response) => response.json())
+        .then((data) => iterarCampus(data, sede))
+        .catch((error) => console.log(error));
+    }
+    const iterarCampus = (data, sede) => {
+        console.log(data[sede])
+    }*/
