@@ -1,4 +1,4 @@
-import {Data, alumnos} from "./data.js"
+import {Data, alumnos, estudiantes} from "./data.js"
 
 
 document.getElementById('pantalla-1').hidden = false;

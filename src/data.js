@@ -6,7 +6,6 @@ export let alumnos = (Data, sede) => {
 fetch(Data) //Se atraen los datos del json guardados en la constante Data
 .then((response)=> response.json())
 .then((data) => DataSedes(data, sede))
-.then((data)=> studentsNumber(data, sede))
 .catch((error) => console.log(error))
 }
 
@@ -15,10 +14,6 @@ let DataSedes = (data, sede) => {
     console.log(data[sede])
 }
 
-//Se crea una funcion pura para atraer numero de alumnos
-let studentsNumber = (data, sede, gen) =>{
-    console.log(data[sede].generacion[gen])
-} 
 
 //Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
 let ajusco = document.getElementById('ajusco')
