@@ -12,7 +12,6 @@ let sedes = document.getElementById("sedes")
     for (let i= 0; i< data.ajusco.length; i++) {
         const sede = sede[i];
         
-
         sedes.innerHTML+= `<h1> ${data.sedes.generacion} </h1>`
     }
     
