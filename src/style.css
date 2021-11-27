@@ -180,17 +180,18 @@ button:focus::after {
 
 /*--------------Pantalla 2------------------------*/
 #pantalla-2 {
+  background-image: url(../assets/Fondo2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 1fr 3fr 0.5;
+  grid-template-rows: 3fr 0.5;
   grid-template-areas:
-    "header header header"
     "main main main"
     "footer footer footer";
-  background-color: royalblue;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
+/*--------------Nav Bar-----------------------------*/
 #slogan2 {
   color: rgba(214, 160, 23, 0.863);
   font-weight: bolder;
@@ -224,17 +225,71 @@ button:focus::after {
   width: 2.7rem;
   align-items: auto;
 }
-
-header {
-  grid-area: header;
-}
+/*----------------------Sedes----------------*/
 main {
   grid-area: main;
-  border: double;
 }
+.title {
+  font-family: "Graduate", cursive;
+  font-weight: 3.5rem;
+}
+
+#ajuscoImg {
+  margin-top: 12vh;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 100px;
+}
+
+#ajuscoPlace {
+  border-radius: 15px;
+}
+
+#chapuImg {
+  margin-top: 12vh;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 100px;
+}
+
+#chapuPlace {
+  border-radius: 15px;
+}
+
+#iztapaImg {
+  margin-top: 12vh;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 100px;
+}
+
+/*---------------creditos----------------*/
 footer {
+  color: aliceblue;
+  background-color: black;
   grid-area: footer;
-  border: double;
+  margin-top: 2rem;
+  padding: 0 auto;
+  text-align: center;
+  list-style-type: none;
+  justify-content: center;
+  line-height: 135%;
+  margin-top: 1%;
+  margin-bottom: -3%;
+}
+
+#social {
+  margin-top: 0.5%;
+}
+
+#social a i {
+  color: rgba(156, 156, 160, 0.767);
+}
+
+#social a i:hover {
+  transform: scale(1.3);
+  transition: transform 0.5s ease-out;
+  color: #ff9204;
 }
 
 .btn-outline-success {
