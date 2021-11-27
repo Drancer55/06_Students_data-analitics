@@ -18,6 +18,14 @@ entrada.addEventListener('click', () => {
     document.getElementById('pantalla-2').hidden = false
     }
 })
+//Boton de regresar de la pantalla 3
+let comeBack = document.getElementById('back')
+    comeBack.addEventListener ('click', function(){
+        document.getElementById('pantalla-2').hidden = false;
+        document.getElementById('pantalla-3').hidden = true;
+        document.getElementById('back').hidden = true;
+        document.getElementById('pantalla-3').innerHTML = "";
+    })
 
 //Se activa el boton de entrada a tercera pantalla para pintar datos de sede ajusco 
 let ajuscoEntrarda = document.getElementById('ajusco')
