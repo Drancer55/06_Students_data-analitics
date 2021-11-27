@@ -1,4 +1,4 @@
-import {Data, alumnos} from "./data.js"
+import {Data} from "./data.js"
 
 //alumosnFetch()
 

@@ -1,7 +1,5 @@
 //atraemos y exportamos los datos del json
 export const Data = "../data/students.json"
-
-
 let sedes = document.getElementById("sedes")
 
     var iterarDataSedes = (data, sede) => {
