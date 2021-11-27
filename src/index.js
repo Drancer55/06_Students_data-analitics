@@ -18,7 +18,7 @@ entrada.addEventListener('click', () => {
     document.getElementById('pantalla-2').hidden = false
     }
 })
-//Boton de regresar de la pantalla 3
+//Boton de regresar de la pantalla 3 a la 2
 let comeBack = document.getElementById('back')
     comeBack.addEventListener ('click', function(){
         document.getElementById('pantalla-2').hidden = false;
