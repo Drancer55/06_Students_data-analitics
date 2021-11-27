@@ -20,7 +20,7 @@ let ajusco = document.getElementById('ajusco')
 ajusco.addEventListener('click', function (){
     console.log("click en: ", ajusco)
     alumnos(Data, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
-    studentsNumber(Data, "generacion")
+
 })
 
 //Datos Chapultepec, al dar click en el boton de entrada se atraen los datos de esta sede
@@ -44,6 +44,7 @@ let estudiantes = document.getElementById("estudiantes")
 for (let i = 0; i < Data.length; i++) {
     const students = ajusco[i];
     console.log(students, "k")
+
 
     estudiantes.innerHTML += `
                 <h2>15 Estudiantes</h2>
