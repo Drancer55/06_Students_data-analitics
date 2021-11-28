@@ -42,12 +42,16 @@ iztapalapa.addEventListener('click', function(){
 let estudiantes = document.getElementById("estudiantes")
 
 for (let i = 0; i < Data.length; i++) {
-    const students = ajusco[i];
-    console.log(students, "k")
+    const students = Data[i];
+    console.log(Data)
 
+<<<<<<< HEAD
 
     estudiantes.innerHTML += `
                 <h2>15 Estudiantes</h2>
+=======
+    estudiantes.innerHTML = `<h2>15 Estudiantes, ${Data}</h2>
+>>>>>>> c90d3cc71b13e1594920a708811be5c48512a434
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -83,8 +87,8 @@ for (let i = 0; i < Data.length; i++) {
                         <button class="dropdown-item" type="button">Something else here</button>
                     </div>
                 </div>
-                `
+`
     
-}
-     
+    
+}  
 

@@ -7,6 +7,7 @@
     <title>Students Data Analitics</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/69a219632b.js" crossorigin="anonymous"></script>
     <!--Se agregan los links de la librería boostrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -17,6 +18,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -55,16 +57,16 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#ajusco">Ajusco</a>
+                                <a class="nav-link active" aria-current="page" href="#ubicacion-1">Ajusco</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Chapultepec</a>
+                                <a class="nav-link active" aria-current="page" href="#ubicacion-2">Chapultepec</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Iztapalapa</a>
+                                <a class="nav-link active" aria-current="page" href="#ubicacion-3">Iztapalapa</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Contacto</a>
+                                <a class="nav-link active" aria-current="page" href="#contact">Contacto</a>
                             </li>
                         </ul>
                         <form class="d-flex">
@@ -78,31 +80,62 @@
         </header>
         <main id="sedes">
             <div id="ubicacion-1">
-                <h1>Campus Ajusco</h1>
-                <h2>Generaciones 2000-2003</h2>
-                <h3>Estudiantes</h3>
+                <center>
+                <img id="ajuscoImg" src="../assets/LogoAjusco.jpeg" alt="Ajusco">
+                <h1 class="title">Campus Ajusco</h1>
+                <iframe id="ajuscoPlace" src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15069.378607057964!2d-99.19927516935243!3d19.223805575500283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85cdfdf6a711c163%3A0xc02b29d16232aecf!2sAv.%20La%20Felicidad%20242%2C%20San%20Miguel%20Ajusco%2C%20Tlalpan%2C%2014700%20San%20Miguel%20Ajusco%2C%20CDMX!3m2!1d19.224214999999997!2d-99.194273!5e0!3m2!1ses-419!2smx!4v1637996084351!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br>
                 <button id="ajusco">Entrar</button>
-            </div>
+                </center>
+            </div><hr>
             <div id="ubicacion-2">
-                <h1>Campus Chapultepec</h1>
-                <h2>Generaciones 2000-2003</h2>
-                <h3>Estudiantes</h3>
+                <center>
+                <img id="chapuImg" src="../assets/LogoChapultepec.jpeg" alt="Chapultepec">
+                <h1 class="title">Campus Chapultepec</h1>
+                <iframe id="chapuPlace" src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15050.963273306652!2d-99.19941515547023!3d19.423601324983508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d201f8e7cbce13%3A0xf8bbfda793220ccc!2sCalle%20Julio%20Verne%2027%2C%20Polanco%2C%20Polanco%20IV%20Secc%2C%20Miguel%20Hidalgo%2C%2011560%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.427963899999998!2d-99.1969393!5e0!3m2!1ses-419!2smx!4v1637996847042!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br>
                 <button id="chapultepec">Entrar</button>
-            </div>
+                </center>
+            </div><hr>
             <div id="ubicacion-3">
-                <h1>Campus Iztapalapa</h1>
-                <h2>Generaciones 2000-2003</h2>
-                <h3>Estudiantes</h3>
+                <center>
+                <img id="iztapaImg" src="../assets/LogoIztapalapa.jpeg" alt="Iztapalapa">
+                <h1 class="title">Campus Iztapalapa</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d30115.851234696875!2d-99.08672062336888!3d19.348297199433908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d1fd88c97e8ce7%3A0x6978b1f508c61541!2sErmita%20Iztapalapa%202001%2C%20Los%20%C3%81ngeles%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.347834499999998!2d-99.0698948!5e0!3m2!1ses-419!2smx!4v1637998520536!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br>
                 <button id="iztapalapa">Entrar</button>
+                </center>
             </div>
         </main>
-        <footer>Footer</footer>
+        <footer id="contact">
+            &#169 CDMX MMXXI "Students data analitics" Created in collaboration by:
+            <section id=social>
+    
+                Fernanda Fajardo
+                <a href="https://twitter.com/maferfajardo" target="_blank" class="btn"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/fernanda-fajardo-6a83b4216/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/FernandaFA02" target="_blank" class="btn"><i class="fab fa-github"></i></a>
+    
+                Amanda Ramirez
+                <a href="https://twitter.com/jeongaetze?s=09" target="_blank" class="btn"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/amanda-ramirez-864988218/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/getzemani18" target="_blank" class="btn"><i class="fab fa-github"></i></a>    
+                
+                Oscar Ruiz
+                <a href="http://twitter.com/DrancerLeCourt?s=09" target="_blank" class="btn"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/oscar-ruiz-antonio/" target="_blank" class="btn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Drancer55" target="_blank" class="btn"><i class="fab fa-github"></i></a>    
+            </section>
+        </footer>
     </section>
 
     <!---------------------------Pantalla 3---------------------------->
     <section hidden id="pantalla-3">
         <main>
             <header>
+                <div hidden id="searching-mov" class="container-1">
+                </div>
+                  <button type="button" class="btn btn-primary mx-auto" id="back">
+                    Atrás
+                  </button>
+                </div>
                 <h1 id="Nombre-Sede"></h1>
                 <img src="../assets/Logo2.jpeg">
             </header>
@@ -161,8 +194,6 @@
             <h1>HTML</h1>
         </div>
     </section>
-
-
 
     <script src="index.js" type="module"></script>
     <!-- <script src="data.js" type="module"></script> -->
