@@ -1,4 +1,4 @@
-//atraemos y exportamos los datos del json
+/*//atraemos y exportamos los datos del json
 export const Data = "../data/students.json"
 console.log(Data);
 
@@ -7,7 +7,6 @@ export let alumnos = (Data, sede) => {
 fetch(Data) //Se atraen los datos del json guardados en la constante Data
 .then((response)=> response.json())
 .then((data) => DataSedes(data, sede))
-.then((data)=> studentsNumber(data, sede))
 .catch((error) => console.log(error))
 }
 
@@ -16,17 +15,13 @@ let DataSedes = (data, sede) => {
     console.log(data[sede])
 }
 
-//Se crea una funcion pura para atraer numero de alumnos
-let studentsNumber = (data, sede, gen) =>{
-    console.log(data[sede].generacion[gen])
-} 
 
 //Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
 let ajusco = document.getElementById('ajusco')
 ajusco.addEventListener('click', function (){
     console.log("click en: ", ajusco)
     alumnos(Data, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
-    studentsNumber(Data, "generacion")
+
 })
 
 //Datos Chapultepec, al dar click en el boton de entrada se atraen los datos de esta sede
@@ -90,5 +85,18 @@ for (let i = 0; i < Data.length; i++) {
 `
     
     
-}  
+}  */
 
+//se crea una funcion para atraer el numero de estudiantes //Por medio del metodo fetch atraemos los datos del json
+export function studentsNumber (data, ajusco) {
+    //console.log(sede, generacion)
+fetch("../data/students.json")
+.then((response)=> response.json())
+.then((data) => console.log(data))
+.then((data)=> studentsCantidad(data, ajusco))
+.catch((error)=> console.log(error))
+}
+
+function studentsCantidad (data, ajusco){
+    console.log(data[ajusco])
+}
