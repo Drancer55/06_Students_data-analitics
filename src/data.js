@@ -1,5 +1,6 @@
 //atraemos y exportamos los datos del json
 export const Data = "../data/students.json"
+console.log(Data);
 
 //Por medio del metodo fetch accedemos los datos del json
 export let alumnos = (Data, sede) => {
@@ -48,7 +49,7 @@ let estudiantes = document.getElementById("estudiantes")
 
 for (let i = 0; i < Data.length; i++) {
     const students = Data[i];
-    console.log(Data)
+    // console.log(Data)
 
     estudiantes.innerHTML = `<h2>15 Estudiantes, ${Data}</h2>
                 <div class="btn-group">
