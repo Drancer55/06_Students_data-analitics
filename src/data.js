@@ -1,4 +1,4 @@
-//atraemos y exportamos los datos del json
+/*//atraemos y exportamos los datos del json
 export const Data = "../data/students.json"
 
 //Por medio del metodo fetch accedemos los datos del json
@@ -45,13 +45,7 @@ for (let i = 0; i < Data.length; i++) {
     const students = Data[i];
     console.log(Data)
 
-<<<<<<< HEAD
-
-    estudiantes.innerHTML += `
-                <h2>15 Estudiantes</h2>
-=======
     estudiantes.innerHTML = `<h2>15 Estudiantes, ${Data}</h2>
->>>>>>> c90d3cc71b13e1594920a708811be5c48512a434
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -90,5 +84,18 @@ for (let i = 0; i < Data.length; i++) {
 `
     
     
-}  
+}  */
 
+//se crea una funcion para atraer el numero de estudiantes //Por medio del metodo fetch atraemos los datos del json
+export function studentsNumber (data, ajusco) {
+    //console.log(sede, generacion)
+fetch("../data/students.json")
+.then((response)=> response.json())
+.then((data) => console.log(data))
+.then((data)=> studentsCantidad(data, ajusco))
+.catch((error)=> console.log(error))
+}
+
+function studentsCantidad (data, ajusco){
+    console.log(data[ajusco])
+}

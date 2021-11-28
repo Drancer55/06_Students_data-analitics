@@ -1,5 +1,6 @@
-import {Data} from "./data.js"
-
+//import {Data} from "./data.js"
+import {studentsNumber} from "./data.js"
+studentsNumber();
 
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
