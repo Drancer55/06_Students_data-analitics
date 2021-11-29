@@ -1,3 +1,8 @@
+//import {Data} from "./data.js"
+import {Data} from "./data.js"
+
+//pintarEstudiantes();
+
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
 document.getElementById('pantalla-3').hidden = true;
@@ -44,7 +49,3 @@ iztaEntrarda.addEventListener('click', () => {
     document.getElementById('pantalla-2').hidden = true
     document.getElementById('pantalla-3').hidden = false
 })
-
-import {traerData} from "./data.js"
-
-traerData()
