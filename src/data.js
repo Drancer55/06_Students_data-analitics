@@ -1,26 +1,52 @@
-/*//atraemos y exportamos los datos del json
+//atraemos y exportamos los datos del json
 export const Data = "../data/students.json"
 
 //Por medio del metodo fetch accedemos los datos del json
-export let alumnos = (Data, sede) => {
+export let alumnos = (Data, sede, generacion) => {
 fetch(Data) //Se atraen los datos del json guardados en la constante Data
 .then((response)=> response.json())
-.then((data) => DataSedes(data, sede))
+.then((data) => DataSedes(data, sede, generacion))
 .catch((error) => console.log(error))
 }
 
-//Se crea una funcion pura para iterar datos 
+//Se crea una funcion pura para iterar datos por sede
 let DataSedes = (data, sede) => {
-    console.log(data[sede])
+    console.log(data[sede].generacion.primera)
+    //prender aqui pintar generaciones
+    generaciones()
 }
 
+//Se crea una funcion para iterar la generacion
+let generaciones = (data, sede) => {
+    console.log(data[sede].generacion.primera)
+}
+
+//se crea una funcion para ingresar a los datos
+let studentsCantidad = (sede, gen, data) => {
+    console.log(sede, gen)
+    console.log(data[sede].generacion[gen].estudiantes.length)
+}
 
 //Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
 let ajusco = document.getElementById('ajusco')
 ajusco.addEventListener('click', function (){
     console.log("click en: ", ajusco)
     alumnos(Data, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
-
+})
+//prendido para boton de primera generacion// sirve para iterar y atraer los datos de las generaciones
+let primeraGen = document.getElementById('primera')
+primeraGen.addEventListener('click', function(){
+    console.log('click en: ', primeraGen)
+})
+//prendido para boton de segunda generacion// sirve para iterar y atraer los datos de las generaciones
+let segundaGen = document.getElementById('segunda')
+segundaGen.addEventListener('click', function(){
+    console.log('click en: ', segundaGen)
+})
+//prendido para boton de tercera generacion// sirve para iterar y atraer los datos de las generaciones
+let terceraGen = document.getElementById('tercera')
+terceraGen.addEventListener('click', function(){
+    console.log('click en: ', terceraGen)
 })
 
 //Datos Chapultepec, al dar click en el boton de entrada se atraen los datos de esta sede
@@ -37,13 +63,13 @@ iztapalapa.addEventListener('click', function(){
     alumnos(Data, "iztapalapa")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
 })
 
-
+/*//meter dentro de una funcion
+export let pintarEstudiantes = (sede, generacion) => {
 // Pintar en tercera pantalla 
 let estudiantes = document.getElementById("estudiantes")
-
-for (let i = 0; i < Data.length; i++) {
+for (let i = 0; i < Data.length; i++) { //aqui se debe de iterar sede.generacion.length
     const students = Data[i];
-    console.log(Data)
+
 
     estudiantes.innerHTML = `<h2>15 Estudiantes, ${Data}</h2>
                 <div class="btn-group">
@@ -81,21 +107,9 @@ for (let i = 0; i < Data.length; i++) {
                         <button class="dropdown-item" type="button">Something else here</button>
                     </div>
                 </div>
-`
-    
-    
-}  */
+`  
+} }  
+*/
 
-//se crea una funcion para atraer el numero de estudiantes //Por medio del metodo fetch atraemos los datos del json
-export function studentsNumber (data, ajusco) {
-    //console.log(sede, generacion)
-fetch("../data/students.json")
-.then((response)=> response.json())
-.then((data) => console.log(data))
-.then((data)=> studentsCantidad(data, ajusco))
-.catch((error)=> console.log(error))
-}
 
-function studentsCantidad (data, ajusco){
-    console.log(data[ajusco])
-}
+
