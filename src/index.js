@@ -1,6 +1,3 @@
-import {Data} from "./data.js"
-
-
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
 document.getElementById('pantalla-3').hidden = true;
@@ -47,13 +44,7 @@ iztaEntrarda.addEventListener('click', () => {
     document.getElementById('pantalla-2').hidden = true
     document.getElementById('pantalla-3').hidden = false
 })
-/*const campus = (sede) => {
-    console.log(sede)
-    fetch("../data/students.json")
-        .then((response) => response.json())
-        .then((data) => iterarCampus(data, sede))
-        .catch((error) => console.log(error));
-    }
-    const iterarCampus = (data, sede) => {
-        console.log(data[sede])
-    }*/
+
+import {traerData} from "./data.js"
+
+traerData()
