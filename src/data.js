@@ -88,15 +88,41 @@ for (let i = 0; i < Data.length; i++) {
 }  */
 
 //se crea una funcion para atraer el numero de estudiantes //Por medio del metodo fetch atraemos los datos del json
-export function studentsNumber (data, ajusco) {
+export function studentsNumber (data) {
+   
     //console.log(sede, generacion)
 fetch("../data/students.json")
 .then((response)=> response.json())
-.then((data) => console.log(data))
-.then((data)=> studentsCantidad(data, ajusco))
+.then((data) => studentsCantidad(data))
 .catch((error)=> console.log(error))
+
+
+function studentsCantidad (data){
+    console.log(data)
 }
 
-function studentsCantidad (data, ajusco){
-    console.log(data[ajusco])
+//Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
+let ajusco = document.getElementById('ajusco')
+ajusco.addEventListener('click', function (){
+    console.log("click en: ", ajusco)
+    alumnos(data, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
+
+})
+
+
+//Datos Chapultepec, al dar click en el boton de entrada se atraen los datos de esta sede
+let chapultepec = document.getElementById('chapultepec')
+chapultepec.addEventListener('click', function(){
+    console.log("click en: ", chapultepec)
+    alumnos(data, "chapultepec")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
+})
+
+let iztapalapa= document.getElementById('iztapalapa')
+iztapalapa.addEventListener('click', function(){
+    console.log("click en: ", "iztapalapa")
+    alumnos(data, "iztapalapa")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
+})
+
+
+
 }
