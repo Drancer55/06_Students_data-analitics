@@ -1,38 +1,50 @@
 //------------------------------------------------------------Tercera Pantalla----------------------//
 //atraemos y exportamos los datos del json
-export const Data = "../data/students.json"
+const Data = "../data/students.json"
 
 
 //Por medio del metodo fetch accedemos los datos del json
-export let alumnos = (Data, sede, generacion) => {
-fetch(Data) //Se atraen los datos del json guardados en la constante Data
+export let traerData = () => {
+fetch(Data)
 .then((response)=> response.json())
-.then((data) => DataSedes(data, sede, generacion))
+.then((data) => iterarData(data))
 .catch((error) => console.log(error))
 }
 
+let arrBruto = []; 
+
 //Se crea una funcion pura para iterar datos por sede
-let DataSedes = (data, sede) => {
-    console.log(data[sede].generacion.primera)
-
-    //prender aqui pintar generaciones
-    generaciones()
+let iterarData = (data) => {
+    console.log(data);
+    arrBruto.push(data)
+    console.log(arrBruto);
 }
-
-// 
-//Se crea una funcion para iterar la generacion
-// *Funcion con parametros para iterar la generacion*
-let generaciones = (data, sede, generacion) => {
-    // iterar con un for las generaciones
-    for (let index = 0; index < data[sede].generacion[generacion].length; index++) {
-        const element = data[index];
-        console.log(element);
-        
+//arr = rreglo en bruto
+const traerGeneracion = (arrBruto, sede) => {
+    console.log(arrBruto[0][sede])   
+    //pintar generaciones por cada una de las sedes
+    for (const key in arrBruto) {
+            const element = arrBruto[key];
+            console.log(arrBruto[0][sede].generacion);
+        }
     }
-    // console.log(data[sede].generacion[generacion])
+//Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
+let ajusco = document.getElementById('ajusco')
+ajusco.addEventListener('click', function (){
+    console.log("click en: ", ajusco)
+    traerGeneracion(arrBruto, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
+})
 
+//-------Al darle click a cada botón debe desplegar información de cada generación
+// *Funcion con un addEventListener para que al hecer click, desplegue y se traiga los datos en la consola*
+let primera = document.getElementById("primera") 
+primera.addEventListener('click', () => {
+    // Ya que se trajo la informacion dentro del boton, con un click se desplegara la informacion de los alumnos
+    console.log('click en: ', primera);
+    traerGeneracion(arrBruto, "primera");
+    // Prender la funcion de generaciones
     
-}
+})
 
 //se crea una funcion para ingresar a los datos
 //Sacar la cantidad de alumnos y pintarlos dinamicamente en tercera pantalla
@@ -42,15 +54,10 @@ let studentsCantidad = (sede, gen, data) => {
 }
 
 
-//Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
-let ajusco = document.getElementById('ajusco')
-ajusco.addEventListener('click', function (){
-    console.log("click en: ", ajusco)
-    alumnos(Data, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
-})
+
 //Crear Botones dinamicos de 1ra,2da,3ra generación para que pinten en la tercera pantalla por cada sede
 //**Hacer una funcion para traernos los botones y hacerlo dinamicamente**
-let estudiantes = document.getElementById("estudiantes")
+/*let estudiantes = document.getElementById("estudiantes")
 let students = () => {
 
     estudiantes.innerHTML += ` 
@@ -93,20 +100,7 @@ let students = () => {
 
 
 }
-students()
-
-//-------Al darle click a cada botón debe desplegar información de cada generación
-// *Funcion con un addEventListener para que al hecer click, desplegue y se traiga los datos en la consola*
-let primerBoton = document.getElementById("primera") 
-primerBoton.addEventListener('click', () => {
-    // Ya que se trajo la informacion dentro del boton, con un click se desplegara la informacion de los alumnos
-
-
-    console.log("click en: ", primerBoton )
-    // Prender la funcion de generaciones
-    generaciones(Data, "primera")
-})
-
+students()*/
 
 //-Al darle click al nombre de cada alumno te mandara a la cuarta pantalla
 // **Hacer una fucnion para que al darle click al nombre se oculten las pantallas anteriores y aparezca la cuarta pantalla**

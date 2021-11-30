@@ -1,7 +1,6 @@
-//import {Data} from "./data.js"
-import {Data} from "./data.js"
+import {traerData} from "./data.js"
 
-//pintarEstudiantes();
+traerData();
 
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
