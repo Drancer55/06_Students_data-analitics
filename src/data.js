@@ -35,15 +35,52 @@ ajusco.addEventListener('click', function (){
     traerGeneracion(arrBruto, "ajusco") //prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
 })
 
+const traerGeneracion1 = (arrBruto) => {
+    console.log(arrBruto[0].ajusco.generacion.primera);
+    for (const key1 in arrBruto[0]) {
+    }
+}
+
 //-------Al darle click a cada botón debe desplegar información de cada generación
 // *Funcion con un addEventListener para que al hecer click, desplegue y se traiga los datos en la consola*
-let primera = document.getElementById("primera") 
+let primera = document.getElementById('primera') 
 primera.addEventListener('click', () => {
     // Ya que se trajo la informacion dentro del boton, con un click se desplegara la informacion de los alumnos
     console.log('click en: ', primera);
-    traerGeneracion(arrBruto, "primera");
-    // Prender la funcion de generaciones
-    
+    traerGeneracion1(arrBruto, "primera");
+    // Prender la funcion de generaciones  
+})
+
+const traerGeneracion2 = (arrBruto) => {
+    console.log(arrBruto[0].ajusco.generacion.segunda);
+    for (const key2 in arrBruto[0]) {
+    }
+}
+
+//-------Al darle click a cada botón debe desplegar información de cada generación
+// *Funcion con un addEventListener para que al hecer click, desplegue y se traiga los datos en la consola*
+let segunda = document.getElementById('segunda') 
+segunda.addEventListener('click', () => {
+    // Ya que se trajo la informacion dentro del boton, con un click se desplegara la informacion de los alumnos
+    console.log('click en: ', segunda);
+    traerGeneracion2(arrBruto, "segunda");
+    // Prender la funcion de generaciones  
+})
+
+const traerGeneracion3 = (arrBruto) => {
+    console.log(arrBruto[0].ajusco.generacion.tercera);
+    for (const key3 in arrBruto[0]) {
+    }
+}
+
+//-------Al darle click a cada botón debe desplegar información de cada generación
+// *Funcion con un addEventListener para que al hecer click, desplegue y se traiga los datos en la consola*
+let tercera = document.getElementById('tercera') 
+tercera.addEventListener('click', () => {
+    // Ya que se trajo la informacion dentro del boton, con un click se desplegara la informacion de los alumnos
+    console.log('click en: ', tercera);
+    traerGeneracion3(arrBruto, "tercera");
+    // Prender la funcion de generaciones  
 })
 
 //se crea una funcion para ingresar a los datos
