@@ -43,7 +43,8 @@ export const iterarSede = (sede) => {
     limpiarGeneracion();
     console.log(sede);//muestra la sede correspondiente al dar click
     for (const gen in arrBruto[0][sede].generacion) {
-        imprimirGen(sede, gen)            
+        imprimirGen(sede, gen)
+        botonAtras()            
         console.log(gen); //muestra las generaciones al dar click
         }
         document.getElementById("sede").innerHTML = `<h1>Campus ${sede}</h1> </h2>Generaciones: </h2>`
@@ -59,6 +60,11 @@ export const iterarGen = (gen) => {
     document.getElementById("estudiantes").innerHTML = `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de: ${gen} generación</h3>`;
     datosEstudiantes(gen);
 }
+
+export const botonAtras = () => {
+    document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
+}
+
 
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''

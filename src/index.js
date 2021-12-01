@@ -1,4 +1,4 @@
-import {traerData, iterarSede, iterarGen, datosEstudiantes} from "./data.js"
+import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras} from "./data.js"
 const Data = "../data/students.json";
 console.log("ventana actual: ", window);
 traerData(Data);
@@ -12,6 +12,9 @@ window.dashBoard = {
         },
         traerEstudiantes: (alumnos) => {
             datosEstudiantes (alumnos)
+        }, 
+        regresaraSedes: () => {
+            botonAtras()
         }
     }
 
@@ -37,8 +40,9 @@ let comeBack = document.getElementById('back')
     comeBack.addEventListener ('click', function(){
         document.getElementById('pantalla-2').hidden = false;
         document.getElementById('pantalla-3').hidden = true;
-        document.getElementById('back').hidden = true;
-        document.getElementById('pantalla-3').innerHTML = "";
+        // document.getElementById('back').hidden = true;
+
+        //document.getElementById('pantalla-3').innerHTML = "";
     })
 
 //Se activa el boton de entrada a tercera pantalla para pintar datos de sede ajusco 
