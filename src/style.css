@@ -302,6 +302,7 @@ footer {
 #pantalla-3 {
   background-color: paleturquoise;
   font-family: cursive;
+  display: grid;
 }
 /*--------------Pantalla 4------------------------*/
 #pantalla-4 {
