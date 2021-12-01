@@ -1,6 +1,19 @@
-import {traerData} from "./data.js"
+import {traerData, iterarSede, iterarGen, datosEstudiantes} from "./data.js"
+const Data = "../data/students.json";
+console.log("ventana actual: ", window);
+traerData(Data);
 
-traerData();
+window.dashBoard = {
+        traerSede: (key) => {
+            iterarSede(key)
+        },
+        traerGeneracion: (gen) => {
+            iterarGen(gen)
+        },
+        traerEstudiantes: (alumnos) => {
+            datosEstudiantes (alumnos)
+        }
+    }
 
 document.getElementById('pantalla-1').hidden = false;
 document.getElementById('pantalla-2').hidden = true;
@@ -29,22 +42,9 @@ let comeBack = document.getElementById('back')
     })
 
 //Se activa el boton de entrada a tercera pantalla para pintar datos de sede ajusco 
-let ajuscoEntrarda = document.getElementById('ajusco')
-ajuscoEntrarda.addEventListener('click', () => {
+let sedesEntrada = document.getElementById('sedes')
+sedesEntrada.addEventListener('click', () => {
     document.getElementById('pantalla-2').hidden = true
     document.getElementById('pantalla-3').hidden = false
 })
 
-//Se activa el boton de entrada a tercera pantalla para pintar datos de sede chapultepec
-let chapuEntrada = document.getElementById('chapultepec')
-chapuEntrada.addEventListener('click', () => {
-    document.getElementById("pantalla-2").hidden = true
-    document.getElementById("pantalla-3").hidden = false
-})
-
-//Se activa el boton de entrada a tercera pantalla para pintar datos de sede iztapalapa
-let iztaEntrarda = document.getElementById('iztapalapa')
-iztaEntrarda.addEventListener('click', () => {
-    document.getElementById('pantalla-2').hidden = true
-    document.getElementById('pantalla-3').hidden = false
-})
