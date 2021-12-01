@@ -1,7 +1,8 @@
 //------------------------------------------------------------Tercera Pantalla----------------------//
 //atraemos y exportamos los datos del json
 const Data = "../data/students.json";
-let arrBruto = []; 
+let arrBruto = [];
+let lugar = ""; 
 let generacionPorSede = [];
 let dataEstudiantes = [];
 //limpiar el array
@@ -37,6 +38,7 @@ const mostrarSedes = (dataEscolar) => {
 }
 
 export const iterarSede = (sede) => {
+    lugar = sede
     limpiarArray(); //limpiar para comenzar una nueva iteración
     limpiarGeneracion();
     console.log(sede);//muestra la sede correspondiente al dar click
@@ -58,17 +60,18 @@ export const iterarGen = (gen) => {
     datosEstudiantes(gen);
 }
 
-export const datosEstudiantes = (alumno) => {
-    limpiarEstudiantes()
-    console.log(alumno);
-    for (const alumnos in estudiantes[0]) {
-    console.log(estudiantes[0]);
-    console.log(datosEstudiantes);
-        
-        document.getElementById("morros").innerHTML += `<h1> ${alumnos}</h1>`
-        dataEstudiantes.push(arrBruto[0][gen].estudiantes)
+export const datosEstudiantes = (gen) => {
+    document.getElementById("morros").innerHTML = ''
+    console.log(lugar)
+    //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
+    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+        //console.log(datosEstudiantes);
+
+        document.getElementById("morros").innerHTML += `<h1> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h1>`
+        //dataEstudiantes.push(arrBruto[0][gen].estudiantes)
     }
-    }
+}
     // ;
     //     document.getElementById("estudiantes").innerHTML = ``
     //     
