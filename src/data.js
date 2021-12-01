@@ -66,6 +66,8 @@ export const botonAtras = () => {
 }
 
 
+
+
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
     console.log(lugar)
@@ -82,5 +84,32 @@ export const datosEstudiantes = (gen) => {
     //     document.getElementById("estudiantes").innerHTML = ``
     //     
     //     console.log(dataEstudiantes);
+
+
+export const tableStudents = () => {
+    document.getElementById("tabla-estudiantes").innerHTML += `
+           <table class="table table-success table-striped">
+                <thead>
+                <tr>
+                <th scope="row">#</th>
+                <td colspan="2">Larry the Bird</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td colspan="2">Larry the Bird</td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td colspan="2">Larry the Bird</td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                </tr>
+                </tbody>
+            </table>`
+}
 
     
