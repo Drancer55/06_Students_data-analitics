@@ -45,7 +45,7 @@ export const iterarSede = (sede) => {
     for (const gen in arrBruto[0][sede].generacion) {
         imprimirGen(sede, gen)
         botonAtras()            
-        console.log(gen); //muestra las generaciones al dar click
+        console.log(sede); //muestra las generaciones al dar click
         }
         document.getElementById("sede").innerHTML = `<h1>Campus ${sede}</h1> </h2>Generaciones: </h2>`
         generacionPorSede.push(arrBruto[0][sede].generacion)
