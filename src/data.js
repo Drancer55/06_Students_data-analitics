@@ -26,8 +26,11 @@ const traerGeneracion = (arrBruto, sede) => {
     for (const key in arrBruto) {
             const element = arrBruto[key];
             console.log(arrBruto[0][sede].generacion);
+            
+            
         }
     }
+
 //Datos Ajusco, al dar click en el boton de entrada se atraen los datos de esta sede
 let ajusco = document.getElementById('ajusco')
 ajusco.addEventListener('click', function (){
@@ -40,18 +43,20 @@ ajusco.addEventListener('click', function (){
 let chapultepec = document.getElementById('chapultepec')
 chapultepec.addEventListener('click', function(){
     console.log("click en: ", chapultepec)
-    alumnos(Data, "chapultepec")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
+    traerGeneracion(arrBruto, "chapultepec")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
 })
 
 //Datos para iztapalapa, al dar click en el boton de entrada se atraen los datos de esta sede
 let iztapalapa= document.getElementById('iztapalapa')
 iztapalapa.addEventListener('click', function(){
-    console.log("click en: ", "iztapalapa")
-    alumnos(Data, "iztapalapa")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
+    console.log("click en: ", iztapalapa)
+    traerGeneracion(arrBruto, "iztapalapa")//prendemos la funcion y con ayuda de ella atraemos los datos de esta sede
 })
 
-const traerGeneracion1 = (arrBruto) => {
-    console.log(arrBruto[0].ajusco.generacion.primera);
+
+const traerGeneracion1 = (arrBruto, sede) => {
+    console.log(arrBruto[0][sede].generacion.primera);
+    
     for (const key1 in arrBruto[0]) {
     }
 }
