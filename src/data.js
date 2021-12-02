@@ -77,7 +77,7 @@ export const datosEstudiantes = (gen) => {
         //console.log(datosEstudiantes);
         
         document.getElementById("morros").innerHTML += `
-                <table class="table table-success table-striped">
+                <table class="table table-success table-striped" >
                 <thead>
                 <tr>
                 <td colspan="2">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</td>
