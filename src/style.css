@@ -239,6 +239,7 @@ main {
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 13vh;
 }
 .title {
   font-family: "Graduate", cursive;
@@ -250,41 +251,18 @@ main {
   margin: 0 auto;
 }
 
-#ajuscoImg {
-  margin-top: 12vh;
+#image {
   height: 6rem;
   width: 6rem;
   border-radius: 100px;
+  cursor: pointer;
 }
 
-#ajuscoPlace {
+#place {
   border-radius: 15px;
   box-shadow: 4px 4px 18px 10px #04274786;
 }
 
-#chapuImg {
-  margin-top: 12vh;
-  height: 6rem;
-  width: 6rem;
-  border-radius: 100px;
-}
-
-#chapuPlace {
-  border-radius: 15px;
-  box-shadow: 4px 4px 18px 10px #04274786;
-}
-
-#iztapaImg {
-  margin-top: 12vh;
-  height: 6rem;
-  width: 6rem;
-  border-radius: 100px;
-}
-
-#iztapaPlace {
-  border-radius: 15px;
-  box-shadow: 4px 4px 18px 10px #04274786;
-}
 /*---------------creditos----------------*/
 footer {
   color: aliceblue;
