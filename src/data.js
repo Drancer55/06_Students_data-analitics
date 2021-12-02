@@ -26,6 +26,7 @@ fetch(Data)
 .then((data) => {
     mostrarSedes(data)
     arrBruto.push(data)
+    console.log(data)
     console.log(mostrarSedes)})
 .catch((error) => console.log(error))
 }
@@ -33,7 +34,10 @@ fetch(Data)
 const mostrarSedes = (dataEscolar) => {
     for (const key in dataEscolar) {
         console.log(key);
-        document.getElementById("sedes").innerHTML += `<button onclick="dashBoard.traerSede('${key}')"> ${key} </button>`
+        document.getElementById("sedes").innerHTML += 
+        `<li class="nav-item">
+            <a class="nav-link active" aria-current="page" onclick="dashBoard.traerSede('${key}')"> ${key}</a>
+        </li>`;
     }
 }
 
