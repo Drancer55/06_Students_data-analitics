@@ -102,13 +102,16 @@ export const datosEstudiantes = (gen) => {
         //console.log(datosEstudiantes);
         
         document.getElementById("morros").innerHTML += `
-                <table class="table table-success table-striped">
-                <thead>
-                <tr>
-                <td colspan="2">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</td>
-                </tr>
-                </thead>
-            </table>`
+        <center>
+        <div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
+    <h6 class="card-text">${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
+    <button type="button" class="btn btn-info" id="BotonVerMas">Ver mas</button>
+  </div>
+</div>
+</center>
+`
         //dataEstudiantes.push(arrBruto[0][gen].estudiantes)
     }
 }
