@@ -75,8 +75,15 @@ export const datosEstudiantes = (gen) => {
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
-
-        document.getElementById("morros").innerHTML += `<h1> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h1>`
+        
+        document.getElementById("morros").innerHTML += `
+                <table class="table table-success table-striped">
+                <thead>
+                <tr>
+                <td colspan="2">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</td>
+                </tr>
+                </thead>
+            </table>`
         //dataEstudiantes.push(arrBruto[0][gen].estudiantes)
     }
 }
@@ -85,31 +92,5 @@ export const datosEstudiantes = (gen) => {
     //     
     //     console.log(dataEstudiantes);
 
-
-export const tableStudents = () => {
-    document.getElementById("tabla-estudiantes").innerHTML += `
-           <table class="table table-success table-striped">
-                <thead>
-                <tr>
-                <th scope="row">#</th>
-                <td colspan="2">Larry the Bird</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td colspan="2">Larry the Bird</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td colspan="2">Larry the Bird</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                </tr>
-                </tbody>
-            </table>`
-}
 
     
