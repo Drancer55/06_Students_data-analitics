@@ -16,6 +16,7 @@ window.dashBoard = {
         regresaraSedes: () => {
             botonAtras()
         }
+        
     }
 
 document.getElementById('pantalla-1').hidden = false;

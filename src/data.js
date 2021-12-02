@@ -75,7 +75,16 @@ export const datosEstudiantes = (gen) => {
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
-        document.getElementById("morros").innerHTML += `<h1> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h1>`
+        
+        document.getElementById("morros").innerHTML += `
+                <table class="table table-success table-striped">
+                <thead>
+                <tr>
+                <td colspan="2">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</td>
+                </tr>
+                </thead>
+            </table>`
+        //dataEstudiantes.push(arrBruto[0][gen].estudiantes)
     }
 }
 
@@ -139,3 +148,4 @@ export let porcentajes = (gen) => {
     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
     porcentaje.innerHTML += porciento
 }
+    
