@@ -192,6 +192,11 @@ button:focus::after {
     "footer footer footer";
 }
 /*--------------Nav Bar-----------------------------*/
+ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+
 #slogan2 {
   color: rgba(214, 160, 23, 0.863);
   font-weight: bolder;
@@ -225,13 +230,24 @@ button:focus::after {
   width: 2.7rem;
   align-items: auto;
 }
+
 /*----------------------Sedes----------------*/
 main {
   grid-area: main;
+  row-gap: 2rem;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 .title {
   font-family: "Graduate", cursive;
   font-weight: 3.5rem;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.sucursal {
+  margin: 0 auto;
 }
 
 #ajuscoImg {
@@ -243,6 +259,7 @@ main {
 
 #ajuscoPlace {
   border-radius: 15px;
+  box-shadow: 4px 4px 18px 10px #04274786;
 }
 
 #chapuImg {
@@ -254,6 +271,7 @@ main {
 
 #chapuPlace {
   border-radius: 15px;
+  box-shadow: 4px 4px 18px 10px #04274786;
 }
 
 #iztapaImg {
@@ -263,6 +281,10 @@ main {
   border-radius: 100px;
 }
 
+#iztapaPlace {
+  border-radius: 15px;
+  box-shadow: 4px 4px 18px 10px #04274786;
+}
 /*---------------creditos----------------*/
 footer {
   color: aliceblue;
