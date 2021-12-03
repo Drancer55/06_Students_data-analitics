@@ -52,8 +52,3 @@ sedesEntrada.addEventListener('click', () => {
     document.getElementById('pantalla-3').hidden = false
 })
 
-let estudiantesVer = document.getElementById("BotonVerMas")
-estudiantesVer.addEventListener('click', () => {
-    document.getElementById('pantalla-3').hidden = true
-    document.getElementById('pantalla-4').hidden = false
-})

@@ -104,17 +104,46 @@ export const datosEstudiantes = (gen) => {
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-50">
-  <div class="card-body">
-    <h5 class="card-title">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
-    <h6 class="card-text">${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-    <button type="button" class="btn btn-info" id="BotonVerMas">Ver mas</button>
+           <div class="card-body">
+                 <h5 class="card-title">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
+                <h6 class="card-text">${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Ver mas
+                    </button>
+                    </center>
+                    <!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-success table-striped">
+                <thead>
+                <tr>
+                <td colspan="2"></td>
+                </tr>
+                </thead>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
-</center>
-`
+            </div>
+        </div>
+        
+        `
         //dataEstudiantes.push(arrBruto[0][gen].estudiantes)
     }
 }
+
 
 
 //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
