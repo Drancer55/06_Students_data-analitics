@@ -1,25 +1,30 @@
-//------------------------------------------------------------Tercera Pantalla----------------------//
-//atraemos y exportamos los datos del json
+          //------------------------------------------------------------Tercera Pantalla----------------------//
+
+          //---------------------------------------atraemos y exportamos los datos del json-------------------//
 const Data = "../data/students.json";
+
+         //-------------Se crean arreglos vacios para poder guuardar la informacion iterada del json---------//
 let arrBruto = [];
 let lugar = ""; 
 let generacionPorSede = [];
 let dataEstudiantes = [];
-//limpiar el array
+
+        //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
 const limpiarArray = () => {
     return generacionPorSede = [];
 }
-//limpiar la consulta de generacion
+
+        //---------------------se crea una funcion para limpiar la consulta de generacion--------------------//
 const limpiarGeneracion = () => {
     document.getElementById("generaciones").innerHTML = "";
 }
 
+        //---------------se crea una funcion para limpiar la consulta de los estudiantes----------------------//
 const limpiarEstudiantes = () => {
     document.getElementById("estudiantes").innerHTML = "";
 }
 
-
-//Por medio del metodo fetch accedemos los datos del json
+        //--------------------------Por medio del metodo fetch accedemos los datos del json-------------------//
 export const traerData = () => {
 fetch(Data)
 .then((response)=> response.json())
@@ -30,7 +35,8 @@ fetch(Data)
     console.log(mostrarSedes)})
 .catch((error) => console.log(error))
 }
-//Se crea una funcion pura para iterar datos por sede
+
+            //---------------Funcion dinamica para atraer y pintar los datos de las sedes en pantalla dos--------------//
 const mostrarSedes = (dataEscolar) => {
     let img;
     let map;
@@ -64,6 +70,7 @@ const mostrarSedes = (dataEscolar) => {
     }
 }
 
+        //-------------------------------Funcion para entrar a los datos de cada sede--------------------------------//
 export const iterarSede = (sede) => {
     lugar = sede
     limpiarArray(); //limpiar para comenzar una nueva iteración
@@ -77,21 +84,23 @@ export const iterarSede = (sede) => {
         document.getElementById("sede").innerHTML = `<h1>Campus ${sede}</h1> </h2>Generaciones: </h2>`
         generacionPorSede.push(arrBruto[0][sede].generacion)
     }
-//Se imprime la generacion correspondiente para el campus seleccionado e imprime su nombre
+
+     //--------------Se imprime la generacion correspondiente para el campus seleccionado e imprime su nombre----------//
 const imprimirGen = (sede, gen) => {
     document.getElementById("generaciones").innerHTML += `<button onclick="dashBoard.traerGeneracion('${gen}')"> ${gen} </button>`
 }
 
+        //--------------------------------------Se imprimen los datos de los estudiantes por generacion----------------//
 export const iterarGen = (gen) => {
     console.log(gen);
     document.getElementById("estudiantes").innerHTML = `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de: ${gen} generación</h3>`;
     datosEstudiantes(gen);
 }
 
+//---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
-
 
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
@@ -136,46 +145,56 @@ export const datosEstudiantes = (gen) => {
     </div>
   </div>
 </div>
-            </div>
-        </div>
-        
-        `
-        //dataEstudiantes.push(arrBruto[0][gen].estudiantes)
+</center>
+`
+        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        // console.log(dataEstudiantes);
     }
 }
 
 
 
 //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
-const formulario = document.querySelector('#buscador')
-const botonBuscador = document.querySelector('#boton')
+// const formulario = document.querySelector('#formulario')
+const botonBuscador = document.querySelector('#buscar')
 const resultado = document.querySelector('#resultado')
+resultado.innerHTML = '';
+
+
 //Se crear una función para filtar los datos de busqueda que se pintarán
-const filtrar = () => {
+const filtrar = (sede, gen) => {
     // console.log(formulario.value);
-    const texto = formulario.value;
-    //aqui va el for para atraer e iterar los nombres de las estudiantes
-    for (const estudiante in arrBruto[0]) {
-        let busqueda = estudiante.arrBruto; 
-        console.log(busqueda);
-        //if(busqueda.indexOf(texto) !== -1){} // en caso de que la busqueda no sea encontrada
-        resultado.innerHTML += `<li>${estudiante.nombre}</li>` //se pinta el resultado de la busqueda en forma de lista
+    const busqueda = document.getElementById('formulario').value.toLowerCase()
+    // for (let i = 0; < arrBruto[sede].generacion[gen].estudiantes.length; i++) {      
+    //     let alumnos = (arrBruto[sede].generacion[gen].estudiantes[i].nombre).toLowerCase()
+    //     console.log(alumnos.indexOf(busqueda));
+    // }
+    const buscarAlumnos = busqueda.value.toLowerCase();
+    for(let alumnos of dataEstudiantes){
+        let texto = alumnos.nombre.toLowerCase();
+        console.log(texto);
+        if(texto.indexOf(texto1) !== -1){
+            resultado.innerHTML += `<li>${alumn.nombre}</li>`
         }
-    }
+    // }
+        if (resultado.innerHTML == ''){
+            resultado.innerHTML += `<li>Morro no encontrado</li>`
+        }
+    }}
 
 //Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
 botonBuscador.addEventListener('click', filtrar)
 
 //Se crea una funcion para sacar los porcentajes de los estudiantes
-export let porcentajes = (gen) => {
-    let porciento = 0;
-    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++){
-        porciento += arrBruto[0][lugar].generacion[gen].estudiantes.progreso.porcentajeCompletado
-    }
-    //porciento =  porcentajes / (arrBruto[0][lugar].generacion[gen].estudiantes.length)
-    console.log(porciento)
-    let porcentaje = document.getElementById('porcentajes')
-    porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
-    porcentaje.innerHTML += porciento
-}
+// export let porcentajes = (gen) => {
+//     let porciento = 0;
+//     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++){
+//         porciento += arrBruto[0][lugar].generacion[gen].estudiantes.progreso.porcentajeCompletado
+//     }
+//     //porciento =  porcentajes / (arrBruto[0][lugar].generacion[gen].estudiantes.length)
+//     console.log(porciento)
+//     let porcentaje = document.getElementById('porcentajes')
+//     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
+//     porcentaje.innerHTML += porciento
+// }
     
