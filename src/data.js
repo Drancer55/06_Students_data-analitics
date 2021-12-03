@@ -1,25 +1,30 @@
-//------------------------------------------------------------Tercera Pantalla----------------------//
-//atraemos y exportamos los datos del json
+          //------------------------------------------------------------Tercera Pantalla----------------------//
+
+          //---------------------------------------atraemos y exportamos los datos del json-------------------//
 const Data = "../data/students.json";
+
+         //-------------Se crean arreglos vacios para poder guuardar la informacion iterada del json---------//
 let arrBruto = [];
 let lugar = ""; 
 let generacionPorSede = [];
 let dataEstudiantes = [];
-//limpiar el array
+
+        //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
 const limpiarArray = () => {
     return generacionPorSede = [];
 }
-//limpiar la consulta de generacion
+
+        //---------------------se crea una funcion para limpiar la consulta de generacion--------------------//
 const limpiarGeneracion = () => {
     document.getElementById("generaciones").innerHTML = "";
 }
 
+        //---------------se crea una funcion para limpiar la consulta de los estudiantes----------------------//
 const limpiarEstudiantes = () => {
     document.getElementById("estudiantes").innerHTML = "";
 }
 
-
-//Por medio del metodo fetch accedemos los datos del json
+        //--------------------------Por medio del metodo fetch accedemos los datos del json-------------------//
 export const traerData = () => {
 fetch(Data)
 .then((response)=> response.json())
@@ -30,7 +35,8 @@ fetch(Data)
     console.log(mostrarSedes)})
 .catch((error) => console.log(error))
 }
-//Se crea una funcion pura para iterar datos por sede
+
+            //---------------Funcion dinamica para atraer y pintar los datos de las sedes en pantalla dos--------------//
 const mostrarSedes = (dataEscolar) => {
     let img;
     let map;
@@ -64,6 +70,7 @@ const mostrarSedes = (dataEscolar) => {
     }
 }
 
+        //-------------------------------Funcion para entrar a los datos de cada sede--------------------------------//
 export const iterarSede = (sede) => {
     lugar = sede
     limpiarArray(); //limpiar para comenzar una nueva iteración
@@ -77,17 +84,20 @@ export const iterarSede = (sede) => {
         document.getElementById("sede").innerHTML = `<h1>Campus ${sede}</h1> </h2>Generaciones: </h2>`
         generacionPorSede.push(arrBruto[0][sede].generacion)
     }
-//Se imprime la generacion correspondiente para el campus seleccionado e imprime su nombre
+
+     //--------------Se imprime la generacion correspondiente para el campus seleccionado e imprime su nombre----------//
 const imprimirGen = (sede, gen) => {
     document.getElementById("generaciones").innerHTML += `<button onclick="dashBoard.traerGeneracion('${gen}')"> ${gen} </button>`
 }
 
+        //--------------------------------------Se imprimen los datos de los estudiantes por generacion----------------//
 export const iterarGen = (gen) => {
     console.log(gen);
     document.getElementById("estudiantes").innerHTML = `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de: ${gen} generación</h3>`;
     datosEstudiantes(gen);
 }
 
+//---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
