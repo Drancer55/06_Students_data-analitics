@@ -239,6 +239,7 @@ main {
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 13vh;
 }
 .title {
   font-family: "Graduate", cursive;
@@ -250,41 +251,18 @@ main {
   margin: 0 auto;
 }
 
-#ajuscoImg {
-  margin-top: 12vh;
+#image {
   height: 6rem;
   width: 6rem;
   border-radius: 100px;
+  cursor: pointer;
 }
 
-#ajuscoPlace {
+#place {
   border-radius: 15px;
   box-shadow: 4px 4px 18px 10px #04274786;
 }
 
-#chapuImg {
-  margin-top: 12vh;
-  height: 6rem;
-  width: 6rem;
-  border-radius: 100px;
-}
-
-#chapuPlace {
-  border-radius: 15px;
-  box-shadow: 4px 4px 18px 10px #04274786;
-}
-
-#iztapaImg {
-  margin-top: 12vh;
-  height: 6rem;
-  width: 6rem;
-  border-radius: 100px;
-}
-
-#iztapaPlace {
-  border-radius: 15px;
-  box-shadow: 4px 4px 18px 10px #04274786;
-}
 /*---------------creditos----------------*/
 footer {
   color: aliceblue;
@@ -323,12 +301,25 @@ footer {
 /*--------------Pantalla 3------------------------*/
 /* GRID */
 #pantalla-3 {
+  background: #8360c3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2ebf91,
+    #8360c3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2ebf91,
+    #8360c3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   width: auto;
   height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 3fr 3fr 3fr 8.5fr 2fr;
+  grid-template-rows: 2fr 1fr 0.7fr 3fr 1fr 1fr 2fr 110fr;
   grid-template-areas:
+    "header header header"
     "header header header"
     "section1 section1 section2"
     "section1 section1 section2"
@@ -349,12 +340,10 @@ header {
 
 section1 {
   grid-area: section1;
-  background: fuchsia;
 }
 
 section2 {
   grid-area: section2;
-  background: green;
 }
 
 /* Titulo */
@@ -378,6 +367,24 @@ section2 {
 #correo {
   font-style: italic;
 }
+
+.titulo-sede {
+  margin-top: 5vh;
+}
+.porcentajes {
+  margin-top: 8vh;
+}
+
+#cards {
+  justify-content: center;
+}
+
+.card {
+  background: transparent;
+  border: black double 10px;
+  border-radius: 10px;
+}
+
 /*--------------Pantalla 4------------------------*/
 #pantalla-4 {
   background-color: plum;

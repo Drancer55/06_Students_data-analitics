@@ -2,7 +2,6 @@ import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras} from "./
 const Data = "../data/students.json";
 console.log("ventana actual: ", window);
 traerData(Data);
-
 window.dashBoard = {
         traerSede: (key) => {
             iterarSede(key)
@@ -53,3 +52,8 @@ sedesEntrada.addEventListener('click', () => {
     document.getElementById('pantalla-3').hidden = false
 })
 
+let estudiantesVer = document.getElementById("BotonVerMas")
+estudiantesVer.addEventListener('click', () => {
+    document.getElementById('pantalla-3').hidden = true
+    document.getElementById('pantalla-4').hidden = false
+})
