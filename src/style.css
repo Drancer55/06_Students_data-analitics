@@ -95,7 +95,7 @@ p {
   border: 3px ridge rgba(78, 3, 3, 0.637);
   width: 33%;
 }
-button {
+/* button {
   min-width: 120px;
   min-height: 40px;
   font-family: "Jura", sans-serif;
@@ -163,7 +163,7 @@ button:hover::after,
 button:focus::after {
   animation: none;
   display: none;
-}
+} */
 
 /* @keyframes ring {
   0% {

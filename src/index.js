@@ -1,4 +1,4 @@
-import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras, porcentajes} from "./data.js"
+import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras} from "./data.js"
 const Data = "../data/students.json";
 console.log("ventana actual: ", window);
 traerData(Data);
@@ -52,8 +52,3 @@ sedesEntrada.addEventListener('click', () => {
     document.getElementById('pantalla-3').hidden = false
 })
 
-let estudiantesVer = document.getElementById("BotonVerMas")
-estudiantesVer.addEventListener('click', () => {
-    document.getElementById('pantalla-3').hidden = true
-    document.getElementById('pantalla-4').hidden = false
-})
