@@ -165,7 +165,7 @@ button:focus::after {
   display: none;
 }
 
-/* @keyframes ring {
+@keyframes ring {
   0% {
     width: 15px;
     height: 15px;
@@ -176,7 +176,7 @@ button:focus::after {
     height: 150px;
     opacity: 0;
   }
-} */
+}
 
 /*--------------Pantalla 2------------------------*/
 #pantalla-2 {
@@ -184,12 +184,12 @@ button:focus::after {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 3fr 0.5;
-  grid-template-areas:
-    "main main main"
-    "footer footer footer";
+  grid-template-columns: 3fr;
+  grid-template-rows: 2fr 0.1fr;
+  grid-template-areas: "sucursal" "footer";
+  flex-wrap: wrap;
 }
 /*--------------Nav Bar-----------------------------*/
 ul li {
@@ -212,7 +212,7 @@ ul li {
 
 #searching {
   width: 12rem;
-  height: 2.5rem;
+  height: 3.5rem;
   text-align: center;
   margin: 0 auto;
 }
@@ -232,15 +232,6 @@ ul li {
 }
 
 /*----------------------Sedes----------------*/
-main {
-  grid-area: main;
-  row-gap: 2rem;
-}
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 13vh;
-}
 .title {
   font-family: "Graduate", cursive;
   font-weight: 3.5rem;
@@ -248,7 +239,14 @@ main {
   text-align: center;
 }
 .sucursal {
-  margin: 0 auto;
+  grid-area: sucursal;
+  margin: 0 5px;
+  display: inline-block;
+  align-items: center;
+}
+
+#sedes {
+  margin: 13vh auto;
 }
 
 #image {
@@ -268,14 +266,16 @@ footer {
   color: aliceblue;
   background-color: black;
   grid-area: footer;
-  margin-top: 2rem;
-  padding: 0 auto;
   text-align: center;
   list-style-type: none;
   justify-content: center;
-  line-height: 135%;
-  margin-top: 1%;
-  margin-bottom: -3%;
+  margin-bottom: -7rem;
+}
+
+.collaborator {
+  font-family: "Jura", sans-serif;
+  color: rgba(144, 144, 151, 0.753);
+  text-shadow: rgb(138, 136, 136);
 }
 
 #social {
@@ -301,41 +301,15 @@ footer {
 /*--------------Pantalla 3------------------------*/
 /* GRID */
 #pantalla-3 {
-  background: #8360c3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2ebf91,
-    #8360c3
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #2ebf91,
-    #8360c3
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background-image: url(../assets/fondo3.png);
   width: auto;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr 0.7fr 3fr 1fr 1fr 2fr 110fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
   grid-template-areas:
-    "header header header"
-    "header header header"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2";
-}
-
-header {
-  grid-area: header;
+    "section1 section2"
+    "section1 section2";
 }
 
 section1 {
@@ -351,28 +325,61 @@ section2 {
   text-align: center;
 }
 
+.titulo-sede h1 {
+  font-family: "Graduate", cursive;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #0b0329;
+  text-shadow: 3px 2px 4px rgb(122, 92, 15);
+}
+
+.titulo-sede h2 {
+  font-family: "Caveat", cursive;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
 .generacion {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+#generaciones button {
+  background-color: rgb(233, 56, 56);
+  border-color: teal;
+  color: rgba(231, 240, 156, 0.918);
+  margin: 0 auto;
+}
+
 .estudiantes {
   text-align: center;
+  margin-top: 0.8rem;
+  font-family: "Caveat", cursive;
 }
 
 .morros {
   text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 47vh;
+  max-width: 100vh;
+  height: 50vh;
+  width: 100vh;
+  border: solid 3px rgba(8, 21, 94, 0.459);
+  border-radius: 10px;
+  margin-top: 1px;
+  margin: 0 auto;
 }
 #correo {
   font-style: italic;
 }
 
 .titulo-sede {
-  margin-top: 5vh;
+  margin-top: 9vh;
 }
 .porcentajes {
-  margin-top: 8vh;
+  margin-top: 10vh;
 }
 
 #cards {
@@ -380,9 +387,16 @@ section2 {
 }
 
 .card {
-  background: transparent;
+  background: rgba(251, 251, 251, 0.5);
   border: black double 10px;
   border-radius: 10px;
+}
+.card-body h6 {
+  text-align: justify;
+}
+
+#back {
+  margin: 0 auto;
 }
 
 /*--------------Pantalla 4------------------------*/
