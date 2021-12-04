@@ -23,7 +23,7 @@
 
 <body>
     <!-------Se creán secciones para separar las cuatro pantallas------->
-    <!---------------------------Pantalla 1----------------------------->
+    <!---------------------------Pantalla 1 (login)----------------------------->
     <section id="pantalla-1">
         <header>
             <img src="../assets/Logo.jpeg" alt="logo">
@@ -39,10 +39,10 @@
         </div>
     </section>
 
-    <!---------------------------Pantalla 2---------------------------->
+    <!---------------------------Pantalla 2 (campus)---------------------------->
     <section id="pantalla-2">
         <header>
-            <!-- Fixed navbar -->
+            <!-- navbar -->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="container-fluid">
                     <img id="logoNav" src="../assets/Logo2.jpeg" alt="logo">
@@ -73,9 +73,11 @@
                 </div>
             </nav>
         </header>
+        <!-------------------------Se imprime cada sede---------------->
         <main><center>
             <div id="sedes" class="flex-container"></div>
         </center></main>
+        <!-------------------------Footer------------------------------>
         <footer id="contact">
             <p class="collaborator">&#169 CDMX MMXXI "Students data analitics" Created in collaboration by:</p>
             <section id=social>
@@ -107,16 +109,14 @@
     <!---------------------------Pantalla 3---------------------------->
     <section id="pantalla-3">
         <header>
-            <!-- Fixed navbar -->
+            <!-- Navbar para buscar estudiantes por su nombre-->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="container-fluid">
                     <img id="logoNav" src="../assets/Logo2.jpeg" alt="logo">
-                    <a href="#home">
-                        <h1 id="slogan2">BootCamp School</h1>
-                    </a>
+                    <center><h1 id="slogan2">BootCamp School</h1></center>
                     <form class="d-flex">
                         <input id="formulario" class="form-control me-2" type="search" placeholder="Buscador de Alumnos"
-                            aria-label="Search" />
+                            aria-label="Search"/>
                         <button class="btn btn-outline-success" type="button" id="buscar">Buscar</button>
                     </form>
                 </div>
@@ -131,6 +131,7 @@
             <div id="estudiantes" class="estudiantes"></div>
 
             <div id="morros" class="morros"></div>
+            
             <div id="modal"></div>
 
             <div id="resultado">
@@ -138,9 +139,7 @@
                     <li></li>
                 </ul>
             </div>
-
-
-
+            <!--Boton de regreso a la pantalla anterior-->
             <div id="back"></div>
         </section1>
 

@@ -67,7 +67,7 @@ const mostrarSedes = (dataEscolar) => {
     document.getElementById("sedes").innerHTML += `
         <div id="${key}" class="sucursal">
             <center>
-                <img onclick="dashBoard.traerSede('${key}')" id="image" src="${img}" alt="Chapultepec"><br>
+                <img onclick="dashBoard.traerSede('${key}')" id="image" src="${img}"><br>
                 <h1 class="title">${campus}</h1><br>
                 <iframe id="place" src="${map}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br>
                 <button onclick="dashBoard.traerSede('${key}')"> ${key} </button>
@@ -87,7 +87,9 @@ export const iterarSede = (sede) => {
         botonAtras()            
         console.log(sede); //muestra las generaciones al dar click
         }
-        document.getElementById("sede").innerHTML = `<h1>Campus ${sede}</h1> </h2>Generaciones: </h2>`
+        document.getElementById("sede").innerHTML = `
+        <h1>Campus ${sede}</h1>
+        <h2>Selecciona la generación: </h2>`
         generacionPorSede.push(arrBruto[0][sede].generacion)
     }
 
@@ -164,8 +166,7 @@ export const datosEstudiantes = (gen) => {
         </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
       </div>
     </div>
   </div>

@@ -95,7 +95,7 @@ p {
   border: 3px ridge rgba(78, 3, 3, 0.637);
   width: 33%;
 }
-/* button {
+button {
   min-width: 120px;
   min-height: 40px;
   font-family: "Jura", sans-serif;
@@ -163,9 +163,9 @@ button:hover::after,
 button:focus::after {
   animation: none;
   display: none;
-} */
+}
 
-/* @keyframes ring {
+@keyframes ring {
   0% {
     width: 15px;
     height: 15px;
@@ -176,7 +176,7 @@ button:focus::after {
     height: 150px;
     opacity: 0;
   }
-} */
+}
 
 /*--------------Pantalla 2------------------------*/
 #pantalla-2 {
@@ -312,30 +312,14 @@ footer {
     #2ebf91,
     #8360c3
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   width: auto;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr 0.7fr 3fr 1fr 1fr 2fr 110fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
   grid-template-areas:
-    "header header header"
-    "header header header"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2"
-    "section1 section1 section2";
-}
-
-header {
-  grid-area: header;
+    "section1 section2"
+    "section1 section2";
 }
 
 section1 {
@@ -351,6 +335,19 @@ section2 {
   text-align: center;
 }
 
+.titulo-sede h1 {
+  font-family: "Graduate", cursive;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #0b0329;
+  text-shadow: 3px 2px 4px rgb(122, 92, 15);
+}
+
+.titulo-sede h2 {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+}
+
 .generacion {
   display: flex;
   align-items: center;
@@ -363,13 +360,19 @@ section2 {
 
 .morros {
   text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 48vh;
+  max-width: 100vh;
+  height: 50vh;
+  width: 100vh;
 }
 #correo {
   font-style: italic;
 }
 
 .titulo-sede {
-  margin-top: 5vh;
+  margin-top: 10vh;
 }
 .porcentajes {
   margin-top: 8vh;
