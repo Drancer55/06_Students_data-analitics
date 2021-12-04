@@ -97,11 +97,12 @@ export const iterarGen = (gen) => {
     datosEstudiantes(gen);
 }
 
-//---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
+       //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
 
+       //---------Se hace una iteracion con for para acceder a los nombres de las alumnas-------------------------------//
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
     console.log(lugar)
@@ -109,7 +110,7 @@ export const datosEstudiantes = (gen) => {
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
-        
+        //---Se crea una tabla para pintar la card de cada alumna con su nombre y correo------------------------------//
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-50">
