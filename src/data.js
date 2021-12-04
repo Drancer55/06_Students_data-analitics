@@ -89,23 +89,21 @@ export const iterarSede = (sede) => {
         }
         document.getElementById("sede").innerHTML = `
         <h1>Campus ${sede}</h1>
-        <h2>Selecciona la generación: </h2>`
+        <h2>Seleccione la generación: </h2>`
         generacionPorSede.push(arrBruto[0][sede].generacion)
     }
 
      //--------------Se imprime la generacion correspondiente para el campus seleccionado e imprime su nombre----------//
 const imprimirGen = (sede, gen) => {
-  document.getElementById(
-    "generaciones"
-  ).innerHTML += `<button onclick="dashBoard.traerGeneracion('${gen}')"> ${gen} </button>`;
+  document.getElementById("generaciones").innerHTML += 
+  `<button onclick="dashBoard.traerGeneracion('${gen}')"> ${gen} </button>`;
 };
 
         //--------------------------------------Se imprimen los datos de los estudiantes por generacion----------------//
 export const iterarGen = (gen) => {
   console.log(gen);
-  document.getElementById(
-    "estudiantes"
-  ).innerHTML = `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de: ${gen} generación</h3>`;
+  document.getElementById("estudiantes").innerHTML = 
+  `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de ${gen} generación: </h3>`;
   datosEstudiantes(gen);
 };
 

@@ -301,17 +301,7 @@ footer {
 /*--------------Pantalla 3------------------------*/
 /* GRID */
 #pantalla-3 {
-  background: #8360c3; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2ebf91,
-    #8360c3
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #2ebf91,
-    #8360c3
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url(../assets/fondo3.png);
   width: auto;
   height: auto;
   display: grid;
@@ -337,7 +327,7 @@ section2 {
 
 .titulo-sede h1 {
   font-family: "Graduate", cursive;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bolder;
   color: #0b0329;
   text-shadow: 3px 2px 4px rgb(122, 92, 15);
@@ -345,7 +335,8 @@ section2 {
 
 .titulo-sede h2 {
   font-family: "Caveat", cursive;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 .generacion {
@@ -354,28 +345,41 @@ section2 {
   justify-content: center;
 }
 
+#generaciones button {
+  background-color: rgb(233, 56, 56);
+  border-color: teal;
+  color: rgba(231, 240, 156, 0.918);
+  margin: 0 auto;
+}
+
 .estudiantes {
   text-align: center;
+  margin-top: 0.8rem;
+  font-family: "Caveat", cursive;
 }
 
 .morros {
   text-align: center;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 48vh;
+  max-height: 47vh;
   max-width: 100vh;
   height: 50vh;
   width: 100vh;
+  border: solid 3px rgba(8, 21, 94, 0.459);
+  border-radius: 10px;
+  margin-top: 1px;
+  margin: 0 auto;
 }
 #correo {
   font-style: italic;
 }
 
 .titulo-sede {
-  margin-top: 10vh;
+  margin-top: 9vh;
 }
 .porcentajes {
-  margin-top: 8vh;
+  margin-top: 10vh;
 }
 
 #cards {
@@ -386,6 +390,10 @@ section2 {
   background: transparent;
   border: black double 10px;
   border-radius: 10px;
+}
+
+#back {
+  margin: 0 auto;
 }
 
 /*--------------Pantalla 4------------------------*/
