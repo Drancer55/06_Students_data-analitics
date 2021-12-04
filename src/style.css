@@ -387,9 +387,12 @@ section2 {
 }
 
 .card {
-  background: transparent;
+  background: rgba(251, 251, 251, 0.5);
   border: black double 10px;
   border-radius: 10px;
+}
+.card-body h6 {
+  text-align: justify;
 }
 
 #back {

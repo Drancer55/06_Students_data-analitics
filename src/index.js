@@ -33,6 +33,8 @@ entrada.addEventListener('click', () => {
     if(user == 'usuario.name@bootCampSchool.com' && password == 1) {
     document.getElementById('pantalla-1').hidden = true
     document.getElementById('pantalla-2').hidden = false
+    } else {
+        alert ("Usuario y/o contraseña inválida, intentelo de nuevo")
     }
 })
 //Boton de regresar de la pantalla 3 a la 2

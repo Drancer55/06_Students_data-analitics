@@ -123,53 +123,52 @@ export const datosEstudiantes = (gen) => {
         
         document.getElementById("morros").innerHTML += `
         <center>
-        <div class="card w-50">
+        <div class="card w-100">
            <div class="card-body">
-                 <h5 class="card-title">${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
-                <h6 class="card-text">${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text">${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}</h6>
-                <h6 class="card-text">${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
+                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
+                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
+                <h6 class="card-text"><b>Créditos:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}</h6>
+                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver mas
-                    </button>
-                    </center>
-                    <!-- Modal -->
-
-<div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}` + `</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-            <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <div id="${i}temas">
-            <th scope="col">Temas</th>
-            </div>
-            <th scope="col">Subtemas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].temas}` + `</td>
-            <td>${i}</td>
-            </tr>
+                </button>
+        </center>
+      <!-- Modal -->
+          <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}` + `</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                    <th scope="col">#</th>
+                      <div id="${i}temas">
+                        <th scope="col">Temas</th>
+                      </div>
+                        <th scope="col">Subtemas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].temas}` + `</td>
+                        <td>${i}</td>
+                      </tr>
             
-        </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
-      </div>
-    </div>
-  </div>
-</div>
-</center>
+                    </tbody>
+                  </table>
+                </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </center>
 `
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         // console.log(dataEstudiantes);
