@@ -109,25 +109,26 @@ export const iterarGen = (gen) => {
 
 //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
 export const botonAtras = () => {
-    document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
+    document.getElementById("back").innerHTML = 
+    `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
 
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
-    
+
     console.log(lugar)
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
-        
+        console.log(i);
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
            <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Créditos:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}</h6>
+                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
                 <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver mas
@@ -138,14 +139,14 @@ export const datosEstudiantes = (gen) => {
             <div class="modal-dialog modal-fullscreen">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}` + `</h5>
+                  <h5 class="modal-title"> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <table class="table">
                     <thead>
                       <tr>
-                    <th scope="col">#</th>
+                    <th scope="col"><b>#</b></th>
                       <div id="${i}temas">
                         <th scope="col">Temas</th>
                       </div>
@@ -154,8 +155,8 @@ export const datosEstudiantes = (gen) => {
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].temas}` + `</td>
+                        <th scope="row">${i}</th>
+                        <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre.temas}` + `</td>
                         <td>${i}</td>
                       </tr>
             
@@ -220,4 +221,3 @@ botonBuscador.addEventListener("click", filtrar);
 //     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
 //     porcentaje.innerHTML += porciento
 // }
-    

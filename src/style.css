@@ -240,7 +240,7 @@ ul li {
 }
 .sucursal {
   grid-area: sucursal;
-  margin: 0 5px;
+  margin: 3vh 5px;
   display: inline-block;
   align-items: center;
 }
@@ -399,8 +399,16 @@ section2 {
   margin: 0 auto;
 }
 
-/*--------------Pantalla 4------------------------*/
-#pantalla-4 {
-  background-color: plum;
-  font-family: fantasy;
+/*--------------Modal------------------------*/
+.modal-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #0b0329;
+}
+
+.btn-close {
+  border-radius: 15px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
