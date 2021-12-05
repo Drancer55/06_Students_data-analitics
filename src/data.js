@@ -113,6 +113,26 @@ export const botonAtras = () => {
     `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
 
+
+
+function tTemas(sede, gen, id, temas) {
+    let temA = document.getElementById(id)
+    temA.innerHTML= ''
+    for (const tema in temas) {
+        temA.innerHTML += tema 
+        console.log(tema)
+        console.log(temas[tema].subtemas)
+        for (const subTema in temas[tema].subTemas) {
+            console.log(subTema)
+       
+    }
+
+}
+
+console.log(sede,gen, id)
+}
+
+
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
 
@@ -121,7 +141,7 @@ export const datosEstudiantes = (gen) => {
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
-        console.log(i);
+        //console.log(i);
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
@@ -147,7 +167,7 @@ export const datosEstudiantes = (gen) => {
                     <thead>
                       <tr>
                     <th scope="col"><b>#</b></th>
-                      <div id="${i}temas">
+                      <div>
                         <th scope="col">Temas</th>
                       </div>
                         <th scope="col">Subtemas</th>
@@ -155,8 +175,8 @@ export const datosEstudiantes = (gen) => {
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">${i}</th>
-                        <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre.temas}` + `</td>
+                        <th scope="row"></th>
+                        <td id="${i}temas"></td>
                         <td>${i}</td>
                       </tr>
             
@@ -171,6 +191,8 @@ export const datosEstudiantes = (gen) => {
             </div>
             </center>
 `
+
+        tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         // console.log(dataEstudiantes);
     }
