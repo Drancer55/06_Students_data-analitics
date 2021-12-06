@@ -1,4 +1,4 @@
-import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras} from "./data.js"
+import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras, sesenta} from "./data.js"
 
 const Data = "../data/students.json";
 
