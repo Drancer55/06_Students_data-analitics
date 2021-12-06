@@ -1,14 +1,15 @@
 /*----------------Google Fonts -------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Gloria+Hallelujah&family=Graduate&family=Indie+Flower&family=Josefin+Sans:ital,wght@1,200&family=Jura:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Cormorant+Infant:ital,wght@1,500&family=Gloria+Hallelujah&family=Graduate&family=Indie+Flower&family=Josefin+Sans:ital,wght@1,200&family=Jura:wght@500&display=swap");
 
 /*CSS rules to specify families
 
 font-family: 'Caveat', cursive;
+font-family: 'Cormorant Infant', serif;
 font-family: 'Gloria Hallelujah', cursive;
 font-family: 'Graduate', cursive;
 font-family: 'Indie Flower', cursive;
 font-family: 'Josefin Sans', sans-serif;
-font-family: 'Jura', sans-serif; */
+font-family: 'Jura', sans-serif;*/
 
 /*----------------Pantalla 1----------------------*/
 #pantalla-1 {
@@ -95,7 +96,7 @@ p {
   border: 3px ridge rgba(78, 3, 3, 0.637);
   width: 33%;
 }
-button {
+.botonazo {
   min-width: 120px;
   min-height: 40px;
   font-family: "Jura", sans-serif;
@@ -119,7 +120,7 @@ button {
   padding: auto;
   margin-top: 15px;
 }
-button::before {
+.botonazo::before {
   content: "";
   border-radius: 1000px;
   min-width: 125px;
@@ -134,18 +135,18 @@ button::before {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.button:hover,
-.button:focus {
+button:hover,
+button:focus {
   color: #949499;
-  transform: translateY(-6px);
+  transform: translateY(-3px);
 }
 
-button:hover::before,
-button:focus::before {
+.botonazo:hover::before,
+.botonazo:focus::before {
   opacity: 10;
 }
 
-button::after {
+.botonazo::after {
   content: "";
   width: 30px;
   height: 30px;
@@ -246,7 +247,7 @@ ul li {
 }
 
 #sedes {
-  margin: 13vh auto;
+  margin: 9vh auto;
 }
 
 #image {
@@ -306,7 +307,7 @@ footer {
   height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 9fr;
+  grid-template-rows: 1fr 1fr 3fr;
   grid-template-areas:
     "header header"
     "section1 section2"
@@ -326,6 +327,7 @@ section2 {
 /* Titulo */
 .titulo-sede {
   text-align: center;
+  margin-top: -8vh;
 }
 
 .titulo-sede h1 {
@@ -340,6 +342,7 @@ section2 {
   font-family: "Caveat", cursive;
   font-size: 1.7rem;
   font-weight: bold;
+  margin-top: 3vh;
 }
 
 .generacion {
@@ -378,9 +381,6 @@ section2 {
   font-style: italic;
 }
 
-.titulo-sede {
-  margin-top: 9vh;
-}
 .porcentajes {
   margin-top: 10vh;
 }
@@ -404,14 +404,44 @@ section2 {
 
 /*--------------Modal------------------------*/
 .modal-title {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 2.5rem;
+  font-family: "Cormorant Infant", serif;
+  font-size: 3rem;
   font-weight: bolder;
-  color: #0b0329;
+  color: #0f033de8;
+  text-shadow: 2px 2px 4px #c3cf16cb;
 }
 
 .btn-close {
   border-radius: 15px;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+table {
+  background-color: #dfdbecad;
+  border-radius: 14px;
+  padding: 100%;
+}
+
+.btn-close {
+  color: #0b0329;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+#dropdownMenu2 {
+  background-color: rgba(46, 44, 44, 0.829);
+  color: #f3f3f3;
+  border-radius: 12px;
+  margin: 1vh auto;
+}
+
+#dropdropdownMenu2 :hover {
+  border: solid 3px rgb(0, 0, 0);
+}
+
+.dropdown-item {
+  background-color: rgba(70, 85, 6, 0.822);
+  color: #f3f3f3;
+  border-radius: 10px;
 }
