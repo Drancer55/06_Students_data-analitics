@@ -305,13 +305,16 @@ footer {
   width: auto;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 9fr;
   grid-template-areas:
+    "header header"
     "section1 section2"
     "section1 section2";
 }
-
+header {
+  grid-area: header;
+}
 section1 {
   grid-area: section1;
 }
