@@ -109,26 +109,47 @@ export const iterarGen = (gen) => {
 
        //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
 export const botonAtras = () => {
-    document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
+    document.getElementById("back").innerHTML = 
+    `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
 
-       //---------Se hace una iteracion con for para acceder a los nombres de las alumnas-------------------------------//
+
+
+function tTemas(sede, gen, id, temas) {
+    let temA = document.getElementById(id)
+    temA.innerHTML= ''
+    for (const tema in temas) {
+        temA.innerHTML += tema 
+        console.log(tema)
+        console.log(temas[tema].subtemas)
+        for (const subTema in temas[tema].subtemas) {
+            temA.innerHTML += subTema
+            console.log(subTema)
+       
+    }
+
+}
+
+console.log(sede,gen, id)
+}
+
+
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
-    
+
     console.log(lugar)
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
-        //---Se crea una tabla para pintar la card de cada alumna con su nombre y correo------------------------------//
+        //console.log(i);
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
             <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Créditos:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}</h6>
+                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
                 <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver mas
@@ -139,26 +160,26 @@ export const datosEstudiantes = (gen) => {
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}` + `</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title"> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <table class="table">
                     <thead>
-                        <tr>
-                    <th scope="col">#</th>
-                    <div id="${i}temas">
+                      <tr>
+                    <th scope="col"><b>#</b></th>
+                      <div>
                         <th scope="col">Temas</th>
-                    </div>
-                        <th scope="col">Subtemas</th>
-                        </tr>
+                      </div>
+                      </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <th scope="row">1</th>
-                        <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].temas}` + `</td>
-                        <td>${i}</td>
-                        </tr>
+                        <td id="${i}temas"></td>
+                        <td id="${i}subtemas"></td>
+
+                      </tr>
             
                     </tbody>
                 </table>
@@ -171,6 +192,10 @@ export const datosEstudiantes = (gen) => {
             </div>
             </center>
 `
+
+        tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
+        
+        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         //console.log(dataEstudiantes);
     }
@@ -209,4 +234,15 @@ const filtrar = (sede, gen) => {
 //Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
 botonBuscador.addEventListener("click", filtrar);
 
-    
+//Se crea una funcion para sacar los porcentajes de los estudiantes
+// export let porcentajes = (gen) => {
+//     let porciento = 0;
+//     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++){
+//         porciento += arrBruto[0][lugar].generacion[gen].estudiantes.progreso.porcentajeCompletado
+//     }
+//     //porciento =  porcentajes / (arrBruto[0][lugar].generacion[gen].estudiantes.length)
+//     console.log(porciento)
+//     let porcentaje = document.getElementById('porcentajes')
+//     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
+//     porcentaje.innerHTML += porciento
+// }
