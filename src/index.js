@@ -1,4 +1,4 @@
-import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras} from "./data.js"
+import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras, sesentaMenos, noventaMas} from "./data.js"
 const Data = "../data/students.json";
 console.log("ventana actual: ", window);
 traerData(Data);
