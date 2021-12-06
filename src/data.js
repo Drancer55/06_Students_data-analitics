@@ -107,7 +107,7 @@ export const iterarGen = (gen) => {
   datosEstudiantes(gen);
 };
 
-       //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
+       //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
@@ -125,7 +125,7 @@ export const datosEstudiantes = (gen) => {
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
-           <div class="card-body">
+            <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
                 <h6 class="card-text"><b>Créditos:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}</h6>
@@ -134,45 +134,45 @@ export const datosEstudiantes = (gen) => {
                     Ver mas
                 </button>
         </center>
-      <!-- Modal -->
-          <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+            <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
-              <div class="modal-content">
+                <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}` + `</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}` + `</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <table class="table">
+                    <table class="table">
                     <thead>
-                      <tr>
+                        <tr>
                     <th scope="col">#</th>
-                      <div id="${i}temas">
+                    <div id="${i}temas">
                         <th scope="col">Temas</th>
-                      </div>
+                    </div>
                         <th scope="col">Subtemas</th>
-                      </tr>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                        <tr>
                         <th scope="row">1</th>
                         <td>`+ `${arrBruto[0][lugar].generacion[gen].estudiantes[i].temas}` + `</td>
                         <td>${i}</td>
-                      </tr>
+                        </tr>
             
                     </tbody>
-                  </table>
+                </table>
                 </div>
-                  <div class="modal-footer">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
-                  </div>
                 </div>
-              </div>
+                </div>
+                </div>
             </div>
             </center>
 `
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-        // console.log(dataEstudiantes);
+        //console.log(dataEstudiantes);
     }
 }
 
@@ -209,16 +209,4 @@ const filtrar = (sede, gen) => {
 //Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
 botonBuscador.addEventListener("click", filtrar);
 
-//Se crea una funcion para sacar los porcentajes de los estudiantes
-// export let porcentajes = (gen) => {
-//     let porciento = 0;
-//     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++){
-//         porciento += arrBruto[0][lugar].generacion[gen].estudiantes.progreso.porcentajeCompletado
-//     }
-//     //porciento =  porcentajes / (arrBruto[0][lugar].generacion[gen].estudiantes.length)
-//     console.log(porciento)
-//     let porcentaje = document.getElementById('porcentajes')
-//     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
-//     porcentaje.innerHTML += porciento
-// }
     
