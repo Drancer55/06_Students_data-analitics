@@ -122,8 +122,7 @@ function tTemas(sede, gen, id, temas) {
         temA.innerHTML += tema 
         console.log(tema)
         console.log(temas[tema].subtemas)
-        for (const subTema in temas[tema].subtemas) {
-            temA.innerHTML += subTema
+        for (const subTema in temas[tema].subTemas) {
             console.log(subTema)
        
     }
@@ -136,7 +135,6 @@ console.log(sede,gen, id)
 
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
-
     console.log(lugar)
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
@@ -171,14 +169,14 @@ export const datosEstudiantes = (gen) => {
                       <div>
                         <th scope="col">Temas</th>
                       </div>
+                        <th scope="col">Subtemas</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"></th>
                         <td id="${i}temas"></td>
-                        <td id="${i}subtemas"></td>
-
+                        <td>${i}</td>
                       </tr>
             
                     </tbody>
@@ -194,8 +192,6 @@ export const datosEstudiantes = (gen) => {
 `
 
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
-        
-        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         // console.log(dataEstudiantes);
     }
