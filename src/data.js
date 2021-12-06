@@ -202,6 +202,7 @@ export const datosEstudiantes = (gen) => {
 `
 
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
+        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         //console.log(dataEstudiantes);
         if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60){
