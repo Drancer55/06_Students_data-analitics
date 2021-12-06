@@ -198,10 +198,37 @@ export const datosEstudiantes = (gen) => {
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         //console.log(dataEstudiantes);
+        if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60){
+            console.log("debajo de sesenta: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        } else {}
     }
 }
 
+//Se crea una funcion para atraer a los alumnos con un porcentaje debajo de sesenta
+export const sesentaMenos = (gen) => {
+    console.log(lugar)
+    let menosSesenta = document.getElementById('sesenta')
+    menosSesenta.innerHTML += `<h6>Alumnos debajo de 60: </h6>`
+    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+        if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60){
+            console.log("debajo de sesenta: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+            menosSesenta.innerHTML += arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre + `<br>`
+        }else {}
+}}
 
+//Se crea una funcion paa atraer a los alumnos con un porcentaje arriba de noventa
+export const noventaMas = (gen) => {
+    console.log(lugar)
+    let arribaNoventa = document.getElementById('noventa')
+    arribaNoventa.innerHTML += `<h6>Alumnos arriba de noventa</h6>`
+    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+        if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90){
+            console.log("arriba de noventa: "  + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+            arribaNoventa.innerHTML += arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre `<br>`
+        }
+}}
 
 //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
 // const formulario = document.querySelector('#formulario')
@@ -245,4 +272,4 @@ botonBuscador.addEventListener("click", filtrar);
 //     let porcentaje = document.getElementById('porcentajes')
 //     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
 //     porcentaje.innerHTML += porciento
-// }
+// 
