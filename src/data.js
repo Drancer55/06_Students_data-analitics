@@ -107,7 +107,7 @@ export const iterarGen = (gen) => {
   datosEstudiantes(gen);
 };
 
-//---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
+       //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = 
     `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
@@ -117,13 +117,21 @@ export const botonAtras = () => {
 
 function tTemas(sede, gen, id, temas) {
     let temA = document.getElementById(id)
+    let subTemA = document.getElementById(id)
     temA.innerHTML= ''
     for (const tema in temas) {
-        temA.innerHTML += tema 
-        console.log(tema)
-        console.log(temas[tema].subtemas)
-        for (const subTema in temas[tema].subTemas) {
-            console.log(subTema)
+        temA.innerHTML+= ''
+
+        for (const subTema in temas[tema].subtemas) {
+            subTemA.innerHTML += `<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    `+ tema +`
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><button class="dropdown-item" type="button">`+ subTema +`</button></li>
+    
+  </ul>
+</div>`
        
     }
 
@@ -144,7 +152,7 @@ export const datosEstudiantes = (gen) => {
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
-           <div class="card-body">
+            <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
                 <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
@@ -153,51 +161,80 @@ export const datosEstudiantes = (gen) => {
                     Ver mas
                 </button>
         </center>
-      <!-- Modal -->
-          <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+            <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
-              <div class="modal-content">
+                <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title"> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <table class="table">
+                    <table class="table">
                     <thead>
                       <tr>
                     <th scope="col"><b>#</b></th>
                       <div>
-                        <th scope="col">Temas</th>
+                        <th scope="col">Temas y Subtemas</th>
                       </div>
                         <th scope="col">Subtemas</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row"></th>
+                        <tr>
+                        <th scope="row">1</th>
                         <td id="${i}temas"></td>
-                        <td>${i}</td>
+                        <td></td>
+                        <td id="${i}subtemas"></td>
+
                       </tr>
             
                     </tbody>
-                  </table>
+                </table>
                 </div>
-                  <div class="modal-footer">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
-                  </div>
                 </div>
-              </div>
+                </div>
+                </div>
             </div>
             </center>
 `
 
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-        // console.log(dataEstudiantes);
+        //console.log(dataEstudiantes);
+        if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60){
+            console.log("debajo de sesenta: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        } else {}
     }
 }
 
+//Se crea una funcion para atraer a los alumnos con un porcentaje debajo de sesenta
+export const sesentaMenos = (gen) => {
+    console.log(lugar)
+    let menosSesenta = document.getElementById('sesenta')
+    menosSesenta.innerHTML += `<h6>Alumnos debajo de 60: </h6>`
+    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+        if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60){
+            console.log("debajo de sesenta: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+            menosSesenta.innerHTML += arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre + `<br>`
+        }else {}
+}}
 
+//Se crea una funcion paa atraer a los alumnos con un porcentaje arriba de noventa
+export const noventaMas = (gen) => {
+    console.log(lugar)
+    let arribaNoventa = document.getElementById('noventa')
+    arribaNoventa.innerHTML += `<h6>Alumnos arriba de noventa</h6>`
+    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+        if (arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90){
+            console.log("arriba de noventa: "  + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+            arribaNoventa.innerHTML += arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre `<br>`
+        }
+}}
 
 //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
 // const formulario = document.querySelector('#formulario')
@@ -241,4 +278,4 @@ botonBuscador.addEventListener("click", filtrar);
 //     let porcentaje = document.getElementById('porcentajes')
 //     porcentaje.innerHTML = `<h3>Porcentaje promedio completado: </h3>`
 //     porcentaje.innerHTML += porciento
-// }
+// 
