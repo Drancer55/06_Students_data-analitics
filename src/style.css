@@ -293,10 +293,14 @@ footer {
   color: #ff9204;
 }
 
+#formulario {
+  width: auto;
+}
+
 .btn-outline-success {
-  width: 2rem;
+  width: auto;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 0 1vh;
 }
 
 /*--------------Pantalla 3------------------------*/
@@ -377,8 +381,7 @@ section2 {
   width: 100vh;
   border: solid 3px rgba(8, 21, 94, 0.459);
   border-radius: 10px;
-  margin-top: 1px;
-  margin: 0 auto;
+  margin: 2vh 3vh;
 }
 #correo {
   font-style: italic;
