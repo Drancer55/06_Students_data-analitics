@@ -305,7 +305,7 @@ footer {
   width: auto;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 9fr;
   grid-template-areas:
     "header header"
