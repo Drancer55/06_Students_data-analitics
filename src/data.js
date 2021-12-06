@@ -70,7 +70,7 @@ const mostrarSedes = (dataEscolar) => {
                 <img onclick="dashBoard.traerSede('${key}')" id="image" src="${img}"><br>
                 <h1 class="title">${campus}</h1><br>
                 <iframe id="place" src="${map}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br>
-                <button onclick="dashBoard.traerSede('${key}')"> ${key} </button>
+                <button class="botonazo" onclick="dashBoard.traerSede('${key}')"> ${key} </button>
             </center>
         </div>`;
   }
@@ -96,7 +96,7 @@ export const iterarSede = (sede) => {
      //--------------Se imprime la generacion correspondiente para el campus seleccionado e imprime su nombre----------//
 const imprimirGen = (sede, gen) => {
   document.getElementById("generaciones").innerHTML += 
-  `<button onclick="dashBoard.traerGeneracion('${gen}')"> ${gen} </button>`;
+  `<button class="botonazo" onclick="dashBoard.traerGeneracion('${gen}')"> ${gen} </button>`;
 };
 
         //--------------------------------------Se imprimen los datos de los estudiantes por generacion----------------//
@@ -111,7 +111,7 @@ export const iterarGen = (gen) => {
        //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = 
-    `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
+    `<button class="botonazo" onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
 }
 
 
@@ -133,7 +133,6 @@ function tTemas(sede, gen, id, temas) {
     
   </ul>
 </div>`
-       
     }
 
 }
@@ -167,29 +166,29 @@ export const datosEstudiantes = (gen) => {
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title"> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
+                  <h5 class="modal-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}:</b></h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <table class="table">
                     <thead>
                       <tr>
-                    <th scope="col"><b>#</b></th>
-                      <div>
-                        <th scope="col">Temas y Subtemas</th>
-                      </div>
-                        <th scope="col">Subtemas</th>
+                        <th></th>
+                        <th scope="col"><h6>Registro académico</h6></th>
+                        <th></th>
                       </tr>
-                    </thead>
+                      <tr>
+                        <th scope="col"><h6 class="card-text"><b>E-mail:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6></th>
+                        <th scope="col"><h6 class="card-text"><b>Duración:<br> </b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6></th>
+                        <th scope="col"><h6 class="card-text"><b>Progreso completado:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6></th>
+                      </tr>
+                      </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td id="${i}temas"></td>
-                        <td></td>
-                        <td id="${i}subtemas"></td>
-
+                      <tr>
+                        <td scope="col"><h6><b> Temario: </b></h6></td>
+                        <td class="temazo" id="${i}temas"></td>
+                        <td class="subtemazo" id="${i}subtemas"></td>
                       </tr>
-            
                     </tbody>
                 </table>
                 </div>
