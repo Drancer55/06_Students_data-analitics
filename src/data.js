@@ -107,7 +107,7 @@ export const iterarGen = (gen) => {
   datosEstudiantes(gen);
 };
 
-//---------------Se pinta dinamicamente el boton de regresar a la pantalla dos ue ns muestra las sedes----------------//
+       //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
 export const botonAtras = () => {
     document.getElementById("back").innerHTML = 
     `<button onclick= "dashBoard.regresaraSedes("back")">Atrás</button>`
@@ -153,7 +153,7 @@ export const datosEstudiantes = (gen) => {
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
-           <div class="card-body">
+            <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
                 <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
@@ -162,16 +162,16 @@ export const datosEstudiantes = (gen) => {
                     Ver mas
                 </button>
         </center>
-      <!-- Modal -->
-          <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+            <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
-              <div class="modal-content">
+                <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title"> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <table class="table">
+                    <table class="table">
                     <thead>
                       <tr>
                     <th scope="col"><b>#</b></th>
@@ -181,7 +181,7 @@ export const datosEstudiantes = (gen) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                        <tr>
                         <th scope="row">1</th>
                         <td id="${i}temas"></td>
                         <td></td>
@@ -190,13 +190,13 @@ export const datosEstudiantes = (gen) => {
                       </tr>
             
                     </tbody>
-                  </table>
+                </table>
                 </div>
-                  <div class="modal-footer">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
-                  </div>
                 </div>
-              </div>
+                </div>
+                </div>
             </div>
             </center>
 `
@@ -205,7 +205,7 @@ export const datosEstudiantes = (gen) => {
         
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-        // console.log(dataEstudiantes);
+        //console.log(dataEstudiantes);
     }
 }
 
