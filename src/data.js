@@ -117,14 +117,21 @@ export const botonAtras = () => {
 
 function tTemas(sede, gen, id, temas) {
     let temA = document.getElementById(id)
+    let subTemA = document.getElementById(id)
     temA.innerHTML= ''
     for (const tema in temas) {
-        temA.innerHTML += tema 
-        console.log(tema)
-        console.log(temas[tema].subtemas)
+        temA.innerHTML+= ''
+
         for (const subTema in temas[tema].subtemas) {
-            temA.innerHTML += subTema
-            console.log(subTema)
+            subTemA.innerHTML += `<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    `+ tema +`
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><button class="dropdown-item" type="button">`+ subTema +`</button></li>
+    
+  </ul>
+</div>`
        
     }
 
@@ -169,7 +176,7 @@ export const datosEstudiantes = (gen) => {
                       <tr>
                     <th scope="col"><b>#</b></th>
                       <div>
-                        <th scope="col">Temas</th>
+                        <th scope="col">Temas y Subtemas</th>
                       </div>
                       </tr>
                     </thead>
@@ -177,6 +184,7 @@ export const datosEstudiantes = (gen) => {
                       <tr>
                         <th scope="row">1</th>
                         <td id="${i}temas"></td>
+                        <td></td>
                         <td id="${i}subtemas"></td>
 
                       </tr>
