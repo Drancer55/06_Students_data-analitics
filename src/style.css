@@ -430,6 +430,12 @@ table {
   padding: 100%;
 }
 
+.return {
+  background-color: #a7a69fc9;
+  border-radius: 10px;
+  border: groove 3px rgba(70, 64, 64, 0.555);
+}
+
 .btn-close {
   color: #0b0329;
   font-size: 1.5rem;
@@ -454,21 +460,45 @@ table {
 }
 
 #sesenta {
-  max-height: 47vh;
-  max-width: 100vh;
-  height: 50vh;
-  width: 100vh;
+  text-align: justify;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 25vh;
+  max-width: 50vh;
+  height: 70vh;
+  width: 50vh;
   border: solid 3px rgba(8, 21, 94, 0.459);
   border-radius: 10px;
-  margin: 2vh 3vh;
+  margin: -15vh 3vh;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-family: "Cormorant Infant", serif;
+}
+
+#sesenta h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-family: "Jura", sans-serif;
 }
 
 #noventa {
-  max-height: 47vh;
-  max-width: 100vh;
-  height: 50vh;
-  width: 100vh;
+  text-align: justify;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 25vh;
+  max-width: 50vh;
+  height: 70vh;
+  width: 50vh;
   border: solid 3px rgba(8, 21, 94, 0.459);
   border-radius: 10px;
-  margin: 2vh 3vh;
+  margin: 17vh 3vh;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-family: "Cormorant Infant", serif;
+}
+
+#noventa h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-family: "Jura", sans-serif;
 }
