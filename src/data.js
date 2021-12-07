@@ -143,6 +143,7 @@ console.log(sede,gen, id)
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
     console.log(lugar)
+
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);

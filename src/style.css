@@ -452,3 +452,23 @@ table {
   color: #f3f3f3;
   border-radius: 10px;
 }
+
+#sesenta {
+  max-height: 47vh;
+  max-width: 100vh;
+  height: 50vh;
+  width: 100vh;
+  border: solid 3px rgba(8, 21, 94, 0.459);
+  border-radius: 10px;
+  margin: 2vh 3vh;
+}
+
+#noventa {
+  max-height: 47vh;
+  max-width: 100vh;
+  height: 50vh;
+  width: 100vh;
+  border: solid 3px rgba(8, 21, 94, 0.459);
+  border-radius: 10px;
+  margin: 2vh 3vh;
+}
