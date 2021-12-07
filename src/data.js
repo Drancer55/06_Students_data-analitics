@@ -119,28 +119,34 @@ export const botonAtras = () => {
 
 
 function tTemas(sede, gen, id, temas) {
-    let temA = document.getElementById(id)
-    let subTemA = document.getElementById(id)
-    temA.innerHTML= ''
-    for (const tema in temas) {
-        temA.innerHTML+= ''
-
-        for (const subTema in temas[tema].subtemas) {
-            subTemA.innerHTML += `<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-    `+ tema +`
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <li><button class="dropdown-item" type="button">`+ subTema +`</button></li>
     
-  </ul>
-</div>`
+    let subTemA = document.getElementById(id)
+    let pDesplegar= ''
+    pDesplegar += `<div class="dropdown">`
+    for (const tema in temas) {
+        pDesplegar += ` <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    ${tema}
+  </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`
+    let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
+
+    for (let i = 0; i < values.length; i++) {
+        pDesplegar += `<strong> ${keys[i]}</strong>
+        <li><a class="dropdown-item" href="#">Completado:${values[i].completado}</a></li>
+        <li><a class="dropdown-item" href="#">Duracion de los Subtemas: ${values[i].duracionSubtema}</a></li>
+        <li><a class="dropdown-item" href="#">Tipo: ${values[i].tipo}</a></li>
+        `
+        
     }
-
+    pDesplegar += `</ul>`
+ }
+ pDesplegar += `</div>`
+subTemA.innerHTML = pDesplegar
 }
 
-console.log(sede,gen, id)
-}
+
+
 
 
 export const datosEstudiantes = (gen) => {
@@ -206,6 +212,9 @@ export const datosEstudiantes = (gen) => {
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+
+
+        
         //console.log(dataEstudiantes);
         // dentro del arreglo vacio estudiantesSesenta se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
         estudiantesSesenta.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
