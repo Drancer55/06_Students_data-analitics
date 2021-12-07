@@ -430,6 +430,11 @@ table {
   padding: 100%;
 }
 
+.table2 {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
 .return {
   background-color: #a7a69fc9;
   border-radius: 10px;
@@ -451,12 +456,6 @@ table {
 
 #dropdropdownMenu2 :hover {
   border: solid 3px rgb(0, 0, 0);
-}
-
-.dropdown-item {
-  background-color: rgba(70, 85, 6, 0.822);
-  color: #f3f3f3;
-  border-radius: 10px;
 }
 
 #sesenta {

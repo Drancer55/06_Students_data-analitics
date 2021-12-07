@@ -132,10 +132,21 @@ function tTemas(sede, gen, id, temas) {
     let keys = Object.keys(temas[tema].subtemas)
 
     for (let i = 0; i < values.length; i++) {
-        pDesplegar += `<strong> ${keys[i]}</strong>
-        <li><a class="dropdown-item" href="#">Completado:${values[i].completado}</a></li>
-        <li><a class="dropdown-item" href="#">Duracion de los Subtemas: ${values[i].duracionSubtema}</a></li>
-        <li><a class="dropdown-item" href="#">Tipo: ${values[i].tipo}</a></li>
+        pDesplegar += `
+        <table class="table2">
+          <tr>
+            <th><strong>${keys[i]}</strong><th>
+          </tr>
+          <tr>
+            <td>
+              <ul>
+                <li><em>Completado: </em>${values[i].completado}</li><br>
+                <li><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</li><br>
+                <li><em>Tipo: </em>${values[i].tipo}</li><br>
+              </ul>
+            </td>
+          </tr>
+        </table>
         `
     const result = values.filter(word => word.length <  6)
     console.log(result, "aprete filter")    
