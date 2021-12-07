@@ -117,20 +117,22 @@ export const botonAtras = () => {
 }
 
 
-
+//-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
 function tTemas(sede, gen, id, temas) {
     
     let subTemA = document.getElementById(id)
     let pDesplegar= ''
-    pDesplegar += `<div class="dropdown">`
+    // Iteracion para pintar los temas
     for (const tema in temas) {
-        pDesplegar += ` <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        pDesplegar += ` <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     ${tema}
   </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
+    //------------Iteracion para lo que hay dentro de los subtemas
     for (let i = 0; i < values.length; i++) {
         pDesplegar += `
         <table class="table2">
@@ -148,20 +150,25 @@ function tTemas(sede, gen, id, temas) {
           </tr>
         </table>
         `
-    const result = values.filter(word => word.length <  6)
-    console.log(result, "aprete filter")    
+    //     values.innerHTML = values.filter(tipoEjercicios)
+
+    
+    // function tipoEjercicios() {
+    //     return tipo(lectura)
+    // }   
     }
-    pDesplegar += `</ul>`
+    pDesplegar += `</ul>
+    </div>`
     
  }
- pDesplegar += `</div>`
+//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
 subTemA.innerHTML = pDesplegar
 }
 
 
 
 
-
+// -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
     console.log(lugar)
@@ -171,6 +178,8 @@ export const datosEstudiantes = (gen) => {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
         //console.log(datosEstudiantes);
         //console.log(i);
+
+        // -------------Pintamos las cards--------
         document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
@@ -183,6 +192,7 @@ export const datosEstudiantes = (gen) => {
                     Ver mas
                 </button>
         </center>
+
         <!-- Modal -->
             <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
@@ -211,6 +221,17 @@ export const datosEstudiantes = (gen) => {
                         <td class="temazo" id="${i}temas"></td>
                         <td class="subtemazo" id="${i}subtemas"></td>
                       </tr>
+                      <tr>
+                        <td>
+                          <button><i class="fas fa-filter"></i>Boton 1</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 2</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 2</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 4</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 5</button><br>
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
                     </tbody>
                 </table>
                 </div>
@@ -222,13 +243,13 @@ export const datosEstudiantes = (gen) => {
             </div>
             </center>
 `
-        
+        // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
 
 
-        
+        //----------------Porcentajes de los alumnos-------
         //console.log(dataEstudiantes);
         // dentro del arreglo vacio estudiantesSesenta se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
         estudiantesSesenta.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
@@ -291,6 +312,8 @@ export const datosEstudiantes = (gen) => {
 //   }}
 
 
+
+//-------------Buscador de los alumnos
 
 //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
 // const formulario = document.querySelector('#formulario')
