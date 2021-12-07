@@ -238,7 +238,7 @@ export const datosEstudiantes = (gen) => {
         console.log(element);
             if (element < 60) {
               console.log("Alumnos debajo de 60: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-              sesentaMenos.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
+              sesentaMenos.innerHTML = `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
             }else {}
         },
 
@@ -250,7 +250,7 @@ export const datosEstudiantes = (gen) => {
           console.log(element);
               if (element > 90) {
               console.log("Alumnos arriba de 90: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-              masNoventa.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
+              masNoventa.innerHTML = `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
   }else{}
 })
     }}
