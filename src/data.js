@@ -134,9 +134,11 @@ function tTemas(sede, gen, id, temas) {
         <li><a class="dropdown-item" href="#">Duracion de los Subtemas: ${values[i].duracionSubtema}</a></li>
         <li><a class="dropdown-item" href="#">Tipo: ${values[i].tipo}</a></li>
         `
-        
+    const result = values.filter(word => word.length <  6)
+    console.log(result, "aprete filter")    
     }
     pDesplegar += `</ul>`
+    
  }
  pDesplegar += `</div>`
 subTemA.innerHTML = pDesplegar
