@@ -211,6 +211,17 @@ export const datosEstudiantes = (gen) => {
                         <td class="temazo" id="${i}temas"></td>
                         <td class="subtemazo" id="${i}subtemas"></td>
                       </tr>
+                      <tr>
+                        <td>
+                          <button><i class="fas fa-filter"></i>Boton 1</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 2</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 2</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 4</button><br>
+                          <button><i class="fas fa-filter"></i>Boton 5</button><br>
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
                     </tbody>
                 </table>
                 </div>
