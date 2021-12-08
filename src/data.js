@@ -1,5 +1,4 @@
           //------------------------------------------------------------Tercera Pantalla----------------------//
-
           //---------------------------------------atraemos y exportamos los datos del json-------------------//
 const Data = "../data/students.json";
 
