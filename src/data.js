@@ -9,6 +9,7 @@ let generacionPorSede = [];
 let dataEstudiantes = [];
 let estudiantesSesenta = [];
 let estudiantesNoventa = [];
+let studentsGen = [];
 
         //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
 const limpiarArray = () => {
@@ -170,13 +171,25 @@ subTemA.innerHTML = pDesplegar
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
 
-
-
-
+// Método sort que acomoda los resultados en orden alfabético
+const sortStudents = (arrStudents) => {
+  console.log(arrStudents);
+    arrStudents.sort(function (a, b) {
+    let nombreA = a.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
+    let nombreB = b.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
+    if (nombreA < nombreB) {
+      return -1;
+    } if (nombreA > nombreB) {
+      return 1;
+    } return 0 
+  })
+}
 
 // -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
+    studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes.nombre)
+    sortStudents(studentsGen)
     console.log(lugar)
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
