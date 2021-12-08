@@ -211,9 +211,10 @@ const sortStudents = (arrStudents) => {
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
     console.log(lugar)
+    studentsGen= []
     studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes)
-    sortStudents(studentsGen)
-    console.log(studentsGen)
+    sortStudents(studentsGen[0])
+    console.log(studentsGen[0])
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
@@ -297,9 +298,9 @@ export const datosEstudiantes = (gen) => {
         estudiantesSesenta.forEach(function(element){
         let sesentaMenos = document.getElementById('sesenta')
         let graficaSesenta = document.getElementById('grafica60')
-        console.log(element);
+        //console.log(element);
             if (element < 60) {
-              console.log("Alumnos debajo de 60: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+              //console.log("Alumnos debajo de 60: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
               sesentaMenos.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
             }else {} 
         
@@ -310,9 +311,9 @@ export const datosEstudiantes = (gen) => {
       //con el metodo for each se entrará al indice de los porcentajes mayores a 90%
       estudiantesNoventa.forEach(function(element){
         let masNoventa = document.getElementById('noventa')
-          console.log(element);
+          //console.log(element);
               if (element > 90) {
-              console.log("Alumnos arriba de 90: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+              //console.log("Alumnos arriba de 90: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
               masNoventa.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
   }else{}
 })
