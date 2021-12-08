@@ -8,8 +8,8 @@ let arrBruto = [];
 let lugar = "";
 let generacionPorSede = [];
 let dataEstudiantes = [];
-let estudiantesSesenta = [];
-let estudiantesNoventa = [];
+let estudiantesPorcentajes = [];
+
 
         //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
 const limpiarArray = () => {
@@ -247,69 +247,28 @@ export const datosEstudiantes = (gen) => {
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
+        porcentajesCompletados(estudiantesPorcentajes);
+  }
+}
+    
+// ------------------------Porcentajes de alumnos----------------------------------------//
+const porcentajesCompletados = (estudiantesPorcentajes) => {
+console.log(estudiantesPorcentajes);  
+      estudiantesPorcentajes.forEach(function(element){
+      let sesentaMenos = document.getElementById('sesenta')
+      let masNoventa = document.getElementById('noventa')
+      console.log(element.nombre);
+        console.log(element.progreso.porcentajeCompletado);
+      if (element.progreso.porcentajeCompletado < 60 ) {
+        console.log("Alumnos debajo del 60%: " + element.nombre + element.progreso.porcentajeCompletado);
+         sesentaMenos.innerHTML = `<h3>Alumnos con porcentaje por debajo del 60%: ${element.nombre}</h3>`
+      }else if (element.progreso.porcentajeCompletado > 90){
+        console.log("Alumnos arriba del 90%: " + element.nombre );
+      }
+    })
+  }
 
-
-        //----------------Porcentajes de los alumnos-------
-        //console.log(dataEstudiantes);
-        // dentro del arreglo vacio estudiantesSesenta se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
-        estudiantesSesenta.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
-        // con metodo for each se entrará al indice de los porcentajes menores a 60%
-        estudiantesSesenta.forEach(function(element){
-        let sesentaMenos = document.getElementById('sesenta')
-        console.log(element);
-            if (element < 60) {
-              console.log("Alumnos debajo de 60: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-              sesentaMenos.innerHTML = `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
-            }else {}
-        },
-
-      // dentro del arreglo vacio estudiantesNoventa se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
-      estudiantesNoventa.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado))
-      //con el metodo for each se entrará al indice de los porcentajes mayores a 90%
-      estudiantesNoventa.forEach(function(element){
-        let masNoventa = document.getElementById('noventa')
-          console.log(element);
-              if (element > 90) {
-              console.log("Alumnos arriba de 90: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-              masNoventa.innerHTML = `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
-  }else{}
-})
-    }}
-
-          // // dentro del arreglo vacio estudiantesNoventa se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
-          // estudiantesNoventa.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
-          // //con el metodo for each se entrará al indice de los porcentajes mayores a 90%
-          // estudiantesNoventa.forEach(function(element){
-          //   let masNoventa = document.getElementById('noventa')
-          //   console.log(element);
-          //   if (element > 90) {
-          //     console.log("Alumnos arriba de 90: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-          //     masNoventa.innerHTML = `<h2>Alumnos arriba del 90%:  ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
-          //   }else{}
-          // })
-
-//Funcion para sacar alumnos con porcentaje menor a 60
-// export const sesenta = (gen) => {
-//     let menosSesenta = document.getElementById('sesenta')
-//     menosSesenta.innerHTML = `<h6>Alumnos debajo de 60: </h6>`
-//     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-//         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-//         if (arrBruto[lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado < 60){
-//             console.log("debajo de sesenta: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-//             menosSesenta.innerHTML += arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre + `<br>`
-//         } else {}
-// }}
-
-// export const noventa = (gen) => {
-//   let arribaNoventa = document.getElementById('noventa')
-//   arribaNoventa.innerHTML = `<h6>Alumnos arriba de 90: </h6>`
-//   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-//     console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-//     if (arrBruto[lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado > 90){
-//     console.log("arriba de noventa: "  + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-//     arribaNoventa.innerHTML += arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre `<br>`
-// }else {}
-//   }}
 
 
 
