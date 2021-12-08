@@ -226,7 +226,7 @@ export const datosEstudiantes = (gen) => {
             <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
+                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
                 <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver más...
@@ -245,9 +245,7 @@ export const datosEstudiantes = (gen) => {
                     <table class="table">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th scope="col"><h6>Registro académico</h6></th>
-                        <th></th>
+                        <th scope="col"><center><h6>Registro académico</h6></center></th>
                       </tr>
                       <tr>
                         <th scope="col"><h6 class="card-text"><b>E-mail:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6></th>
@@ -255,21 +253,65 @@ export const datosEstudiantes = (gen) => {
                         <th scope="col"><h6 class="card-text"><b>Progreso completado:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6></th>
                       </tr>
                       </thead>
-                    <tbody>
-                      
-                        <tr>
+                    <tbody
+                      <tr>
+                        <td scope="col"><h6><center><b> Filtro: </b></center><h6></td>
                         <td scope="col"><h6><b> Temario: </b></h6></td>
-                        <tr>
-                        <td>
-                          <button><i class="fas fa-filter"></i>Completado</button><br>
-                          <button><i class="fas fa-filter"></i>No completado</button><br>
-                          <button><i class="fas fa-filter"></i>Tipo: Ejercicios</button><br>
-                          <button><i class="fas fa-filter"></i>Tipo: Lecturas</button><br>
-                          <button><i class="fas fa-filter"></i>Tipo: Quiz</button><br>
-                        </td>
-                        <td>
-                        </td>
                       </tr>
+                      <tr>
+                        <td>
+                          <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <i class="fas fa-filter"></i> Completado
+                                </button>
+                              </h2>
+                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                <i class="fas fa-filter"></i> No completado
+                                </button>
+                              </h2>
+                              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                              </div>
+                            </div><div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                              <i class="fas fa-filter"></i> Ejercicios
+                              </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                <i class="fas fa-filter"></i> Lecturas
+                                </button>
+                              </h2>
+                              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                <i class="fas fa-filter"></i> Quiz
+                                </button>
+                              </h2>
+                              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
                         <td class="temazo" id="${i}temas"></td>
                         <td class="subtemazo" id="${i}subtemas"></td>
                       </tr>
@@ -315,9 +357,6 @@ graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
     })
     
   }
-
-
-
 
 //-------------Buscador de los alumnos
 
