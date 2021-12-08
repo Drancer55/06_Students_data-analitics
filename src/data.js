@@ -174,7 +174,6 @@ subTemA.innerHTML = pDesplegar
 
 
 
-
 // -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
