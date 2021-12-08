@@ -202,7 +202,7 @@ export const datosEstudiantes = (gen) => {
             <div class="card-body">
                 <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
                 <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
+                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
                 <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver más...
