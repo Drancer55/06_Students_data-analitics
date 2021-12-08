@@ -174,7 +174,9 @@ subTemA.innerHTML = pDesplegar
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
   console.log(arrStudents);
-    arrStudents.sort(function (a, b) {
+ 
+    arrStudents.sort(
+    function (a, b) {
     let nombreA = a.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
     let nombreB = b.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
     if (nombreA < nombreB) {
@@ -189,9 +191,10 @@ const sortStudents = (arrStudents) => {
 // -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
-    studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes.nombre)
-    sortStudents(studentsGen)
     console.log(lugar)
+    studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes)
+    sortStudents(studentsGen)
+    console.log(studentsGen)
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
         console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
