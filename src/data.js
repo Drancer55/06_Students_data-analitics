@@ -128,7 +128,7 @@ function tTemas(sede, gen, id, temas) {
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     ${tema}
   </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"><br>`
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
@@ -172,13 +172,10 @@ subTemA.innerHTML = pDesplegar
 export const datosEstudiantes = (gen) => {
     document.getElementById("morros").innerHTML = ''
     console.log(lugar)
-
     //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
     for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
-        //console.log(datosEstudiantes);
-        //console.log(i);
-
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
+        
         // -------------Pintamos las cards--------
         document.getElementById("morros").innerHTML += `
         <center>
@@ -189,7 +186,7 @@ export const datosEstudiantes = (gen) => {
                 <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} .hrs</h6>
                 <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
-                    Ver mas
+                    Ver más...
                 </button>
         </center>
 
@@ -244,10 +241,10 @@ export const datosEstudiantes = (gen) => {
             </center>
 `
         // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
-        tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
-        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
-        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-
+        tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas);
+        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas);
+        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+        
 
         //----------------Porcentajes de los alumnos-------
         //console.log(dataEstudiantes);
@@ -256,13 +253,15 @@ export const datosEstudiantes = (gen) => {
         // con metodo for each se entrará al indice de los porcentajes menores a 60%
         estudiantesSesenta.forEach(function(element){
         let sesentaMenos = document.getElementById('sesenta')
+        let graficaSesenta = document.getElementById('grafica60')
         console.log(element);
             if (element < 60) {
               console.log("Alumnos debajo de 60: " + arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
               sesentaMenos.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
-            }else {}
+            }else {} 
+        
+              // graficaSesenta.innerHTML = `<img src="../assets/Grafico${element}.jpg"></img>`
         },
-
       // dentro del arreglo vacio estudiantesNoventa se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
       estudiantesNoventa.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado))
       //con el metodo for each se entrará al indice de los porcentajes mayores a 90%
@@ -274,8 +273,12 @@ export const datosEstudiantes = (gen) => {
               masNoventa.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
   }else{}
 })
+
+  // se pintan las imágenes en un div debajo de cada lista de alumnos mayor a 60% y menor a 60%
     }}
 
+
+  
           // // dentro del arreglo vacio estudiantesNoventa se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
           // estudiantesNoventa.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado)
           // //con el metodo for each se entrará al indice de los porcentajes mayores a 90%
