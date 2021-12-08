@@ -416,8 +416,13 @@ section2 {
   font-weight: bolder;
   color: #0f033de8;
   text-shadow: 2px 2px 4px #c3cf16cb;
+  text-align: center;
 }
 
+.temas {
+  text-align: center;
+  justify-content: center;
+}
 .btn-close {
   border-radius: 15px;
   width: 1.5rem;
@@ -447,11 +452,18 @@ table {
   font-weight: bolder;
 }
 
+#dropdownMenuButton1 {
+  background-color: rgba(41, 35, 35, 0.829);
+  color: #f3f3f3;
+  border-radius: 12px;
+  margin: 1vh auto;
+}
+
 #dropdownMenu2 {
   background-color: rgba(46, 44, 44, 0.829);
   color: #f3f3f3;
   border-radius: 12px;
-  margin: 1vh auto;
+  margin: 10vh auto;
 }
 
 #dropdropdownMenu2 :hover {
