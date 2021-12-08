@@ -117,6 +117,13 @@ export const botonAtras = () => {
 }
 
 
+
+  
+     
+
+
+
+
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
 function tTemas(sede, gen, id, temas) {
     
@@ -124,31 +131,39 @@ function tTemas(sede, gen, id, temas) {
     let pDesplegar= ''
     // Iteracion para pintar los temas
     for (const tema in temas) {
-        pDesplegar += ` <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    ${tema}
-  </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"><br>`
+        pDesplegar += ` <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Tema</th>
+      <th scope="col">Subtema</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td >${tema}</td>
+
+    `
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
     //------------Iteracion para lo que hay dentro de los subtemas
+     
+   
+  
     for (let i = 0; i < values.length; i++) {
         pDesplegar += `
-        <table class="table2">
           <tr>
             <th><strong>${keys[i]}</strong><th>
           </tr>
           <tr>
             <td>
-              <ul>
-                <li><em>Completado: </em>${values[i].completado}</li><br>
-                <li><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</li><br>
-                <li><em>Tipo: </em>${values[i].tipo}</li><br>
-              </ul>
-            </td>
-          </tr>
-        </table>
+
+                <td><em>Completado: </em>${values[i].completado}</td>
+                <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
+                <td><em>Tipo: </em>${values[i].tipo}</td>
+                </tr>
+
         `
     //     values.innerHTML = values.filter(tipoEjercicios)
 
@@ -157,8 +172,8 @@ function tTemas(sede, gen, id, temas) {
     //     return tipo(lectura)
     // }   
     }
-    pDesplegar += `</ul>
-    </div>`
+    pDesplegar += `</tbody>
+</table>`
     
  }
 //  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
@@ -170,6 +185,10 @@ subTemA.innerHTML = pDesplegar
 // **Hacer una funcion con parametro**
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
+
+
+
+
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
@@ -236,21 +255,22 @@ export const datosEstudiantes = (gen) => {
                       </tr>
                       </thead>
                     <tbody>
-                      <tr>
+                      
+                        <tr>
                         <td scope="col"><h6><b> Temario: </b></h6></td>
+                        <tr>
+                        <td>
+                          <button><i class="fas fa-filter"></i>Completado</button><br>
+                          <button><i class="fas fa-filter"></i>No completado</button><br>
+                          <button><i class="fas fa-filter"></i>Tipo: Ejercicios</button><br>
+                          <button><i class="fas fa-filter"></i>Tipo: Lecturas</button><br>
+                          <button><i class="fas fa-filter"></i>Tipo: Quiz</button><br>
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
                         <td class="temazo" id="${i}temas"></td>
                         <td class="subtemazo" id="${i}subtemas"></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button><i class="fas fa-filter"></i>Boton 1</button><br>
-                          <button><i class="fas fa-filter"></i>Boton 2</button><br>
-                          <button><i class="fas fa-filter"></i>Boton 2</button><br>
-                          <button><i class="fas fa-filter"></i>Boton 4</button><br>
-                          <button><i class="fas fa-filter"></i>Boton 5</button><br>
-                        </td>
-                        <td>
-                        </td>
                       </tr>
                     </tbody>
                 </table>
@@ -283,7 +303,7 @@ export const datosEstudiantes = (gen) => {
               sesentaMenos.innerHTML += `<h2>&#8226 ${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</h2>`
             }else {} 
         
-              // graficaSesenta.innerHTML = `<img src="../assets/Grafico${element}.jpg"></img>`
+              // graficaSesenta.innerHTML = `<img src="../assets/Grafico1${element}.jpg"></img>`
         },
       // dentro del arreglo vacio estudiantesNoventa se guardaran con push los datos de los estudiantes hasta porcentajeCompletado
       estudiantesNoventa.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado))
