@@ -165,6 +165,13 @@ function tTemas(sede, gen, id, temas) {
 subTemA.innerHTML = pDesplegar
 }
 
+//------------Filtrar: -subtemas: completado y no completado 
+// ----------Filtrar: subtemas: ejercicios, lectura, cuestionario 
+// **Hacer una funcion con parametro**
+//**Dentro de la funcion meter el filter con los variables**/
+// **Dentro del filter meter los valores que se van a filtrar**/
+
+
 
 
 
