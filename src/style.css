@@ -416,8 +416,13 @@ section2 {
   font-weight: bolder;
   color: #0f033de8;
   text-shadow: 2px 2px 4px #c3cf16cb;
+  text-align: center;
 }
 
+.temas {
+  text-align: center;
+  justify-content: center;
+}
 .btn-close {
   border-radius: 15px;
   width: 1.5rem;
