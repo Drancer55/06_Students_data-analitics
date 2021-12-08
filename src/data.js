@@ -7,14 +7,9 @@ let arrBruto = [];
 let lugar = "";
 let generacionPorSede = [];
 let dataEstudiantes = [];
-<<<<<<< HEAD
-let estudiantesPorcentajes = [];
-
-=======
 let estudiantesSesenta = [];
 let estudiantesNoventa = [];
 let studentsGen = [];
->>>>>>> 23a8f1c33f6212da5594cf945a624b598cdf5fe6
 
         //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
 const limpiarArray = () => {
@@ -302,6 +297,8 @@ export const datosEstudiantes = (gen) => {
 const porcentajesCompletados = (estudiantesPorcentajes) => {
 console.log(estudiantesPorcentajes);  
       estudiantesPorcentajes.forEach(function(element){
+      let graficaSesenta = document.getElementById("grafica60")
+      let graficaNoventa = document.getElementById('grafica90')
       let sesentaMenos = document.getElementById('sesenta')
       let masNoventa = document.getElementById('noventa')
       console.log(element.nombre);
@@ -309,10 +306,14 @@ console.log(estudiantesPorcentajes);
       if (element.progreso.porcentajeCompletado < 60 ) {
         console.log("Alumnos debajo del 60%: " + element.nombre + element.progreso.porcentajeCompletado);
          sesentaMenos.innerHTML = `<h3>Alumnos con porcentaje por debajo del 60%: ${element.nombre}</h3>`
+         
       }else if (element.progreso.porcentajeCompletado > 90){
         console.log("Alumnos arriba del 90%: " + element.nombre );
       }
+      
+graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
     })
+    
   }
 
 
