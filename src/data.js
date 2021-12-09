@@ -119,59 +119,6 @@ export const botonAtras = () => {
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
-<<<<<<< HEAD
-
-=======
-function tTemas(sede, gen, id, temas) {
-    
-    let subTemA = document.getElementById(id)
-    let pDesplegar= ''
-    // Iteracion para pintar los temas
-    for (const tema in temas) {
-        pDesplegar += ` <table class="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">Tema</th>
-      <th scope="col">Subtema</th>
-    </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td >${tema}</td>
-
-    `
-    let values = Object.values(temas[tema].subtemas)
-    let keys = Object.keys(temas[tema].subtemas)
-
-    //------------Iteracion para lo que hay dentro de los subtemas
-    for (let i = 0; i < values.length; i++) {
-        pDesplegar += `
-          <tr>
-            <th><strong>${keys[i]}</strong><th>
-          </tr>
-          <tr>
-            <td>
-            <td><em>Completado: </em>${values[i].completado}</td>
-            <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
-            <td><em>Tipo: </em>${values[i].tipo}</td>
-          </tr>`
-    //     values.innerHTML = values.filter(tipoEjercicios)
-
-    
-    // function tipoEjercicios() {
-    //     return tipo(lectura)
-    // }   
-    }
-    pDesplegar += `
-    </tbody>
-    </table>`
-    
-}
-//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
-subTemA.innerHTML = pDesplegar
-}
->>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
@@ -344,8 +291,7 @@ export const datosEstudiantes = (gen) => {
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
-<<<<<<< HEAD
-       
+       //filterSub()
          //Se prende la funcion de porcentajes de alumnos
   }
 
@@ -374,27 +320,11 @@ function tTemas(sede, gen, id, temas) {
   <tbody>
     <tr>
       <td >${tema}</td>
-=======
-        filtrarSub(dataEstudiantes)
-         //Se prende la funcion de porcentajes de alumnos             
-        // -------------Pintamos las cards--------
-  }}
-const filtrarSub = (dataEstudiantes, completado) => {
-    //console.log(dataEstudiantes,completado)
-    dataEstudiantes.filter(function(completado){
-    console.log(completado);
-    if(completado == 1){
-      console.log(completado);
-      return completado 
-    }
-    })
->>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
     `
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
-<<<<<<< HEAD
     //------------Iteracion para lo que hay dentro de los subtemas
      
    
@@ -413,7 +343,15 @@ const filtrarSub = (dataEstudiantes, completado) => {
                 </tr>
 
         `
-        console.log(values[i].completado)  
+        console.log(values[i].completado) 
+        if (values[i].completado == 1) {
+          let completado=   document.getElementById("completado") 
+          completado.innerHTML =`${keys[i]}`
+        } else if (values[i].completado == 0) {
+           let noCompletado = document.getElementById("noCompletado")
+           noCompletado.innerHTML = `${keys[i]}`
+        } 
+
     }
     pDesplegar += `</tbody>
 </table>`
@@ -426,30 +364,46 @@ subTemA.innerHTML = pDesplegar
 
 
 
+// const filterSub = (temas) =>{
+//     let p = ''
+//     for (const tema in temas) {
+        
+//         let values = Object.values(temas[tema].subtemas)
+//         let keys = Object.keys(temas[tema].subtemas)
+//              console.log(values); 
+//              console.log(keys);  
+//         }
+    
+    
+//     for (let i = 0; i < values.length; i++) {
+//        p+= ` ${values[i].completado}`
+//         console.log(values[i].completado)
+        
+//     }
+
+// }
 
 
 
 
 
-=======
->>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
-console.log(estudiantesPorcentajes); 
+//console.log(estudiantesPorcentajes); 
      //Se utilizará el método forEach para seleccionar a los alumnos con porcentajes debajo de 60 y arriba de 90 
       estudiantesPorcentajes.forEach(function(element){
      //Se declarán dos variables para atraer los ID en donde se pintarán los resultados 
       let sesentaMenos = document.getElementById('sesenta')
       let masNoventa = document.getElementById('noventa')
-      console.log(element.nombre);
-        console.log(element.progreso.porcentajeCompletado);
+      //console.log(element.nombre);
+        //console.log(element.progreso.porcentajeCompletado);
       //Se declarán las condicionales de <60 y >90 respectivamente
       if (element.progreso.porcentajeCompletado < 60 ) {
-        console.log("Alumnos debajo del 60%: " + element.nombre );
+        //console.log("Alumnos debajo del 60%: " + element.nombre );
       //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
          sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
-        console.log("Alumnos arriba del 90%: " + element.nombre );
+        //console.log("Alumnos arriba del 90%: " + element.nombre );
         //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
         masNoventa.innerHTML = `<h3>Alumnos arriba del 90%: ${element.nombre}${element.progreso.porcentajeCompletado}</h3>`
         estudiantesPorcentajes = [];
