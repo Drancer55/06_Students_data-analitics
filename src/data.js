@@ -118,10 +118,169 @@ export const botonAtras = () => {
 
 
 
-  
-     
+//------------Filtrar: -subtemas: completado y no completado 
+// ----------Filtrar: subtemas: ejercicios, lectura, cuestionario 
+// **Hacer una funcion con parametro**
+//**Dentro de la funcion meter el filter con los variables**/
+// **Dentro del filter meter los valores que se van a filtrar**/
 
 
+
+
+
+// Método sort que acomoda los resultados en orden alfabético
+const sortStudents = (arrStudents) => {
+  console.log(arrStudents);
+ 
+    arrStudents.sort(
+    function (a, b) {
+    let nombreA = a.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
+    let nombreB = b.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
+    if (nombreA < nombreB) {
+      return -1;
+    } if (nombreA > nombreB) {
+      return 1;
+    } 
+    return 0 
+  })
+}
+
+// -------Funcion para pintar Cars y modales
+export const datosEstudiantes = (gen) => {
+    document.getElementById("morros").innerHTML = ''
+    console.log(lugar)
+    studentsGen= []
+    studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes)
+    sortStudents(studentsGen[0])
+    console.log(studentsGen[0])
+    //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
+    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
+
+        document.getElementById("morros").innerHTML += `
+        <center>
+        <div class="card w-100">
+            <div class="card-body">
+                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
+                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
+                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
+                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
+                    Ver más...
+                </button>
+        </center>`
+
+        modal(gen)
+        
+        // -------------Pintamos las cards--------
+       
+        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
+        porcentajesCompletados(estudiantesPorcentajes);
+  }
+}
+
+const modal = (gen) => {
+    console.log(modal);
+ document.getElementById("morros").innerHTML += `
+        
+        <!-- Modal -->
+            <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}:</b></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"><center><h6>Registro académico</h6></center></th>
+                      </tr>
+                      <tr>
+                        <th scope="col"><h6 class="card-text"><b>E-mail:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6></th>
+                        <th scope="col"><h6 class="card-text"><b>Duración:<br> </b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6></th>
+                        <th scope="col"><h6 class="card-text"><b>Progreso completado:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6></th>
+                      </tr>
+                      </thead>
+                    <tbody
+                      <tr>
+                        <td scope="col"><h6><center><b> Filtro: </b></center><h6></td>
+                        <td scope="col"><h6><b> Temario: </b></h6></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <i class="fas fa-filter"></i> Completado
+                                </button>
+                              </h2>
+                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"></div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                <i class="fas fa-filter"></i> No completado
+                                </button>
+                              </h2>
+                              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">  </div>
+                              </div>
+                            </div><div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                              <i class="fas fa-filter"></i> Ejercicios
+                              </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body"> </div>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                <i class="fas fa-filter"></i> Lecturas
+                                </button>
+                              </h2>
+                              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"></div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                <i class="fas fa-filter"></i> Quiz
+                                </button>
+                              </h2>
+                              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="temazo" id="${i}temas"></td>
+                        <td class="subtemazo" id="${i}subtemas"></td>
+                      </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
+                </div>
+                </div>
+                </div>
+            </div>
+            </center>
+`
+        // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
+        tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
+        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
+}
 
 
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
@@ -180,161 +339,8 @@ function tTemas(sede, gen, id, temas) {
 subTemA.innerHTML = pDesplegar
 }
 
-//------------Filtrar: -subtemas: completado y no completado 
-// ----------Filtrar: subtemas: ejercicios, lectura, cuestionario 
-// **Hacer una funcion con parametro**
-//**Dentro de la funcion meter el filter con los variables**/
-// **Dentro del filter meter los valores que se van a filtrar**/
 
 
-
-
-
-// Método sort que acomoda los resultados en orden alfabético
-const sortStudents = (arrStudents) => {
-  console.log(arrStudents);
- 
-    arrStudents.sort(
-    function (a, b) {
-    let nombreA = a.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
-    let nombreB = b.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
-    if (nombreA < nombreB) {
-      return -1;
-    } if (nombreA > nombreB) {
-      return 1;
-    } 
-    return 0 
-  })
-}
-
-// -------Funcion para pintar Cars y modales
-export const datosEstudiantes = (gen) => {
-    document.getElementById("morros").innerHTML = ''
-    console.log(lugar)
-    studentsGen= []
-    studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes)
-    sortStudents(studentsGen[0])
-    console.log(studentsGen[0])
-    //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
-    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
-        
-        // -------------Pintamos las cards--------
-        document.getElementById("morros").innerHTML += `
-        <center>
-        <div class="card w-100">
-            <div class="card-body">
-                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
-                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
-                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
-                    Ver más...
-                </button>
-        </center>
-
-        <!-- Modal -->
-            <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}:</b></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col"><center><h6>Registro académico</h6></center></th>
-                      </tr>
-                      <tr>
-                        <th scope="col"><h6 class="card-text"><b>E-mail:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6></th>
-                        <th scope="col"><h6 class="card-text"><b>Duración:<br> </b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6></th>
-                        <th scope="col"><h6 class="card-text"><b>Progreso completado:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6></th>
-                      </tr>
-                      </thead>
-                    <tbody
-                      <tr>
-                        <td scope="col"><h6><center><b> Filtro: </b></center><h6></td>
-                        <td scope="col"><h6><b> Temario: </b></h6></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                <i class="fas fa-filter"></i> Completado
-                                </button>
-                              </h2>
-                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                <i class="fas fa-filter"></i> No completado
-                                </button>
-                              </h2>
-                              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                              </div>
-                            </div><div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                              <i class="fas fa-filter"></i> Ejercicios
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                            </div>
-                          </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                <i class="fas fa-filter"></i> Lecturas
-                                </button>
-                              </h2>
-                              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                <i class="fas fa-filter"></i> Quiz
-                                </button>
-                              </h2>
-                              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="temazo" id="${i}temas"></td>
-                        <td class="subtemazo" id="${i}subtemas"></td>
-                      </tr>
-                    </tbody>
-                </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar a los resultados</button>
-                </div>
-                </div>
-                </div>
-            </div>
-            </center>
-`
-        // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
-        tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
-        tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
-        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-        estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
-        porcentajesCompletados(estudiantesPorcentajes);
-  }
-}
-    
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
 console.log(estudiantesPorcentajes);  
