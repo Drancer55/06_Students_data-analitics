@@ -131,53 +131,41 @@ function tTemas(sede, gen, id, temas) {
     let pDesplegar= ''
     // Iteracion para pintar los temas
     for (const tema in temas) {
-        pDesplegar += ` <table class="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">Tema</th>
-      <th scope="col">Subtema</th>
-    </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td >${tema}</td>
+        pDesplegar += `
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Tema</th>
+              <th scope="col">Subtema</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td >${tema}</td>`
 
-    `
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
     //------------Iteracion para lo que hay dentro de los subtemas
-     
-   
-  
-    for (let i = 0; i < values.length; i++) {
+      for (let i = 0; i < values.length; i++) {
         pDesplegar += `
           <tr>
             <th><strong>${keys[i]}</strong><th>
           </tr>
           <tr>
-            <td>
-
-                <td><em>Completado: </em>${values[i].completado}</td>
-                <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
-                <td><em>Tipo: </em>${values[i].tipo}</td>
-                </tr>
-
-        `
-    //     values.innerHTML = values.filter(tipoEjercicios)
-
-    
-    // function tipoEjercicios() {
-    //     return tipo(lectura)
-    // }   
+            <td></td>
+            <td><em>Completado: </em>${values[i].completado}</td>
+            <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
+            <td><em>Tipo: </em>${values[i].tipo}</td>
+          </tr>`
     }
-    pDesplegar += `</tbody>
-</table>`
-    
+      pDesplegar += 
+      `</tbody>
+      </table>`
+      
  }
 //  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
-subTemA.innerHTML = pDesplegar
+  subTemA.innerHTML = pDesplegar
 }
 
 //------------Filtrar: -subtemas: completado y no completado 
@@ -193,7 +181,6 @@ subTemA.innerHTML = pDesplegar
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
   console.log(arrStudents);
- 
     arrStudents.sort(
     function (a, b) {
     let nombreA = a.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
@@ -352,40 +339,39 @@ console.log(estudiantesPorcentajes);
     })
   }
 
-// //-------------Buscador de los alumnos
-// //Se crear una función para filtar los datos de busqueda que se pintarán
-// export const buscandoAlumnos = (sede, gen) => {
-// //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
-// const formulario = document.querySelector('#formulario');
-// const botonBuscador = document.querySelector('#buscar');
-// const resultado = document.querySelector('#morros');
-// resultado.innerHTML = '';
-// const busqueda = document.getElementById('formulario').value.toLowerCase();
-//   for (let i = 0; i < arrBruto[sede].generacion[gen].estudiantes.length; i++) {
-//   }
-//     // console.log(formulario.value);
-//     const nombre = (arrBruto[sede].generacion[gen].estudiantes[i].nombre).toLowerCase();
-//     //console.log(alumnos.indexOf(busqueda));
-//         if(nombre.indexOf(busqueda) !== -1) {
-//             resultado.innerHTML += `
-//             <center>
-//               <div class="card w-100">
-//                 <div class="card-body">
-//                   <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
-//                   <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-//                   <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
-//                   <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
-//                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
-//                       Ver más...
-//                   </button>
-//             </center>`
-//         }
-//         if (resultado.innerHTML === ''){
-//             resultado.innerHTML += `<li>Alumno no encontrado</li>`
-//         }
-//         //Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
-// botonBuscador.addEventListener("click", buscandoAlumnos);
-// formulario.addEventListener('keyup', buscandoAlumnos)
-// buscandoAlumnos();
-//     }
-
+//-------------Buscador de los alumnos
+//Se crear una función para filtar los datos de busqueda que se pintarán
+export const buscandoAlumnos = (sede, gen) => {
+//Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
+const formulario = document.querySelector('#formulario');
+const botonBuscador = document.querySelector('#buscar');
+const resultado = document.querySelector('#morros');
+resultado.innerHTML = '';
+const busqueda = document.getElementById('formulario').value.toLowerCase();
+  for (let i = 0; i < arrBruto[sede].generacion[gen].estudiantes.length; i++) {
+  }
+    // console.log(formulario.value);
+    const nombre = (arrBruto[sede].generacion[gen].estudiantes[i].nombre).toLowerCase();
+    //console.log(alumnos.indexOf(busqueda));
+        if(nombre.indexOf(busqueda) !== -1) {
+            resultado.innerHTML += `
+            <center>
+              <div class="card w-100">
+                <div class="card-body">
+                  <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
+                  <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
+                  <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
+                  <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
+                      Ver más...
+                  </button>
+            </center>`
+        }
+        if (resultado.innerHTML === ''){
+            resultado.innerHTML += `<li>Alumno no encontrado</li>`
+        }
+        //Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
+botonBuscador.addEventListener("click", buscandoAlumnos);
+formulario.addEventListener('keyup', buscandoAlumnos)
+buscandoAlumnos();
+    }
