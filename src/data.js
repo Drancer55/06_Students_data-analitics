@@ -345,7 +345,7 @@ console.log(estudiantesPorcentajes);
         console.log(element.progreso.porcentajeCompletado);
       if (element.progreso.porcentajeCompletado < 60 ) {
         console.log("Alumnos debajo del 60%: " + element.nombre + element.progreso.porcentajeCompletado);
-         sesentaMenos.innerHTML = `<h3>Alumnos con porcentaje por debajo del 60%: ${element.nombre}</h3>`
+        sesentaMenos.innerHTML = `<h3>Alumnos con porcentaje por debajo del 60%: ${element.nombre}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
         console.log("Alumnos arriba del 90%: " + element.nombre );
       }
@@ -389,5 +389,3 @@ const filtrar = (sede, gen) => {
 botonBuscador.addEventListener("click", filtrar);
 formulario.addEventListener('keyup', filtrar)
 filtrar();
-
-
