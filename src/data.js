@@ -7,14 +7,8 @@ let arrBruto = [];
 let lugar = "";
 let generacionPorSede = [];
 let dataEstudiantes = [];
-<<<<<<< HEAD
 let estudiantesPorcentajes = [];
 
-=======
-let estudiantesSesenta = [];
-let estudiantesNoventa = [];
-let studentsGen = [];
->>>>>>> 23a8f1c33f6212da5594cf945a624b598cdf5fe6
 
         //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
 const limpiarArray = () => {
@@ -120,13 +114,6 @@ export const botonAtras = () => {
     document.getElementById("back").innerHTML = 
     `<button class="return" onclick= "dashBoard.regresaraSedes("back")">&#171 Atrás</button>`
 }
-
-
-
-  
-     
-
-
 
 
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
