@@ -36,7 +36,6 @@ fetch(Data)
     console.log(mostrarSedes)})
 .catch((error) => console.log(error))
 }
-
             //---------------Funcion dinamica para atraer y pintar los datos de las sedes en pantalla dos--------------//
 const mostrarSedes = (dataEscolar) => {
   let img;
@@ -114,22 +113,69 @@ export const botonAtras = () => {
     document.getElementById("back").innerHTML = 
     `<button class="return" onclick= "dashBoard.regresaraSedes("back")">&#171 Atrás</button>`
 }
-
-
-
-
 //------------Filtrar: -subtemas: completado y no completado 
 // ----------Filtrar: subtemas: ejercicios, lectura, cuestionario 
 // **Hacer una funcion con parametro**
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
+<<<<<<< HEAD
 
+=======
+function tTemas(sede, gen, id, temas) {
+    
+    let subTemA = document.getElementById(id)
+    let pDesplegar= ''
+    // Iteracion para pintar los temas
+    for (const tema in temas) {
+        pDesplegar += ` <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Tema</th>
+      <th scope="col">Subtema</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td >${tema}</td>
+
+    `
+    let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
+
+    //------------Iteracion para lo que hay dentro de los subtemas
+    for (let i = 0; i < values.length; i++) {
+        pDesplegar += `
+          <tr>
+            <th><strong>${keys[i]}</strong><th>
+          </tr>
+          <tr>
+            <td>
+            <td><em>Completado: </em>${values[i].completado}</td>
+            <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
+            <td><em>Tipo: </em>${values[i].tipo}</td>
+          </tr>`
+    //     values.innerHTML = values.filter(tipoEjercicios)
+
+    
+    // function tipoEjercicios() {
+    //     return tipo(lectura)
+    // }   
+    }
+    pDesplegar += `
+    </tbody>
+    </table>`
+    
+}
+//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
+subTemA.innerHTML = pDesplegar
+}
+>>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
   console.log(arrStudents);
- 
     arrStudents.sort(
     function (a, b) {
     let nombreA = a.nombre.toLowerCase(); //ignora mayúsculas y minúsculas
@@ -143,19 +189,50 @@ const sortStudents = (arrStudents) => {
   })
 }
 
+//--------Función para buscar estudiantes---------------------
+let formulario = document.querySelector('#formulario');
+let boton = document.querySelector('#buscar')
+let resultado = document.querySelector('#morros')
+const buscarEstudiantes = (gen) => {
+  console.log(formulario.value);
+  resultado.innerHTML = '';
+  const texto = formulario.value.toLowerCase();
+  for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
+    if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
+      resultado.innerHTML += `
+      <center>
+        <div class="card w-100">
+            <div class="card-body">
+                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
+                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
+                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
+                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
+                    Ver más...
+                </button>
+      </center>`
+    }
+    }
+    if (resultado.innerHTML === '') {
+      resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
+    }
+}
+boton.addEventListener('click', buscarEstudiantes)
+formulario.addEventListener('keyup', buscarEstudiantes)
+
 // -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
-    document.getElementById("morros").innerHTML = ''
-    console.log(lugar)
-    studentsGen= []
-    studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes)
-    sortStudents(studentsGen[0])
-    console.log(studentsGen[0])
-    //console.log(arrBruto[0][lugar].generacion[gen].estudiantes.length);
-    for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-        console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
-
-        document.getElementById("morros").innerHTML += `
+  console.log(lugar)
+  document.getElementById('morros').innerHTML = '';
+  studentsGen = [];
+  studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes);
+  sortStudents(studentsGen[0]);
+  //buscarEstudiantes();
+  console.log(studentsGen[0]);
+  for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+    console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
+    document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
             <div class="card-body">
@@ -264,9 +341,10 @@ export const datosEstudiantes = (gen) => {
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
         
-         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
+<<<<<<< HEAD
        
          //Se prende la funcion de porcentajes de alumnos
   }
@@ -296,11 +374,27 @@ function tTemas(sede, gen, id, temas) {
   <tbody>
     <tr>
       <td >${tema}</td>
+=======
+        filtrarSub(dataEstudiantes)
+         //Se prende la funcion de porcentajes de alumnos             
+        // -------------Pintamos las cards--------
+  }}
+const filtrarSub = (dataEstudiantes, completado) => {
+    //console.log(dataEstudiantes,completado)
+    dataEstudiantes.filter(function(completado){
+    console.log(completado);
+    if(completado == 1){
+      console.log(completado);
+      return completado 
+    }
+    })
+>>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
     `
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
+<<<<<<< HEAD
     //------------Iteracion para lo que hay dentro de los subtemas
      
    
@@ -337,6 +431,8 @@ subTemA.innerHTML = pDesplegar
 
 
 
+=======
+>>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
 console.log(estudiantesPorcentajes); 
@@ -363,38 +459,3 @@ console.log(estudiantesPorcentajes);
     })
     
   }
-
-//-------------Buscador de los alumnos
-
-//Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
-// const formulario = document.querySelector('#formulario')
-const botonBuscador = document.querySelector('#buscar')
-const resultado = document.querySelector('#resultado')
-resultado.innerHTML = '';
-
-
-//Se crear una función para filtar los datos de busqueda que se pintarán
-const filtrar = (sede, gen) => {
-    // console.log(formulario.value);
-    const busqueda = document.getElementById('formulario').value.toLowerCase()
-    // for (let i = 0; < arrBruto[sede].generacion[gen].estudiantes.length; i++) {      
-    //     let alumnos = (arrBruto[sede].generacion[gen].estudiantes[i].nombre).toLowerCase()
-    //     console.log(alumnos.indexOf(busqueda));
-    // }
-    const buscarAlumnos = busqueda.value.toLowerCase();
-    for(let alumnos of dataEstudiantes){
-        let texto = alumnos.nombre.toLowerCase();
-        console.log(texto);
-        if(texto.indexOf(texto1) !== -1){
-            resultado.innerHTML += `<li>${alumn.nombre}</li>`
-        }
-    // }
-        if (resultado.innerHTML == ''){
-            resultado.innerHTML += `<li>Alumno no encontrado</li>`
-        }
-    }}
-
-//Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
-botonBuscador.addEventListener("click", filtrar);
-
-
