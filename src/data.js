@@ -168,22 +168,7 @@ export const datosEstudiantes = (gen) => {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver más...
                 </button>
-        </center>`
-
-        modal(gen)
-        
-        // -------------Pintamos las cards--------
-       
-        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-        estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
-        porcentajesCompletados(estudiantesPorcentajes);
-  }
-}
-
-const modal = (gen) => {
-    console.log(modal);
- document.getElementById("morros").innerHTML += `
-        
+        </center>
         <!-- Modal -->
             <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
@@ -280,11 +265,22 @@ const modal = (gen) => {
         // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
-        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
-        porcentajesCompletados(estudiantesPorcentajes); //Se prende la funcion de porcentajes de alumnos
+        porcentajesCompletados(estudiantesPorcentajes);
+         //Se prende la funcion de porcentajes de alumnos
   }
 
+
+              
+        // -------------Pintamos las cards--------
+       
+       
+  }
+
+ 
+        
+        
 
 
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
@@ -367,7 +363,7 @@ console.log(estudiantesPorcentajes);
         estudiantesPorcentajes = [];
       }
       
-graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
+//graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
     })
     
   }
