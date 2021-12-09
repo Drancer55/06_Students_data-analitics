@@ -347,9 +347,9 @@ export const datosEstudiantes = (gen) => {
 const filtrarSub = (dataEstudiantes, completado) => {
     //console.log(dataEstudiantes,completado)
     dataEstudiantes.filter(function(completado){
-    console.log(completado);
+    // console.log(completado);
     if(completado == 1){
-      console.log(completado);
+      // console.log(completado);
       return completado 
     }
     })
@@ -364,15 +364,15 @@ console.log(estudiantesPorcentajes);
      //Se declarán dos variables para atraer los ID en donde se pintarán los resultados 
       let sesentaMenos = document.getElementById('sesenta')
       let masNoventa = document.getElementById('noventa')
-      console.log(element.nombre);
-        console.log(element.progreso.porcentajeCompletado);
+      // console.log(element.nombre);
+        // console.log(element.progreso.porcentajeCompletado);
       //Se declarán las condicionales de <60 y >90 respectivamente
       if (element.progreso.porcentajeCompletado < 60 ) {
-        console.log("Alumnos debajo del 60%: " + element.nombre );
+        // console.log("Alumnos debajo del 60%: " + element.nombre );
       //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
          sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
-        console.log("Alumnos arriba del 90%: " + element.nombre );
+        // console.log("Alumnos arriba del 90%: " + element.nombre );
         //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
         masNoventa.innerHTML = `<h3>Alumnos arriba del 90%: ${element.nombre}${element.progreso.porcentajeCompletado}</h3>`
         estudiantesPorcentajes = [];
@@ -382,3 +382,22 @@ console.log(estudiantesPorcentajes);
     })
     
   }
+
+//-------------------Funcion dinàmica para pintar gràficas-------------//
+const mostrarGraficas = (sede, gen) => {
+  let img1 = document.getElementById('graficas')                                                                      
+  let img2 = document.getElementById('graficas')
+  let img3 = document.getElementById('graficas')
+  for (const gen in sede) {
+    console.log(gen);
+    console.log(sede);
+    if (gen == "primera") {
+      img1.innerHTML = `<img src="../assets/Grafico1.jpg"/>`
+    }else if (gen == "segunda"){
+      img2.innerHTML = `<img src= "../assets/Grafico2.jpg"/>`
+    }else if (gen == "tercera"){
+      img3.innerHTML = `<img src= "../assets/Grafico3.jpg"/>`
+    }
+    
+  }
+}
