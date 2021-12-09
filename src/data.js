@@ -7,8 +7,7 @@ let arrBruto = [];
 let lugar = "";
 let generacionPorSede = [];
 let dataEstudiantes = [];
-let estudiantesSesenta = [];
-let estudiantesNoventa = [];
+let estudiantesPorcentajes = [];
 let studentsGen = [];
 
         //---------------------Se crea una funcion para limpiar el arreglo-----------------------------------//
@@ -115,6 +114,7 @@ export const botonAtras = () => {
     document.getElementById("back").innerHTML = 
     `<button class="return" onclick= "dashBoard.regresaraSedes("back")">&#171 Atrás</button>`
 }
+
 
 
 
@@ -280,7 +280,11 @@ const modal = (gen) => {
         // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
-}
+        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
+        porcentajesCompletados(estudiantesPorcentajes); //Se prende la funcion de porcentajes de alumnos
+  }
+
 
 
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
@@ -343,20 +347,24 @@ subTemA.innerHTML = pDesplegar
 
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
-console.log(estudiantesPorcentajes);  
+console.log(estudiantesPorcentajes); 
+     //Se utilizará el método forEach para seleccionar a los alumnos con porcentajes debajo de 60 y arriba de 90 
       estudiantesPorcentajes.forEach(function(element){
-      let graficaSesenta = document.getElementById("grafica60")
-      let graficaNoventa = document.getElementById('grafica90')
+     //Se declarán dos variables para atraer los ID en donde se pintarán los resultados 
       let sesentaMenos = document.getElementById('sesenta')
       let masNoventa = document.getElementById('noventa')
       console.log(element.nombre);
         console.log(element.progreso.porcentajeCompletado);
+      //Se declarán las condicionales de <60 y >90 respectivamente
       if (element.progreso.porcentajeCompletado < 60 ) {
-        console.log("Alumnos debajo del 60%: " + element.nombre + element.progreso.porcentajeCompletado);
-         sesentaMenos.innerHTML = `<h3>Alumnos con porcentaje por debajo del 60%: ${element.nombre}</h3>`
-         
+        console.log("Alumnos debajo del 60%: " + element.nombre );
+      //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
+         sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
         console.log("Alumnos arriba del 90%: " + element.nombre );
+        //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
+        masNoventa.innerHTML = `<h3>Alumnos arriba del 90%: ${element.nombre}${element.progreso.porcentajeCompletado}</h3>`
+        estudiantesPorcentajes = [];
       }
       
 graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
