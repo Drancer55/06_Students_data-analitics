@@ -192,10 +192,9 @@ let resultado = document.querySelector('#morros')
 const buscarEstudiantes = (gen) => {
   console.log(formulario.value);
   resultado.innerHTML = '';
-  //datosEstudiantes();
   const texto = formulario.value.toLowerCase();
   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    const nombres = (arrBruto[lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
+    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
     if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
       resultado.innerHTML += `
       <center>
@@ -221,6 +220,7 @@ formulario.addEventListener('keyup', buscarEstudiantes)
 // -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
   console.log(lugar)
+  document.getElementById('morros').innerHTML = '';
   studentsGen = [];
   studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes);
   sortStudents(studentsGen[0]);
