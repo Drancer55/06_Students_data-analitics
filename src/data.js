@@ -123,10 +123,61 @@ export const botonAtras = () => {
 // **Hacer una funcion con parametro**
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
+//-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
+function tTemas(sede, gen, id, temas) {
+    
+    let subTemA = document.getElementById(id)
+    let pDesplegar= ''
+    // Iteracion para pintar los temas
+    for (const tema in temas) {
+        pDesplegar += ` <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Tema</th>
+      <th scope="col">Subtema</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td >${tema}</td>
 
+    `
+    let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
 
+    //------------Iteracion para lo que hay dentro de los subtemas
+     
+   
+  
+    for (let i = 0; i < values.length; i++) {
+        pDesplegar += `
+          <tr>
+            <th><strong>${keys[i]}</strong><th>
+          </tr>
+          <tr>
+            <td>
 
+                <td><em>Completado: </em>${values[i].completado}</td>
+                <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
+                <td><em>Tipo: </em>${values[i].tipo}</td>
+                </tr>
 
+        `
+    //     values.innerHTML = values.filter(tipoEjercicios)
+
+    
+    // function tipoEjercicios() {
+    //     return tipo(lectura)
+    // }   
+    }
+    pDesplegar += `</tbody>
+</table>`
+    
+ }
+//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
+subTemA.innerHTML = pDesplegar
+}
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
@@ -265,9 +316,11 @@ export const datosEstudiantes = (gen) => {
         // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
+        
          dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
+        filtrarSub(dataEstudiantes)
          //Se prende la funcion de porcentajes de alumnos
   }
 
@@ -279,65 +332,26 @@ export const datosEstudiantes = (gen) => {
   }
 
  
-        
-        
 
 
-//-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
-function tTemas(sede, gen, id, temas) {
-    
-    let subTemA = document.getElementById(id)
-    let pDesplegar= ''
-    // Iteracion para pintar los temas
-    for (const tema in temas) {
-        pDesplegar += ` <table class="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">Tema</th>
-      <th scope="col">Subtema</th>
-    </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td >${tema}</td>
-
-    `
-    let values = Object.values(temas[tema].subtemas)
-    let keys = Object.keys(temas[tema].subtemas)
-
-    //------------Iteracion para lo que hay dentro de los subtemas
-     
-   
-  
-    for (let i = 0; i < values.length; i++) {
-        pDesplegar += `
-          <tr>
-            <th><strong>${keys[i]}</strong><th>
-          </tr>
-          <tr>
-            <td>
-
-                <td><em>Completado: </em>${values[i].completado}</td>
-                <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
-                <td><em>Tipo: </em>${values[i].tipo}</td>
-                </tr>
-
-        `
-    //     values.innerHTML = values.filter(tipoEjercicios)
-
-    
-    // function tipoEjercicios() {
-    //     return tipo(lectura)
-    // }   
+const filtrarSub = (dataEstudiantes) => {
+    //console.log(dataEstudiantes,completado)
+    dataEstudiantes.filter(function(completado){
+    //console.log(completado);
+    if(completado == 1){
+      console.log(completado);
     }
-    pDesplegar += `</tbody>
-</table>`
-    
- }
-//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
-subTemA.innerHTML = pDesplegar
+    })
+
 }
+
+
+
+
+
+
+
+
 
 
 
