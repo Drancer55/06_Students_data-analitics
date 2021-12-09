@@ -367,9 +367,8 @@ export const datosEstudiantes = (gen) => {
         // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
-<<<<<<< HEAD
         
-         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
+        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
         filtrarSub(dataEstudiantes)
@@ -408,15 +407,6 @@ const filtrarSub = (dataEstudiantes) => {
 
 
 // ------------------------Porcentajes de alumnos----------------------------------------//
-=======
-        dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
-        estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
-        porcentajesCompletados(estudiantesPorcentajes);
-  }
-}
-    
-//------------------------Porcentajes de alumnos----------------------------------------//
->>>>>>> 6658ec54f3793e2cdabaa93a97c7738c5e996b4f
 const porcentajesCompletados = (estudiantesPorcentajes) => {
 console.log(estudiantesPorcentajes);  
       estudiantesPorcentajes.forEach(function(element){
