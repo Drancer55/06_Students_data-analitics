@@ -3,7 +3,6 @@ import {traerData, iterarSede, iterarGen, datosEstudiantes, botonAtras} from "./
 const Data = "../data/students.json";
 
 console.log("ventana actual: ", window);
-
 traerData(Data);
 
 
