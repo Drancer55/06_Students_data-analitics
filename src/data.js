@@ -119,6 +119,9 @@ export const botonAtras = () => {
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
+<<<<<<< HEAD
+
+=======
 function tTemas(sede, gen, id, temas) {
     
     let subTemA = document.getElementById(id)
@@ -168,6 +171,7 @@ function tTemas(sede, gen, id, temas) {
 //  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
 subTemA.innerHTML = pDesplegar
 }
+>>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
@@ -192,10 +196,9 @@ let resultado = document.querySelector('#morros')
 const buscarEstudiantes = (gen) => {
   console.log(formulario.value);
   resultado.innerHTML = '';
-  //datosEstudiantes();
   const texto = formulario.value.toLowerCase();
   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    const nombres = (arrBruto[lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
+    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
     if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
       resultado.innerHTML += `
       <center>
@@ -221,6 +224,7 @@ formulario.addEventListener('keyup', buscarEstudiantes)
 // -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
   console.log(lugar)
+  document.getElementById('morros').innerHTML = '';
   studentsGen = [];
   studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes);
   sortStudents(studentsGen[0]);
@@ -275,7 +279,7 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body"></div>
+                                <div class="accordion-body" id="completado"></div>
                               </div>
                             </div>
                             <div class="accordion-item">
@@ -285,16 +289,16 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">  </div>
+                                <div class="accordion-body" id="noCompletado">  </div>
                               </div>
                             </div><div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingThree">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                              <i class="fas fa-filter"></i> Ejercicios
+                              <i class="fas fa-filter" ></i> Ejercicios
                               </button>
                             </h2>
                             <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body"> </div>
+                              <div class="accordion-body" id="ejercicios> </div>
                             </div>
                           </div>
                             <div class="accordion-item">
@@ -304,7 +308,7 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body"></div>
+                                <div class="accordion-body" id="lecturas"></div>
                               </div>
                             </div>
                             <div class="accordion-item">
@@ -314,7 +318,7 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body"></div>
+                                <div class="accordion-body" id="quiz"></div>
                               </div>
                             </div>
                           </div>
@@ -340,6 +344,37 @@ export const datosEstudiantes = (gen) => {
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
+<<<<<<< HEAD
+       
+         //Se prende la funcion de porcentajes de alumnos
+  }
+
+
+              
+        // -------------Pintamos las cards--------
+       
+       
+  }
+
+ 
+function tTemas(sede, gen, id, temas) {
+    
+    let subTemA = document.getElementById(id)
+    let pDesplegar= ''
+    // Iteracion para pintar los temas
+    for (const tema in temas) {
+        pDesplegar += ` <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Tema</th>
+      <th scope="col">Subtema</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td >${tema}</td>
+=======
         filtrarSub(dataEstudiantes)
          //Se prende la funcion de porcentajes de alumnos             
         // -------------Pintamos las cards--------
@@ -353,9 +388,51 @@ const filtrarSub = (dataEstudiantes, completado) => {
       return completado 
     }
     })
+>>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
+    `
+    let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
+
+<<<<<<< HEAD
+    //------------Iteracion para lo que hay dentro de los subtemas
+     
+   
+  
+    for (let i = 0; i < values.length; i++) {
+        pDesplegar += `
+          <tr>
+            <th><strong>${keys[i]}</strong><th>
+          </tr>
+          <tr>
+            <td>
+
+                <td><em>Completado: </em>${values[i].completado}</td>
+                <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
+                <td><em>Tipo: </em>${values[i].tipo}</td>
+                </tr>
+
+        `
+        console.log(values[i].completado)  
+    }
+    pDesplegar += `</tbody>
+</table>`
+    
+ }
+//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
+subTemA.innerHTML = pDesplegar
 }
 
+
+
+
+
+
+
+
+
+=======
+>>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
 console.log(estudiantesPorcentajes); 
