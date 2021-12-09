@@ -382,38 +382,3 @@ console.log(estudiantesPorcentajes);
     })
     
   }
-
-// //-------------Buscador de los alumnos
-
-// //Se crea una constante para atraer con querySelector el id del input buscador y del boton de busqueda
-// // const formulario = document.querySelector('#formulario')
-// const botonBuscador = document.querySelector('#buscar')
-// const resultado = document.querySelector('#resultado')
-// resultado.innerHTML = '';
-
-
-// //Se crear una función para filtar los datos de busqueda que se pintarán
-// const filtrar = (sede, gen) => {
-//     // console.log(formulario.value);
-//     const busqueda = document.getElementById('formulario').value.toLowerCase()
-//     // for (let i = 0; < arrBruto[sede].generacion[gen].estudiantes.length; i++) {      
-//     //     let alumnos = (arrBruto[sede].generacion[gen].estudiantes[i].nombre).toLowerCase()
-//     //     console.log(alumnos.indexOf(busqueda));
-//     // }
-//     const buscarAlumnos = busqueda.value.toLowerCase();
-//     for(let alumnos of dataEstudiantes){
-//         let texto = alumnos.nombre.toLowerCase();
-//         console.log(texto);
-//         if(texto.indexOf(texto1) !== -1){
-//             resultado.innerHTML += `<li>${alumn.nombre}</li>`
-//         }
-//     // }
-//         if (resultado.innerHTML == ''){
-//             resultado.innerHTML += `<li>Alumno no encontrado</li>`
-//         }
-//     }}
-
-// //Se activa el boton con un addeventListtener para que al dar click se active la funcion filtrar
-// botonBuscador.addEventListener("click", filtrar);
-
-
