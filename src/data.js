@@ -39,6 +39,12 @@ fetch(Data)
             //---------------Funcion dinamica para atraer y pintar los datos de las sedes en pantalla dos--------------//
 const mostrarSedes = (dataEscolar) => {
   let img;
+  let grafica1 = document.getElementById('grafica1')
+  let grafica2 = document.getElementById('grafica2')
+  let grafica3 = document.getElementById('grafica3')
+  let grafica4 = document.getElementById('grafica4')
+  let grafica5 = document.getElementById('grafica5')
+  let grafica6 = document.getElementById('grafica6')
   let map;
   let campus;
   let botn;
@@ -50,19 +56,28 @@ const mostrarSedes = (dataEscolar) => {
       campus = "Ajusco";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15069.378607057964!2d-99.19927516935243!3d19.223805575500283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85cdfdf6a711c163%3A0xc02b29d16232aecf!2sAv.%20La%20Felicidad%20242%2C%20San%20Miguel%20Ajusco%2C%20Tlalpan%2C%2014700%20San%20Miguel%20Ajusco%2C%20CDMX!3m2!1d19.224214999999997!2d-99.194273!5e0!3m2!1ses-419!2smx!4v1637996084351!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
+      grafica1.innerHTML = `<img src="../assets/Grafico1.jpg" />`
+      grafica2.innerHTML = `<img src="../assets/Grafico2.jpg"/>`
+      grafica3.innerHTML = `<img src="../assets/Grafico3.jpg"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "chapultepec") {
       img = "../assets/LogoChapultepec.jpeg";
       campus = "Chapultepec";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15050.963273306652!2d-99.19941515547023!3d19.423601324983508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d201f8e7cbce13%3A0xf8bbfda793220ccc!2sCalle%20Julio%20Verne%2027%2C%20Polanco%2C%20Polanco%20IV%20Secc%2C%20Miguel%20Hidalgo%2C%2011560%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.427963899999998!2d-99.1969393!5e0!3m2!1ses-419!2smx!4v1637996847042!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
+        grafica4.innerHTML = `<img src="../assets/Grafico4.jpg"/>`
+        grafica5.innerHTML = `<img src="../assets/Grafico5.jpg"/>`
+        grafica6.innerHTML = `<img src="../assets/Grafico6.jpg"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "iztapalapa") {
       img = "../assets/LogoIztapalapa.jpeg";
       campus = "Iztapalapa";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d30115.851234696875!2d-99.08672062336888!3d19.348297199433908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d1fd88c97e8ce7%3A0x6978b1f508c61541!2sErmita%20Iztapalapa%202001%2C%20Los%20%C3%81ngeles%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.347834499999998!2d-99.0698948!5e0!3m2!1ses-419!2smx!4v1637998520536!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
+        grafica4.innerHTML = `<img src="../assets/Grafico4.jpg"/>`
+        grafica5.innerHTML = `<img src="../assets/Grafico5.jpg"/>`
+        grafica6.innerHTML = `<img src="../assets/Grafico6.jpg"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     }
     document.getElementById("sedes").innerHTML += `
         <div id="${key}" class="sucursal">
@@ -119,59 +134,6 @@ export const botonAtras = () => {
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
-<<<<<<< HEAD
-
-=======
-function tTemas(sede, gen, id, temas) {
-    
-    let subTemA = document.getElementById(id)
-    let pDesplegar= ''
-    // Iteracion para pintar los temas
-    for (const tema in temas) {
-        pDesplegar += ` <table class="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">Tema</th>
-      <th scope="col">Subtema</th>
-    </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td >${tema}</td>
-
-    `
-    let values = Object.values(temas[tema].subtemas)
-    let keys = Object.keys(temas[tema].subtemas)
-
-    //------------Iteracion para lo que hay dentro de los subtemas
-    for (let i = 0; i < values.length; i++) {
-        pDesplegar += `
-          <tr>
-            <th><strong>${keys[i]}</strong><th>
-          </tr>
-          <tr>
-            <td>
-            <td><em>Completado: </em>${values[i].completado}</td>
-            <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
-            <td><em>Tipo: </em>${values[i].tipo}</td>
-          </tr>`
-    //     values.innerHTML = values.filter(tipoEjercicios)
-
-    
-    // function tipoEjercicios() {
-    //     return tipo(lectura)
-    // }   
-    }
-    pDesplegar += `
-    </tbody>
-    </table>`
-    
-}
-//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
-subTemA.innerHTML = pDesplegar
-}
->>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
@@ -344,19 +306,18 @@ export const datosEstudiantes = (gen) => {
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
-<<<<<<< HEAD
-       
+        
          //Se prende la funcion de porcentajes de alumnos
   }
 
 
               
         // -------------Pintamos las cards--------
-       
-       
+      
+
   }
 
- 
+
 function tTemas(sede, gen, id, temas) {
     
     let subTemA = document.getElementById(id)
@@ -374,30 +335,14 @@ function tTemas(sede, gen, id, temas) {
   <tbody>
     <tr>
       <td >${tema}</td>
-=======
-        filtrarSub(dataEstudiantes)
-         //Se prende la funcion de porcentajes de alumnos             
-        // -------------Pintamos las cards--------
-  }}
-const filtrarSub = (dataEstudiantes, completado) => {
-    //console.log(dataEstudiantes,completado)
-    dataEstudiantes.filter(function(completado){
-    // console.log(completado);
-    if(completado == 1){
-      // console.log(completado);
-      return completado 
-    }
-    })
->>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 
     `
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
-<<<<<<< HEAD
     //------------Iteracion para lo que hay dentro de los subtemas
-     
-   
+  
+  
   
     for (let i = 0; i < values.length; i++) {
         pDesplegar += `
@@ -418,21 +363,12 @@ const filtrarSub = (dataEstudiantes, completado) => {
     pDesplegar += `</tbody>
 </table>`
     
- }
+  }
 //  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
 subTemA.innerHTML = pDesplegar
 }
 
 
-
-
-
-
-
-
-
-=======
->>>>>>> 9764f4d00114824ed796b386e1cb9509a5f629e5
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
 console.log(estudiantesPorcentajes); 
@@ -447,7 +383,7 @@ console.log(estudiantesPorcentajes);
       if (element.progreso.porcentajeCompletado < 60 ) {
         // console.log("Alumnos debajo del 60%: " + element.nombre );
       //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
-         sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
+        sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
         // console.log("Alumnos arriba del 90%: " + element.nombre );
         //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
@@ -455,26 +391,6 @@ console.log(estudiantesPorcentajes);
         estudiantesPorcentajes = [];
       }
       
-//graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
     })
-    
-  }
 
-//-------------------Funcion dinàmica para pintar gràficas-------------//
-const mostrarGraficas = (sede, gen) => {
-  let img1 = document.getElementById('graficas')                                                                      
-  let img2 = document.getElementById('graficas')
-  let img3 = document.getElementById('graficas')
-  for (const gen in sede) {
-    console.log(gen);
-    console.log(sede);
-    if (gen == "primera") {
-      img1.innerHTML = `<img src="../assets/Grafico1.jpg"/>`
-    }else if (gen == "segunda"){
-      img2.innerHTML = `<img src= "../assets/Grafico2.jpg"/>`
-    }else if (gen == "tercera"){
-      img3.innerHTML = `<img src= "../assets/Grafico3.jpg"/>`
-    }
-    
   }
-}
