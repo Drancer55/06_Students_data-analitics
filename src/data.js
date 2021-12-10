@@ -42,6 +42,10 @@ fetch(Data)
             //---------------Funcion dinamica para atraer y pintar los datos de las sedes en pantalla dos--------------//
 const mostrarSedes = (dataEscolar) => {
   let img;
+  let grafica1 = document.getElementById('grafica1')
+  let grafica2 = document.getElementById('grafica2')
+  let grafica3 = document.getElementById('grafica3')
+
   let map;
   let campus;
   let botn;
@@ -53,16 +57,23 @@ const mostrarSedes = (dataEscolar) => {
       campus = "Ajusco";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15069.378607057964!2d-99.19927516935243!3d19.223805575500283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85cdfdf6a711c163%3A0xc02b29d16232aecf!2sAv.%20La%20Felicidad%20242%2C%20San%20Miguel%20Ajusco%2C%20Tlalpan%2C%2014700%20San%20Miguel%20Ajusco%2C%20CDMX!3m2!1d19.224214999999997!2d-99.194273!5e0!3m2!1ses-419!2smx!4v1637996084351!5m2!1ses-419!2smx";
+      grafica1.innerHTML = `<img src="../assets/graficaAjusco.png" />`
+ 
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "chapultepec") {
       img = "../assets/LogoChapultepec.jpeg";
       campus = "Chapultepec";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15050.963273306652!2d-99.19941515547023!3d19.423601324983508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d201f8e7cbce13%3A0xf8bbfda793220ccc!2sCalle%20Julio%20Verne%2027%2C%20Polanco%2C%20Polanco%20IV%20Secc%2C%20Miguel%20Hidalgo%2C%2011560%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.427963899999998!2d-99.1969393!5e0!3m2!1ses-419!2smx!4v1637996847042!5m2!1ses-419!2smx";
+        grafica2.innerHTML = `<img src="../assets/graficaChapu.png"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "iztapalapa") {
       img = "../assets/LogoIztapalapa.jpeg";
       campus = "Iztapalapa";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d30115.851234696875!2d-99.08672062336888!3d19.348297199433908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d1fd88c97e8ce7%3A0x6978b1f508c61541!2sErmita%20Iztapalapa%202001%2C%20Los%20%C3%81ngeles%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.347834499999998!2d-99.0698948!5e0!3m2!1ses-419!2smx!4v1637998520536!5m2!1ses-419!2smx";
+        grafica3.innerHTML = `<img src="../assets/graficaIzta.png"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     }
     document.getElementById("sedes").innerHTML += `
         <div id="${key}" class="sucursal">
@@ -122,53 +133,6 @@ export const botonAtras = () => {
 //**Dentro de la funcion meter el filter con los variables**/
 // **Dentro del filter meter los valores que se van a filtrar**/
 //-------------------Funcion para pintar: Temas, subtemas, y lo que hay dentro de los subtemas--------------//
-function tTemas(sede, gen, id, temas) {
-    
-    let subTemA = document.getElementById(id)
-    let pDesplegar= ''
-    // Iteracion para pintar los temas
-    for (const tema in temas) {
-        pDesplegar += ` <table class="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">Tema</th>
-      <th scope="col">Subtema</th>
-    </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td >${tema}</td>`
-    let values = Object.values(temas[tema].subtemas)
-    let keys = Object.keys(temas[tema].subtemas)
-
-    //------------Iteracion para lo que hay dentro de los subtemas
-    for (let i = 0; i < values.length; i++) {
-        pDesplegar += `
-          <tr>
-            <th><strong>${keys[i]}</strong><th>
-          </tr>
-          <tr>
-            <td>
-            <td><em>Completado: </em>${values[i].completado}</td>
-            <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
-            <td><em>Tipo: </em>${values[i].tipo}</td>
-          </tr>`
-    //     values.innerHTML = values.filter(tipoEjercicios)
-
-    
-    // function tipoEjercicios() {
-    //     return tipo(lectura)
-    // }   
-    }
-    pDesplegar += `
-    </tbody>
-    </table>`
-    
-}
-//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
-subTemA.innerHTML = pDesplegar
-}
 
 // Método sort que acomoda los resultados en orden alfabético
 const sortStudents = (arrStudents) => {
@@ -251,7 +215,7 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body"></div>
+                                <div class="accordion-body" id="completado"></div>
                               </div>
                             </div>
                             <div class="accordion-item">
@@ -261,16 +225,16 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">  </div>
+                                <div class="accordion-body" id="noCompletado">  </div>
                               </div>
                             </div><div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingThree">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                              <i class="fas fa-filter"></i> Ejercicios
+                              <i class="fas fa-filter" ></i> Ejercicios
                               </button>
                             </h2>
                             <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body"> </div>
+                              <div class="accordion-body" id="ejercicios> </div>
                             </div>
                           </div>
                             <div class="accordion-item">
@@ -280,7 +244,7 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body"></div>
+                                <div class="accordion-body" id="lecturas"></div>
                               </div>
                             </div>
                             <div class="accordion-item">
@@ -290,7 +254,7 @@ export const datosEstudiantes = (gen) => {
                                 </button>
                               </h2>
                               <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body"></div>
+                                <div class="accordion-body" id="quiz"></div>
                               </div>
                             </div>
                           </div>
@@ -316,54 +280,99 @@ export const datosEstudiantes = (gen) => {
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
-        //filtrarSub(dataEstudiantes)
-         //Se prende la funcion de porcentajes de alumnos             
-        // -------------Pintamos las cards--------
+        
+         //Se prende la funcion de porcentajes de alumnos
   }
-  // if (resultado.innerHTML == '') {
-  //   resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
-  // }
-}}
-// boton.addEventListener('click', datosEstudiantes)
-//formulario.addEventListener('keyup', datosEstudiantes)
+  }
+
+              
+        // -------------Pintamos las cards--------
+      
+
+  }
 
 
+function tTemas(sede, gen, id, temas) {
+    
+    let subTemA = document.getElementById(id)
+    let pDesplegar= ''
+    // Iteracion para pintar los temas
+    for (const tema in temas) {
+        pDesplegar += ` <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Tema</th>
+      <th scope="col">Subtema</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td >${tema}</td>
 
-// // const filtrarSub = (dataEstudiantes, completado) => {
-//     //console.log(dataEstudiantes,completado)
-//     dataEstudiantes.filter(function(completado){
-//     console.log(completado);
-//     if(completado == 1){
-//       console.log(completado);
-//       return completado 
-//     }
-//     })
+    `
+    let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
 
-// }
+    //------------Iteracion para lo que hay dentro de los subtemas
+  
+  
+  
+    for (let i = 0; i < values.length; i++) {
+        pDesplegar += `
+          <tr>
+            <th><strong>${keys[i]}</strong><th>
+          </tr>
+          <tr>
+            <td>
+
+                <td><em>Completado: </em>${values[i].completado}</td>
+                <td><em>Duracion de los Subtemas: </em>${values[i].duracionSubtema}</td>
+                <td><em>Tipo: </em>${values[i].tipo}</td>
+                </tr>
+
+        `
+        console.log(values[i].completado) 
+        if (values[i].completado == 1) {
+          let completado=   document.getElementById("completado") 
+          completado.innerHTML =`${keys[i]}`
+        } else if (values[i].completado == 0) {
+           let noCompletado = document.getElementById("noCompletado")
+           noCompletado.innerHTML = `${keys[i]}`
+        } 
+
+    }
+    pDesplegar += `</tbody>
+</table>`
+    
+  }
+//  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
+subTemA.innerHTML = pDesplegar
+}
+
 
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
-console.log(estudiantesPorcentajes); 
+//console.log(estudiantesPorcentajes); 
      //Se utilizará el método forEach para seleccionar a los alumnos con porcentajes debajo de 60 y arriba de 90 
       estudiantesPorcentajes.forEach(function(element){
      //Se declarán dos variables para atraer los ID en donde se pintarán los resultados 
       let sesentaMenos = document.getElementById('sesenta')
       let masNoventa = document.getElementById('noventa')
-      console.log(element.nombre);
-        console.log(element.progreso.porcentajeCompletado);
+      //console.log(element.nombre);
+        //console.log(element.progreso.porcentajeCompletado);
       //Se declarán las condicionales de <60 y >90 respectivamente
       if (element.progreso.porcentajeCompletado < 60 ) {
-        console.log("Alumnos debajo del 60%: " + element.nombre );
+        //console.log("Alumnos debajo del 60%: " + element.nombre );
       //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
-         sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
+        sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
-        console.log("Alumnos arriba del 90%: " + element.nombre );
+        //console.log("Alumnos arriba del 90%: " + element.nombre );
         //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
         masNoventa.innerHTML = `<h3>Alumnos arriba del 90%: ${element.nombre}${element.progreso.porcentajeCompletado}</h3>`
         estudiantesPorcentajes = [];
       }
       
-//graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
     })
-    
+
   }
