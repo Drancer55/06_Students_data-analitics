@@ -306,7 +306,7 @@ function tTemas(sede, gen, id, temas) {
 
         `
         console.log(values[i].completado) 
-        
+    }
     pDesplegar += `</tbody>
 </table>`
     
@@ -315,7 +315,7 @@ function tTemas(sede, gen, id, temas) {
 subTemA.innerHTML = pDesplegar
 
 
-}}
+}
 
 
 function pCompletados(sede,gen, id, temas) {
