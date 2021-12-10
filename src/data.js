@@ -25,6 +25,9 @@ const limpiarEstudiantes = () => {
     document.getElementById("estudiantes").innerHTML = "";
 }
 
+const limpiarBotones = () => {
+  document.getElementById('buscar').innerHTML = " ";
+}
         //--------------------------Por medio del metodo fetch accedemos los datos del json-------------------//
 export const traerData = () => {
 fetch(Data)
@@ -110,10 +113,13 @@ const imprimirGen = (sede, gen) => {
         //--------------------------------------Se imprimen los datos de los estudiantes por generacion----------------//
 export const iterarGen = (gen) => {
   console.log(gen);
-  document.getElementById("estudiantes").innerHTML = 
-  `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de ${gen} generación: </h3>`;
   datosEstudiantes(gen);
   limpiarEstudiantes();
+  document.getElementById("estudiantes").innerHTML = 
+  `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de ${gen} generación: </h3>`;
+  // limpiarBotones();
+  // document.getElementById('buscar').innerHTML += 
+  // `<button onclick="dashBoard.traerGeneracion('${gen}')" class="btn btn-primary">Buscar en ${gen} generación</button>`
 };
 
        //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
@@ -144,50 +150,26 @@ const sortStudents = (arrStudents) => {
   })
 }
 
-//--------Función para buscar estudiantes---------------------
+// -------Funcion para pintar Cars y modales
 let formulario = document.querySelector('#formulario');
 let boton = document.querySelector('#buscar')
 let resultado = document.querySelector('#morros')
-const buscarEstudiantes = (gen) => {
-  console.log(formulario.value);
-  resultado.innerHTML = '';
-  const texto = formulario.value.toLowerCase();
-  for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
-    if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
-      resultado.innerHTML += `
-      <center>
-        <div class="card w-100">
-            <div class="card-body">
-                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
-                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
-                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
-                    Ver más...
-                </button>
-      </center>`
-    }
-    }
-    if (resultado.innerHTML === '') {
-      resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
-    }
-}
-boton.addEventListener('click', buscarEstudiantes)
-formulario.addEventListener('keyup', buscarEstudiantes)
+console.log(formulario.value);
 
-// -------Funcion para pintar Cars y modales
+
 export const datosEstudiantes = (gen) => {
   console.log(lugar)
-  document.getElementById('morros').innerHTML = '';
+  resultado.innerHTML = '';
   studentsGen = [];
   studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes);
   sortStudents(studentsGen[0]);
-  //buscarEstudiantes();
+  const texto = formulario.value.toLowerCase();
   console.log(studentsGen[0]);
   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
-    document.getElementById("morros").innerHTML += `
+    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
+    if (nombres.indexOf(texto) !== -1) {
+    //console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
+    resultado.innerHTML += `
         <center>
         <div class="card w-100">
             <div class="card-body">
@@ -198,8 +180,7 @@ export const datosEstudiantes = (gen) => {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver más...
                 </button>
-        </center>
-        <!-- Modal -->
+        </center>        
             <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
@@ -254,7 +235,7 @@ export const datosEstudiantes = (gen) => {
         
          //Se prende la funcion de porcentajes de alumnos
   }
-
+  }
 
               
         // -------------Pintamos las cards--------
