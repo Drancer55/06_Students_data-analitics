@@ -25,6 +25,9 @@ const limpiarEstudiantes = () => {
     document.getElementById("estudiantes").innerHTML = "";
 }
 
+const limpiarBotones = () => {
+  document.getElementById('buscar').innerHTML = " ";
+}
         //--------------------------Por medio del metodo fetch accedemos los datos del json-------------------//
 export const traerData = () => {
 fetch(Data)
@@ -50,19 +53,16 @@ const mostrarSedes = (dataEscolar) => {
       campus = "Ajusco";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15069.378607057964!2d-99.19927516935243!3d19.223805575500283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85cdfdf6a711c163%3A0xc02b29d16232aecf!2sAv.%20La%20Felicidad%20242%2C%20San%20Miguel%20Ajusco%2C%20Tlalpan%2C%2014700%20San%20Miguel%20Ajusco%2C%20CDMX!3m2!1d19.224214999999997!2d-99.194273!5e0!3m2!1ses-419!2smx!4v1637996084351!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "chapultepec") {
       img = "../assets/LogoChapultepec.jpeg";
       campus = "Chapultepec";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15050.963273306652!2d-99.19941515547023!3d19.423601324983508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d201f8e7cbce13%3A0xf8bbfda793220ccc!2sCalle%20Julio%20Verne%2027%2C%20Polanco%2C%20Polanco%20IV%20Secc%2C%20Miguel%20Hidalgo%2C%2011560%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.427963899999998!2d-99.1969393!5e0!3m2!1ses-419!2smx!4v1637996847042!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "iztapalapa") {
       img = "../assets/LogoIztapalapa.jpeg";
       campus = "Iztapalapa";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d30115.851234696875!2d-99.08672062336888!3d19.348297199433908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d1fd88c97e8ce7%3A0x6978b1f508c61541!2sErmita%20Iztapalapa%202001%2C%20Los%20%C3%81ngeles%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.347834499999998!2d-99.0698948!5e0!3m2!1ses-419!2smx!4v1637998520536!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     }
     document.getElementById("sedes").innerHTML += `
         <div id="${key}" class="sucursal">
@@ -102,10 +102,13 @@ const imprimirGen = (sede, gen) => {
         //--------------------------------------Se imprimen los datos de los estudiantes por generacion----------------//
 export const iterarGen = (gen) => {
   console.log(gen);
-  document.getElementById("estudiantes").innerHTML = 
-  `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de ${gen} generación: </h3>`;
   datosEstudiantes(gen);
   limpiarEstudiantes();
+  document.getElementById("estudiantes").innerHTML = 
+  `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de ${gen} generación: </h3>`;
+  // limpiarBotones();
+  // document.getElementById('buscar').innerHTML += 
+  // `<button onclick="dashBoard.traerGeneracion('${gen}')" class="btn btn-primary">Buscar en ${gen} generación</button>`
 };
 
        //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
@@ -135,9 +138,7 @@ function tTemas(sede, gen, id, temas) {
     </thead>
   <tbody>
     <tr>
-      <td >${tema}</td>
-
-    `
+      <td >${tema}</td>`
     let values = Object.values(temas[tema].subtemas)
     let keys = Object.keys(temas[tema].subtemas)
 
@@ -185,50 +186,26 @@ const sortStudents = (arrStudents) => {
   })
 }
 
-//--------Función para buscar estudiantes---------------------
+// -------Funcion para pintar Cars y modales
 let formulario = document.querySelector('#formulario');
 let boton = document.querySelector('#buscar')
 let resultado = document.querySelector('#morros')
-const buscarEstudiantes = (gen) => {
-  console.log(formulario.value);
-  resultado.innerHTML = '';
-  const texto = formulario.value.toLowerCase();
-  for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
-    if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
-      resultado.innerHTML += `
-      <center>
-        <div class="card w-100">
-            <div class="card-body">
-                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
-                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
-                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
-                    Ver más...
-                </button>
-      </center>`
-    }
-    }
-    if (resultado.innerHTML === '') {
-      resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
-    }
-}
-boton.addEventListener('click', buscarEstudiantes)
-formulario.addEventListener('keyup', buscarEstudiantes)
+console.log(formulario.value);
 
-// -------Funcion para pintar Cars y modales
+
 export const datosEstudiantes = (gen) => {
   console.log(lugar)
-  document.getElementById('morros').innerHTML = '';
+  resultado.innerHTML = '';
   studentsGen = [];
   studentsGen.push(arrBruto[0][lugar].generacion[gen].estudiantes);
   sortStudents(studentsGen[0]);
-  //buscarEstudiantes();
+  const texto = formulario.value.toLowerCase();
   console.log(studentsGen[0]);
   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
-    document.getElementById("morros").innerHTML += `
+    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
+    if (nombres.indexOf(texto) !== -1) {
+    //console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
+    resultado.innerHTML += `
         <center>
         <div class="card w-100">
             <div class="card-body">
@@ -239,8 +216,7 @@ export const datosEstudiantes = (gen) => {
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
                     Ver más...
                 </button>
-        </center>
-        <!-- Modal -->
+        </center>        
             <div class="modal fade" id=id`+ `${i}`+ ` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
@@ -340,21 +316,30 @@ export const datosEstudiantes = (gen) => {
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
-        filtrarSub(dataEstudiantes)
+        //filtrarSub(dataEstudiantes)
          //Se prende la funcion de porcentajes de alumnos             
         // -------------Pintamos las cards--------
-  }}
-const filtrarSub = (dataEstudiantes, completado) => {
-    //console.log(dataEstudiantes,completado)
-    dataEstudiantes.filter(function(completado){
-    console.log(completado);
-    if(completado == 1){
-      console.log(completado);
-      return completado 
-    }
-    })
+  }
+  // if (resultado.innerHTML == '') {
+  //   resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
+  // }
+}}
+// boton.addEventListener('click', datosEstudiantes)
+//formulario.addEventListener('keyup', datosEstudiantes)
 
-}
+
+
+// // const filtrarSub = (dataEstudiantes, completado) => {
+//     //console.log(dataEstudiantes,completado)
+//     dataEstudiantes.filter(function(completado){
+//     console.log(completado);
+//     if(completado == 1){
+//       console.log(completado);
+//       return completado 
+//     }
+//     })
+
+// }
 
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
