@@ -358,7 +358,15 @@ function tTemas(sede, gen, id, temas) {
                 </tr>
 
         `
-        console.log(values[i].completado)  
+        console.log(values[i].completado) 
+        if (values[i].completado == 1) {
+          let completado=   document.getElementById("completado") 
+          completado.innerHTML =`${keys[i]}`
+        } else if (values[i].completado == 0) {
+           let noCompletado = document.getElementById("noCompletado")
+           noCompletado.innerHTML = `${keys[i]}`
+        } 
+
     }
     pDesplegar += `</tbody>
 </table>`
@@ -371,21 +379,21 @@ subTemA.innerHTML = pDesplegar
 
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
-console.log(estudiantesPorcentajes); 
+//console.log(estudiantesPorcentajes); 
      //Se utilizará el método forEach para seleccionar a los alumnos con porcentajes debajo de 60 y arriba de 90 
       estudiantesPorcentajes.forEach(function(element){
      //Se declarán dos variables para atraer los ID en donde se pintarán los resultados 
       let sesentaMenos = document.getElementById('sesenta')
       let masNoventa = document.getElementById('noventa')
-      // console.log(element.nombre);
-        // console.log(element.progreso.porcentajeCompletado);
+      //console.log(element.nombre);
+        //console.log(element.progreso.porcentajeCompletado);
       //Se declarán las condicionales de <60 y >90 respectivamente
       if (element.progreso.porcentajeCompletado < 60 ) {
-        // console.log("Alumnos debajo del 60%: " + element.nombre );
+        //console.log("Alumnos debajo del 60%: " + element.nombre );
       //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
         sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
-        // console.log("Alumnos arriba del 90%: " + element.nombre );
+        //console.log("Alumnos arriba del 90%: " + element.nombre );
         //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
         masNoventa.innerHTML = `<h3>Alumnos arriba del 90%: ${element.nombre}${element.progreso.porcentajeCompletado}</h3>`
         estudiantesPorcentajes = [];
