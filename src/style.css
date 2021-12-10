@@ -466,6 +466,10 @@ section2 {
   text-align: justify;
 }
 
+.accordion-body {
+  text-align: left;
+}
+
 .temas {
   text-align: center;
   justify-content: center;

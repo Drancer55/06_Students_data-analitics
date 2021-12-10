@@ -223,6 +223,7 @@ export const datosEstudiantes = (gen) => {
                     <tbody
                       <tr>
                         <td scope="col"><h6><center><b> Filtro: </b></center><h6></td>
+                        <td></td>
                         <td scope="col"><h6><b> Temario: </b></h6></td>
                       </tr>
                       <tr>
@@ -326,7 +327,7 @@ function pCompletados(sede,gen, id, temas) {
     let keys = Object.keys(temas[tema].subtemas)
     for (let i = 0; i < values.length; i++) {
         if (values[i].completado == 1) {
-            completado += keys[i] + '<br>'
+            completado += '<li class="item">' + keys[i] + `</li>` + '<br>'
         } else {
             noCompletado += keys[i] + '<br>'
         }
@@ -345,7 +346,7 @@ function pCompletados(sede,gen, id, temas) {
     <div id="collapseFour${id}" class="accordion-collapse collapse" aria-labelledby="headingTwo${id}" data-bs-parent="#accordionCompletadono${id}">
       <div class="accordion-body">
         <ul>
-          <li>'${completado}'</li>
+          ${completado}
         </ul>
       </div>
     </div>
