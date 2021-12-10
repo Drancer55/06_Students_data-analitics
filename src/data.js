@@ -326,9 +326,9 @@ function pCompletados(sede,gen, id, temas) {
     let keys = Object.keys(temas[tema].subtemas)
     for (let i = 0; i < values.length; i++) {
         if (values[i].completado == 1) {
-            completado += keys[i]
+            completado += keys[i] + '<br>'
         } else {
-            noCompletado += keys[i]
+            noCompletado += keys[i] + '<br>'
         }
         
     }
@@ -379,12 +379,12 @@ function pCompletados(sede,gen, id, temas) {
 
     for (let i = 0; i < values.length; i++) {
         if (values[i].tipo == 'lectura' ) {
-            lecturas += keys[i]
+            lecturas += keys[i] + '<br>'
         } else {
             if(values[i].tipo == 'ejercicio'){
-                ejercicios += keys[i]            
+                ejercicios += keys[i] + '<br>'         
             } else {
-                cuestionarios += keys[i] 
+                cuestionarios += keys[i] + '<br>'
             }
         } 
       }
