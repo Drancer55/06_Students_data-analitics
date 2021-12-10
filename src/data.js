@@ -217,59 +217,9 @@ export const datosEstudiantes = (gen) => {
                         <td scope="col"><h6><b> Temario: </b></h6></td>
                       </tr>
                       <tr>
-                        <td>
-                          <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                <i class="fas fa-filter"></i> Completado
-                                </button>
-                              </h2>
-                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body" id="completado"></div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                <i class="fas fa-filter"></i> No completado
-                                </button>
-                              </h2>
-                              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body" id="noCompletado">  </div>
-                              </div>
-                            </div><div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                              <i class="fas fa-filter" ></i> Ejercicios
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body" id="ejercicios> </div>
-                            </div>
-                          </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                <i class="fas fa-filter"></i> Lecturas
-                                </button>
-                              </h2>
-                              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFpur" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body" id="lecturas"></div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                <i class="fas fa-filter"></i> Quiz
-                                </button>
-                              </h2>
-                              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body" id="quiz"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
+                      
+                      <td id="${i}completados"></td>
+                      <td id="${i}tipo"></td>
                         <td class="temazo" id="${i}temas"></td>
                         <td class="subtemazo" id="${i}subtemas"></td>
                       </tr>
@@ -287,7 +237,9 @@ export const datosEstudiantes = (gen) => {
         // Prendemos la funcion para pintar los temas y los subtemas dentro del modal
         tTemas(sede, gen, `${i}temas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
         tTemas(sede, gen, `${i}subtemas`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas.subtemas)
-        
+        pCompletados(sede, gen, `${i}completados`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
+        pTipos(sede, gen, `${i}tipo`, arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.temas)
+
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
@@ -307,6 +259,8 @@ function tTemas(sede, gen, id, temas) {
     
     let subTemA = document.getElementById(id)
     let pDesplegar= ''
+    
+   
     // Iteracion para pintar los temas
     for (const tema in temas) {
         pDesplegar += ` <table class="table">
@@ -327,9 +281,11 @@ function tTemas(sede, gen, id, temas) {
 
     //------------Iteracion para lo que hay dentro de los subtemas
      
-   
+//    document.getElementById("completado").innerHTML = ''
+//    document.getElementById("noCompletado").innerHTML = ''
   
     for (let i = 0; i < values.length; i++) {
+        
         pDesplegar += `
           <tr>
             <th><strong>${keys[i]}</strong><th>
@@ -344,45 +300,128 @@ function tTemas(sede, gen, id, temas) {
 
         `
         console.log(values[i].completado) 
-        if (values[i].completado == 1) {
-          let completado=   document.getElementById("completado") 
-          completado.innerHTML =`${keys[i]}`
-        } else if (values[i].completado == 0) {
-           let noCompletado = document.getElementById("noCompletado")
-           noCompletado.innerHTML = `${keys[i]}`
-        } 
-
-    }
+        
     pDesplegar += `</tbody>
 </table>`
     
- }
+    }
 //  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
 subTemA.innerHTML = pDesplegar
-}
 
 
+}}
 
 
-// const filterSub = (temas) =>{
-//     let p = ''
-//     for (const tema in temas) {
+function pCompletados(sede,gen, id, temas) {
+    let completadosnocompletados = document.getElementById(id)
+    let completado = ''
+    let noCompletado = ''
+    for (const tema in temas) {
+        let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
+    for (let i = 0; i < values.length; i++) {
+        if (values[i].completado == 1) {
+            completado += keys[i]
+        } else {
+            noCompletado += keys[i]
+        }
         
-//         let values = Object.values(temas[tema].subtemas)
-//         let keys = Object.keys(temas[tema].subtemas)
-//              console.log(values); 
-//              console.log(keys);  
-//         }
-    
-    
-//     for (let i = 0; i < values.length; i++) {
-//        p+= ` ${values[i].completado}`
-//         console.log(values[i].completado)
-        
-//     }
+    }
+            
+        }
+        completadosnocompletados.innerHTML += `
+                  <div class="accordion" id="accordionCompletadono${id}">
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour${id}" aria-expanded="false" aria-controls="collapseFour${id}">
+        Completados
+      </button>
+    </h2>
+    <div id="collapseFour${id}" class="accordion-collapse collapse" aria-labelledby="headingTwo${id}" data-bs-parent="#accordionCompletadono${id}">
+      <div class="accordion-body">
+        ${completado}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive${id}" aria-expanded="false" aria-controls="collapseFive${id}">
+        No completados
+      </button>
+    </h2>
+    <div id="collapseFive${id}" class="accordion-collapse collapse" aria-labelledby="headingFour${id}" data-bs-parent="#accordionCompletadoYNo${id}">
+      <div class="accordion-body">
+        ${noCompletado}
+      </div>
+    </div>
+  </div>
+</div>`
 
-// }
+    }
+                  
 
+
+    function pTipos(sede,gen, id, temas) {
+    let tipos = document.getElementById(id)
+    let ejercicios = ''
+    let lecturas = ''
+    let cuestionarios = ''
+    for (const tema in temas) {
+
+    let values = Object.values(temas[tema].subtemas)
+    let keys = Object.keys(temas[tema].subtemas)
+
+    for (let i = 0; i < values.length; i++) {
+        if (values[i].tipo == 'lectura' ) {
+            lecturas += keys[i]
+        } else {
+            if(values[i].tipo == 'ejercicio'){
+                ejercicios += keys[i]            
+            } else {
+                cuestionarios += keys[i] 
+            }
+        } 
+      }
+    }
+        tipos.innerHTML += `<div class="accordion" id="accordionExample${id}">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingUno${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUno${id}" aria-expanded="false" aria-controls="collapseUno${id}">
+       Lecturas 
+      </button>
+    </h2>
+    <div id="collapseUno${id}" class="accordion-collapse collapse" aria-labelledby="headingUno${id}" data-bs-parent="#accordionExample${id}">
+      <div class="accordion-body">
+      ${lecturas}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDos${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDos${id}" aria-expanded="false" aria-controls="collapseDos${id}">
+        Ejercicios
+      </button>
+    </h2>
+    <div id="collapseDos${id}" class="accordion-collapse collapse" aria-labelledby="headingDos${id}" data-bs-parent="#accordionExample${id}">
+      <div class="accordion-body">
+      ${ejercicios}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTres${id}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres${id}" aria-expanded="false" aria-controls="collapseTres${id}">
+        Quizzes
+      </button>
+    </h2>
+    <div id="collapseTres${id}" class="accordion-collapse collapse" aria-labelledby="headingTres${id}" data-bs-parent="#accordionExample${id}">
+      <div class="accordion-body">
+      ${cuestionarios}
+      </div>
+    </div>
+  </div>
+</div>`
+    }
 
 
 
