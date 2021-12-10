@@ -39,6 +39,10 @@ fetch(Data)
             //---------------Funcion dinamica para atraer y pintar los datos de las sedes en pantalla dos--------------//
 const mostrarSedes = (dataEscolar) => {
   let img;
+  let grafica1 = document.getElementById('grafica1')
+  let grafica2 = document.getElementById('grafica2')
+  let grafica3 = document.getElementById('grafica3')
+
   let map;
   let campus;
   let botn;
@@ -50,19 +54,23 @@ const mostrarSedes = (dataEscolar) => {
       campus = "Ajusco";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15069.378607057964!2d-99.19927516935243!3d19.223805575500283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85cdfdf6a711c163%3A0xc02b29d16232aecf!2sAv.%20La%20Felicidad%20242%2C%20San%20Miguel%20Ajusco%2C%20Tlalpan%2C%2014700%20San%20Miguel%20Ajusco%2C%20CDMX!3m2!1d19.224214999999997!2d-99.194273!5e0!3m2!1ses-419!2smx!4v1637996084351!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
+      grafica1.innerHTML = `<img src="../assets/graficaAjusco.png" />`
+ 
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "chapultepec") {
       img = "../assets/LogoChapultepec.jpeg";
       campus = "Chapultepec";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15050.963273306652!2d-99.19941515547023!3d19.423601324983508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d201f8e7cbce13%3A0xf8bbfda793220ccc!2sCalle%20Julio%20Verne%2027%2C%20Polanco%2C%20Polanco%20IV%20Secc%2C%20Miguel%20Hidalgo%2C%2011560%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.427963899999998!2d-99.1969393!5e0!3m2!1ses-419!2smx!4v1637996847042!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
+        grafica2.innerHTML = `<img src="../assets/graficaChapu.png"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     } else if (key == "iztapalapa") {
       img = "../assets/LogoIztapalapa.jpeg";
       campus = "Iztapalapa";
       map =
         "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d30115.851234696875!2d-99.08672062336888!3d19.348297199433908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e1!4m0!4m5!1s0x85d1fd88c97e8ce7%3A0x6978b1f508c61541!2sErmita%20Iztapalapa%202001%2C%20Los%20%C3%81ngeles%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!3m2!1d19.347834499999998!2d-99.0698948!5e0!3m2!1ses-419!2smx!4v1637998520536!5m2!1ses-419!2smx";
-      //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
+        grafica3.innerHTML = `<img src="../assets/graficaIzta.png"/>`
+        //botn = `<button onclick="dashBoard.traerGeneracion('${key}')"> ${key} </button>`
     }
     document.getElementById("sedes").innerHTML += `
         <div id="${key}" class="sucursal">
@@ -243,18 +251,18 @@ export const datosEstudiantes = (gen) => {
         dataEstudiantes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre)
         estudiantesPorcentajes.push(arrBruto[0][lugar].generacion[gen].estudiantes[i])
         porcentajesCompletados(estudiantesPorcentajes);
-       //filterSub()
+        
          //Se prende la funcion de porcentajes de alumnos
   }
 
 
               
         // -------------Pintamos las cards--------
-       
-       
+      
+
   }
 
- 
+
 function tTemas(sede, gen, id, temas) {
     
     let subTemA = document.getElementById(id)
@@ -281,8 +289,6 @@ function tTemas(sede, gen, id, temas) {
 
     //------------Iteracion para lo que hay dentro de los subtemas
      
-//    document.getElementById("completado").innerHTML = ''
-//    document.getElementById("noCompletado").innerHTML = ''
   
     for (let i = 0; i < values.length; i++) {
         
@@ -304,127 +310,10 @@ function tTemas(sede, gen, id, temas) {
     pDesplegar += `</tbody>
 </table>`
     
-    }
+  }
 //  Nos traemos la variable subtemas que es igual a pDesplegar para lo que se encuentra a dentro de los subtemas
 subTemA.innerHTML = pDesplegar
-
-
 }}
-
-
-function pCompletados(sede,gen, id, temas) {
-    let completadosnocompletados = document.getElementById(id)
-    let completado = ''
-    let noCompletado = ''
-    for (const tema in temas) {
-        let values = Object.values(temas[tema].subtemas)
-    let keys = Object.keys(temas[tema].subtemas)
-    for (let i = 0; i < values.length; i++) {
-        if (values[i].completado == 1) {
-            completado += keys[i]
-        } else {
-            noCompletado += keys[i]
-        }
-        
-    }
-            
-        }
-        completadosnocompletados.innerHTML += `
-                  <div class="accordion" id="accordionCompletadono${id}">
-    <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne${id}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour${id}" aria-expanded="false" aria-controls="collapseFour${id}">
-        Completados
-      </button>
-    </h2>
-    <div id="collapseFour${id}" class="accordion-collapse collapse" aria-labelledby="headingTwo${id}" data-bs-parent="#accordionCompletadono${id}">
-      <div class="accordion-body">
-        ${completado}
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree${id}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive${id}" aria-expanded="false" aria-controls="collapseFive${id}">
-        No completados
-      </button>
-    </h2>
-    <div id="collapseFive${id}" class="accordion-collapse collapse" aria-labelledby="headingFour${id}" data-bs-parent="#accordionCompletadoYNo${id}">
-      <div class="accordion-body">
-        ${noCompletado}
-      </div>
-    </div>
-  </div>
-</div>`
-
-    }
-                  
-
-
-    function pTipos(sede,gen, id, temas) {
-    let tipos = document.getElementById(id)
-    let ejercicios = ''
-    let lecturas = ''
-    let cuestionarios = ''
-    for (const tema in temas) {
-
-    let values = Object.values(temas[tema].subtemas)
-    let keys = Object.keys(temas[tema].subtemas)
-
-    for (let i = 0; i < values.length; i++) {
-        if (values[i].tipo == 'lectura' ) {
-            lecturas += keys[i]
-        } else {
-            if(values[i].tipo == 'ejercicio'){
-                ejercicios += keys[i]            
-            } else {
-                cuestionarios += keys[i] 
-            }
-        } 
-      }
-    }
-        tipos.innerHTML += `<div class="accordion" id="accordionExample${id}">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingUno${id}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUno${id}" aria-expanded="false" aria-controls="collapseUno${id}">
-       Lecturas 
-      </button>
-    </h2>
-    <div id="collapseUno${id}" class="accordion-collapse collapse" aria-labelledby="headingUno${id}" data-bs-parent="#accordionExample${id}">
-      <div class="accordion-body">
-      ${lecturas}
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingDos${id}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDos${id}" aria-expanded="false" aria-controls="collapseDos${id}">
-        Ejercicios
-      </button>
-    </h2>
-    <div id="collapseDos${id}" class="accordion-collapse collapse" aria-labelledby="headingDos${id}" data-bs-parent="#accordionExample${id}">
-      <div class="accordion-body">
-      ${ejercicios}
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTres${id}">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres${id}" aria-expanded="false" aria-controls="collapseTres${id}">
-        Quizzes
-      </button>
-    </h2>
-    <div id="collapseTres${id}" class="accordion-collapse collapse" aria-labelledby="headingTres${id}" data-bs-parent="#accordionExample${id}">
-      <div class="accordion-body">
-      ${cuestionarios}
-      </div>
-    </div>
-  </div>
-</div>`
-    }
-
-
-
 
 // ------------------------Porcentajes de alumnos----------------------------------------//
 const porcentajesCompletados = (estudiantesPorcentajes) => {
@@ -440,7 +329,7 @@ const porcentajesCompletados = (estudiantesPorcentajes) => {
       if (element.progreso.porcentajeCompletado < 60 ) {
         //console.log("Alumnos debajo del 60%: " + element.nombre );
       //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
-         sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
+        sesentaMenos.innerHTML = `<h3>Alumnos debajod el 60%: ${element.nombre} ${element.progreso.porcentajeCompletado}</h3>`
       }else if (element.progreso.porcentajeCompletado > 90){
         //console.log("Alumnos arriba del 90%: " + element.nombre );
         //Se atrae la variable antes declarada y se utliza un innerHTML para pintar resultados
@@ -448,7 +337,6 @@ const porcentajesCompletados = (estudiantesPorcentajes) => {
         estudiantesPorcentajes = [];
       }
       
-//graficaSesenta.innerHTML = `<img src="../assets/Grafico1.jpg" alt="">`
     })
-    
+
   }
