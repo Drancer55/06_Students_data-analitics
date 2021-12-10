@@ -12,26 +12,26 @@ Es por ello que nos damos a la tarea en desarrollar las herramientas tecnológic
 
 La interfaz permite al usuario:
 
-Mostrar un inicio de sesión con el logotipo de Bootcamp School para el director de la escuela o académico autorizado.
-Tener una primera vista que enumera las 3 ubicaciones de la escuela Bootcamp y haga clic en cada una que muestra la página del campus seleccionado (Ajusco, Chapultepec, Iztapalapa).
-Mostrar la información con el nombre del campus y una imagen de la ubicación así como mostrar las generaciones disponibles para hacer clic y encontrar los estudiantes registrados para cada generación.
+- Mostrar un inicio de sesión con el logotipo de Bootcamp School para el director de la escuela o académico autorizado.
+- Tener una primera vista que enumera las 3 ubicaciones de la escuela Bootcamp y haga clic en cada una que muestra la página del campus seleccionado (Ajusco, Chapultepec, Iztapalapa).
+- Mostrar la información con el nombre del campus y una imagen de la ubicación así como mostrar las generaciones disponibles para hacer clic y encontrar los estudiantes registrados para cada generación.
 
 #### Por generación
 
-Mostrar, para cada generación, cuántos estudiantes se registraron y buscar alumnos por nombre.
-Mostrar el promedio porcentual de generación del progreso de finalización.
-Mostrar, para identificar, a los estudiantes con un porcentaje inferior al 60.
-Mostrar, para identificar, a los estudiantes con 90 o más de porcentaje de competencia.
-Enumere y pueda seleccionar a los estudiantes que muestran el porcentaje general de finalización de cada estudiante, ordenados por nombre alfabéticamente.
+- Mostrar, para cada generación, cuántos estudiantes se registraron y buscar alumnos por nombre.
+- Mostrar el promedio porcentual de generación del progreso de finalización.
+- Mostrar, para identificar, a los estudiantes con un porcentaje inferior al 60.
+- Mostrar, para identificar, a los estudiantes con 90 o más de porcentaje de competencia.
+- Enumere y pueda seleccionar a los estudiantes que muestran el porcentaje general de finalización de cada estudiante, ordenados por nombre alfabéticamente.
 
 #### Para cada alumno
 
-Poder hacer clic en para mostrar el informe de progreso
-Mostrar porcentaje completado para todos los temas
-Calcular el porcentaje de tiempo completado para cada tema.
-Enumerar los subtemas de cada tema
-Capacidad para filtrar subtemas completados y no completados de cada tema.
-Ser capaz de filtrar subtemas por tipo (ejercicios, lecturas y cuestionarios).
+- Poder hacer clic en para mostrar el informe de progreso
+- Mostrar porcentaje completado para todos los temas
+- Calcular el porcentaje de tiempo completado para cada tema.
+- Enumerar los subtemas de cada tema
+- Capacidad para filtrar subtemas completados y no completados de cada tema.
+- Ser capaz de filtrar subtemas por tipo (ejercicios, lecturas y cuestionarios).
 
 ```text
 ./
@@ -79,4 +79,4 @@ Ser capaz de filtrar subtemas por tipo (ejercicios, lecturas y cuestionarios).
 - `src / app.js`: here you must implement the web application main functionality to manipulate the data coming from data.js
 - `src / data.js`: here you must fetch/get the data from the local JSON and then export it to be used in the app.js module.
 - `src / index.js`: here you must listen to DOM events, like create and add events to the DOM and get the search values to be processed to app.js.
-- `test / app.spec.js`: this file contains some sample tests and here you will have to imp
+- `test / app.spec.js`: this file contains some sample tests and here you will have to imp.

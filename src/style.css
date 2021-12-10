@@ -1,16 +1,17 @@
 /*----------------Google Fonts -------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Gloria+Hallelujah&family=Graduate&family=Indie+Flower&family=Josefin+Sans:ital,wght@1,200&family=Jura:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Cormorant+Infant:ital,wght@1,500&family=Gloria+Hallelujah&family=Graduate&family=Indie+Flower&family=Josefin+Sans:ital,wght@1,200&family=Jura:wght@500&display=swap");
 
 /*CSS rules to specify families
 
 font-family: 'Caveat', cursive;
+font-family: 'Cormorant Infant', serif;
 font-family: 'Gloria Hallelujah', cursive;
 font-family: 'Graduate', cursive;
 font-family: 'Indie Flower', cursive;
 font-family: 'Josefin Sans', sans-serif;
-font-family: 'Jura', sans-serif; */
-/*----------------Pantalla 1----------------------*/
+font-family: 'Jura', sans-serif;*/
 
+/*----------------Pantalla 1----------------------*/
 #pantalla-1 {
   background-image: url(../assets/Fondo1.jpg);
   background-size: cover;
@@ -95,7 +96,7 @@ p {
   border: 3px ridge rgba(78, 3, 3, 0.637);
   width: 33%;
 }
-button {
+.botonazo {
   min-width: 120px;
   min-height: 40px;
   font-family: "Jura", sans-serif;
@@ -119,7 +120,7 @@ button {
   padding: auto;
   margin-top: 15px;
 }
-button::before {
+.botonazo::before {
   content: "";
   border-radius: 1000px;
   min-width: 125px;
@@ -134,18 +135,18 @@ button::before {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.button:hover,
-.button:focus {
+button:hover,
+button:focus {
   color: #949499;
-  transform: translateY(-6px);
+  transform: translateY(-3px);
 }
 
-button:hover::before,
-button:focus::before {
+.botonazo:hover::before,
+.botonazo:focus::before {
   opacity: 10;
 }
 
-button::after {
+.botonazo::after {
   content: "";
   width: 30px;
   height: 30px;
@@ -180,15 +181,21 @@ button:focus::after {
 
 /*--------------Pantalla 2------------------------*/
 #pantalla-2 {
+  background-image: url(../assets/Fondo2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 1fr 3fr 0.5;
-  grid-template-areas:
-    "header header header"
-    "main main main"
-    "footer footer footer";
-  background-color: royalblue;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  grid-template-columns: 3fr;
+  grid-template-rows: 2fr 0.1fr;
+  grid-template-areas: "sucursal" "footer";
+  flex-wrap: wrap;
+}
+/*--------------Nav Bar-----------------------------*/
+ul li {
+  display: inline-block;
+  cursor: pointer;
 }
 
 #slogan2 {
@@ -206,7 +213,7 @@ button:focus::after {
 
 #searching {
   width: 12rem;
-  height: 2.5rem;
+  height: 3.5rem;
   text-align: center;
   margin: 0 auto;
 }
@@ -225,31 +232,373 @@ button:focus::after {
   align-items: auto;
 }
 
-header {
-  grid-area: header;
+/*----------------------Sedes----------------*/
+.title {
+  font-family: "Graduate", cursive;
+  font-weight: 3.5rem;
+  font-size: 1.7rem;
+  text-align: center;
 }
-main {
-  grid-area: main;
-  border: double;
+.sucursal {
+  grid-area: sucursal;
+  margin: 3vh 5px;
+  display: inline-block;
+  align-items: center;
 }
+
+.d-flex {
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+#sedes {
+  margin: 9vh auto;
+}
+
+#image {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+#place {
+  border-radius: 15px;
+  box-shadow: 4px 4px 18px 10px #04274786;
+}
+
+/*---------------creditos----------------*/
 footer {
+  color: aliceblue;
+  background-color: black;
   grid-area: footer;
-  border: double;
+  text-align: center;
+  list-style-type: none;
+  justify-content: center;
+  margin-bottom: -7rem;
+}
+
+.collaborator {
+  font-family: "Jura", sans-serif;
+  color: rgba(144, 144, 151, 0.753);
+  text-shadow: rgb(138, 136, 136);
+}
+
+#social {
+  margin-top: 0.5%;
+}
+
+#social a i {
+  color: rgba(156, 156, 160, 0.767);
+}
+
+#social a i:hover {
+  transform: scale(1.3);
+  transition: transform 0.5s ease-out;
+  color: #ff9204;
 }
 
 .btn-outline-success {
-  width: 2rem;
+  width: auto;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 0 1vh;
 }
 
 /*--------------Pantalla 3------------------------*/
+/* GRID */
 #pantalla-3 {
-  background-color: paleturquoise;
-  font-family: cursive;
+  background-image: url(../assets/fondo3.png);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 3fr;
+  grid-template-areas:
+    "header header header"
+    "section1 section2 section2"
+    "section1 section2 section2"
+    "section1 section2 section2";
 }
-/*--------------Pantalla 4------------------------*/
-#pantalla-4 {
-  background-color: plum;
-  font-family: fantasy;
+header {
+  grid-area: header;
+}
+section1 {
+  grid-area: section1;
+}
+
+section2 {
+  grid-area: section2;
+}
+
+/* Titulo */
+.titulo-sede {
+  text-align: center;
+  margin-top: -8vh;
+}
+
+#avatar {
+  width: 15rem;
+  height: 15rem;
+  float: right;
+  margin-top: -15vh;
+}
+
+#formulario {
+  border: 5px solid #0b03299f;
+  border-radius: 100px;
+  font-family: "Caveat", cursive;
+  text-align: center;
+  color: #e2dbdb;
+  font-weight: bolder;
+  background-color: transparent;
+}
+
+.titulo-sede h1 {
+  font-family: "Graduate", cursive;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #0b0329;
+  text-shadow: 3px 2px 4px rgb(122, 92, 15);
+}
+
+.titulo-sede h2 {
+  font-family: "Caveat", cursive;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top: 3vh;
+}
+
+.graficando {
+  display: inline-block;
+  width: 13rem;
+  height: 10.5rem;
+}
+
+#uno {
+  box-shadow: 0px 0px 10px rgb(92, 9, 9);
+  margin: 1vh;
+}
+
+#dos {
+  box-shadow: 0px 0px 10px rgb(84, 10, 102);
+  margin: 1vh;
+}
+
+#tres {
+  box-shadow: 0px 0px 10px rgba(12, 20, 88, 0.966);
+  margin: 1vh;
+}
+
+#columna2 {
+  border: #0b0329;
+}
+
+.generacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#generaciones button {
+  background-color: rgb(233, 56, 56);
+  border-color: teal;
+  color: rgba(231, 240, 156, 0.918);
+  margin: 0 auto;
+}
+
+.estudiantes {
+  text-align: center;
+  margin-top: 0.8rem;
+  font-family: "Caveat", cursive;
+}
+
+.morros {
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 47vh;
+  max-width: 100vh;
+  height: 50vh;
+  width: 100vh;
+  border: solid 5px rgba(8, 21, 94, 0.692);
+  border-radius: 10px;
+  margin: 2vh 3vh;
+}
+#correo {
+  font-style: italic;
+}
+
+.porcentajes {
+  margin-top: 10vh;
+}
+
+#cards {
+  justify-content: center;
+}
+
+.card {
+  background: rgba(251, 251, 251, 0.5);
+  border: black double 10px;
+  border-radius: 10px;
+}
+.card-body h6 {
+  text-align: justify;
+}
+
+#back {
+  margin: 0 auto;
+}
+
+/*--------------Modal------------------------*/
+.modal-title {
+  font-family: "Cormorant Infant", serif;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: #0f033de8;
+  text-shadow: 2px 2px 4px #c3cf16cb;
+  text-align: center;
+}
+
+.acordeonHero {
+  text-align: justify;
+}
+
+.accordion-body {
+  text-align: left;
+}
+
+.temas {
+  text-align: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+.btn-close {
+  border-radius: 15px;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+table {
+  background-color: #dfdbecad;
+  border-radius: 14px;
+  padding: 100%;
+}
+
+.table2 {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.return {
+  background-color: #a7a69fc9;
+  border-radius: 10px;
+  border: groove 3px rgba(70, 64, 64, 0.555);
+}
+
+.btn-close {
+  color: #0b0329;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+#dropdownMenuButton1 {
+  background-color: rgba(41, 35, 35, 0.829);
+  color: #f3f3f3;
+  border-radius: 12px;
+  margin: 1vh auto;
+}
+
+#dropdownMenu2 {
+  background-color: rgba(46, 44, 44, 0.829);
+  color: #f3f3f3;
+  border-radius: 12px;
+  margin: 10vh auto;
+}
+
+#dropdropdownMenu2 :hover {
+  border: solid 3px rgb(0, 0, 0);
+}
+
+#sesenta {
+  text-align: justify;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 30vh;
+  max-width: 50vh;
+  height: 18vh;
+  width: 50vh;
+  border: solid 5px rgba(8, 21, 94, 0.692);
+  border-radius: 10px;
+  margin: auto 3vh;
+  font-weight: bolder;
+  color: #0b0329;
+  font-size: 1.3rem;
+  text-shadow: 4px 3px 3px #701307d8;
+  font-family: "Jura", sans-serif;
+}
+
+#sesenta h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  font-family: "Jura", sans-serif;
+}
+
+.debajo60 {
+  font-weight: bolder;
+  color: #0b0329;
+  font-size: 1.3rem;
+  text-shadow: 4px 3px 5px #701307d8;
+  font-family: "Jura", sans-serif;
+}
+
+#noventa {
+  text-align: justify;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 30vh;
+  max-width: 50vh;
+  height: 18vh;
+  width: 50vh;
+  border: solid 5px rgba(8, 21, 94, 0.692);
+  border-radius: 10px;
+  margin: 3vh 3vh;
+  font-weight: bolder;
+  color: #0b0329;
+  font-size: 1.3rem;
+  text-shadow: 4px 3px 4px #12095fd8;
+  font-family: "Jura", sans-serif;
+}
+
+#noventa h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-family: "Jura", sans-serif;
+}
+.debajo90 {
+  font-weight: bolder;
+  color: #0b0329;
+  font-size: 1.3rem;
+  text-shadow: 4px 3px 4px #12095fd8;
+  font-family: "Jura", sans-serif;
+}
+/*-------------Gráficas---------------*/
+.g1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+}
+
+.g2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+}
+
+.g3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
 }
