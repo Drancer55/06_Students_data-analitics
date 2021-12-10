@@ -514,21 +514,20 @@ table {
   font-family: "Jura", sans-serif;
 }
 /*-------------Gráficas---------------*/
-.g1{
+.g1 {
   width: 20px;
   height: 20px;
   border-radius: 30px;
 }
 
-.g2{
+.g2 {
   width: 20px;
   height: 20px;
   border-radius: 30px;
 }
 
-.g3{
+.g3 {
   width: 20px;
   height: 20px;
   border-radius: 30px;
 }
-
