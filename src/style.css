@@ -307,11 +307,11 @@ footer {
 /*--------------Pantalla 3------------------------*/
 /* GRID */
 #pantalla-3 {
-  background-image: url(../assets/fondo3.png);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: auto;
+  /* background-image: url(../assets/fondo3.png); */
+  /* background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: cover; */
+  width: 100%;
   height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -601,4 +601,20 @@ table {
   width: 20px;
   height: 20px;
   border-radius: 30px;
+}
+
+@media all and (max-width: 1000px) {
+  #pantalla3 {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+}
+
+@media all and (min-width: 400px) {
+  #pantalla3 {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
 }
