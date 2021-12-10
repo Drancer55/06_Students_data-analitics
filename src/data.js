@@ -185,7 +185,8 @@ export const datosEstudiantes = (gen) => {
   //buscarEstudiantes();
   console.log(studentsGen[0]);
   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre); 
+    console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
+    console.log(i);
     document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
@@ -215,7 +216,7 @@ export const datosEstudiantes = (gen) => {
                       </tr>
                       <tr>
                         <th scope="col"><h6 class="card-text"><b>E-mail:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6></th>
-                        <th scope="col"><h6 class="card-text"><b>Duración:<br> </b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6></th>
+                        <th scope="col"><h6 class="card-text"><b>Duración:<br> </b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma} hrs.</h6></th>
                         <th scope="col"><h6 class="card-text"><b>Progreso completado:<br></b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6></th>
                       </tr>
                       </thead>
@@ -225,9 +226,8 @@ export const datosEstudiantes = (gen) => {
                         <td scope="col"><h6><b> Temario: </b></h6></td>
                       </tr>
                       <tr>
-                      
-                      <td id="${i}completados"></td>
-                      <td id="${i}tipo"></td>
+                      <td class="temazo" id="${i}completados"></td>
+                      <td class="subtemazo" id="${i}tipo"></td>
                         <td class="temazo" id="${i}temas"></td>
                         <td class="subtemazo" id="${i}subtemas"></td>
                       </tr>
@@ -274,7 +274,6 @@ function tTemas(sede, gen, id, temas) {
         pDesplegar += ` <table class="table">
   <thead>
     <tr>
-      
       <th scope="col">Tema</th>
       <th scope="col">Subtema</th>
     </tr>
@@ -345,7 +344,9 @@ function pCompletados(sede,gen, id, temas) {
     </h2>
     <div id="collapseFour${id}" class="accordion-collapse collapse" aria-labelledby="headingTwo${id}" data-bs-parent="#accordionCompletadono${id}">
       <div class="accordion-body">
-        ${completado}
+        <ul>
+          <li>'${completado}'</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -362,7 +363,6 @@ function pCompletados(sede,gen, id, temas) {
     </div>
   </div>
 </div>`
-
     }
                   
 

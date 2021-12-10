@@ -349,7 +349,8 @@ section2 {
 #formulario {
   border: 5px solid #0b03299f;
   border-radius: 100px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Caveat", cursive;
+  text-align: center;
   color: #e2dbdb;
   font-weight: bolder;
   background-color: transparent;
@@ -461,9 +462,14 @@ section2 {
   text-align: center;
 }
 
+.acordeonHero {
+  text-align: justify;
+}
+
 .temas {
   text-align: center;
   justify-content: center;
+  font-weight: bolder;
 }
 .btn-close {
   border-radius: 15px;
