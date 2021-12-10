@@ -25,6 +25,11 @@ const limpiarEstudiantes = () => {
     document.getElementById("estudiantes").innerHTML = "";
 }
 
+//---------------se crea una funcion para limpiar botones emergentes------------------------------------------//
+const limpiarBotones = () => {
+  document.getElementById("buscar").innerHTML = "";
+}
+
         //--------------------------Por medio del metodo fetch accedemos los datos del json-------------------//
 export const traerData = () => {
 fetch(Data)
@@ -113,6 +118,9 @@ export const iterarGen = (gen) => {
   `<h3 onclick="dashBoard.traerEstudiantes('${gen}')">Estudiantes de ${gen} generación: </h3>`;
   datosEstudiantes(gen);
   limpiarEstudiantes();
+  // limpiarBotones();
+  // document.getElementById("buscar").innerHTML += 
+  // `<button class="disable" id="buscar" onclick="dashBoard.traerGeneracion('${gen}')"> buscar </button>`;
 };
 
        //---------------Se pinta dinamicamente el boton de regresar a la pantalla dos que nos muestra las sedes----------------//
@@ -144,38 +152,11 @@ const sortStudents = (arrStudents) => {
 }
 
 //--------Función para buscar estudiantes---------------------
+// -------Funcion para pintar Cars y modales
 let formulario = document.querySelector('#formulario');
 let boton = document.querySelector('#buscar')
 let resultado = document.querySelector('#morros')
-const buscarEstudiantes = (gen) => {
-  console.log(formulario.value);
-  resultado.innerHTML = '';
-  const texto = formulario.value.toLowerCase();
-  for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
-    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
-    if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
-      resultado.innerHTML += `
-      <center>
-        <div class="card w-100">
-            <div class="card-body">
-                <h5 class="card-title"><b>${arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre}</b></h5>
-                <h6 class="card-text"><b>E-mail:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].correo}</h6>
-                <h6 class="card-text"><b>Duración:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.duracionPrograma}hrs.</h6>
-                <h6 class="card-text"><b>Progreso completado:</b> ${arrBruto[0][lugar].generacion[gen].estudiantes[i].progreso.porcentajeCompletado}%</h6>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#id${i}>
-                    Ver más...
-                </button>
-      </center>`
-    }
-    }
-    if (resultado.innerHTML === '') {
-      resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
-    }
-}
-boton.addEventListener('click', buscarEstudiantes)
-formulario.addEventListener('keyup', buscarEstudiantes)
 
-// -------Funcion para pintar Cars y modales
 export const datosEstudiantes = (gen) => {
   console.log(lugar)
   document.getElementById('morros').innerHTML = '';
@@ -184,9 +165,14 @@ export const datosEstudiantes = (gen) => {
   sortStudents(studentsGen[0]);
   //buscarEstudiantes();
   console.log(studentsGen[0]);
+  console.log(formulario.value);
+  resultado.innerHTML = '';
+  const texto = formulario.value.toLowerCase();
   for (let i = 0; i < arrBruto[0][lugar].generacion[gen].estudiantes.length; i++) {
+    const nombres = (arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre).toLowerCase()
     console.log(arrBruto[0][lugar].generacion[gen].estudiantes[i].nombre);
     console.log(i);
+    if (nombres.indexOf(texto) !== -1) { //indexOf retorna el primer indice en el que se puede encontrar un elemento dado en el array, o retorna -1 si el elemento no está presente
     document.getElementById("morros").innerHTML += `
         <center>
         <div class="card w-100">
@@ -255,12 +241,12 @@ export const datosEstudiantes = (gen) => {
         
          //Se prende la funcion de porcentajes de alumnos
   }
-
-
-              
+  } if (resultado.innerHTML == '') {
+    resultado.innerHTML += `<h2>Estudiante no registrada... </h2>`
+  }boton.addEventListener('click', buscarEstudiantes)
+  formulario.addEventListener('keyup', buscarEstudiantes)
+  
         // -------------Pintamos las cards--------
-      
-
   }
 
 
